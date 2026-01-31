@@ -1,0 +1,378 @@
+{
+  "year": 2027,
+  "pascha": "2027-05-02",
+  "keyDates": {
+    "triodionStart": "2027-02-21",
+    "greatLentStart": "2027-03-14",
+    "palmSunday": "2027-04-25",
+    "pascha": "2027-05-02",
+    "ascension": "2027-06-10",
+    "pentecost": "2027-06-20"
+  },
+  "sundays": [
+    {
+      "date": "2027-01-03",
+      "paschaOffset": -119,
+      "period": "Period After Pentecost (Previous Year)",
+      "liturgicalWeek": "Week 35 After Pentecost",
+      "sundayNumber": 1
+    },
+    {
+      "date": "2027-01-10",
+      "paschaOffset": -112,
+      "period": "Period After Pentecost (Previous Year)",
+      "liturgicalWeek": "Week 36 After Pentecost",
+      "sundayNumber": 2
+    },
+    {
+      "date": "2027-01-17",
+      "paschaOffset": -105,
+      "period": "Period After Pentecost (Previous Year)",
+      "liturgicalWeek": "Week 37 After Pentecost",
+      "sundayNumber": 3
+    },
+    {
+      "date": "2027-01-24",
+      "paschaOffset": -98,
+      "period": "Period After Pentecost (Previous Year)",
+      "liturgicalWeek": "Week 38 After Pentecost",
+      "sundayNumber": 4
+    },
+    {
+      "date": "2027-01-31",
+      "paschaOffset": -91,
+      "period": "Period After Pentecost (Previous Year)",
+      "liturgicalWeek": "Week 39 After Pentecost",
+      "sundayNumber": 5
+    },
+    {
+      "date": "2027-02-07",
+      "paschaOffset": -84,
+      "period": "Period After Pentecost (Previous Year)",
+      "liturgicalWeek": "Week 40 After Pentecost",
+      "sundayNumber": 6
+    },
+    {
+      "date": "2027-02-14",
+      "paschaOffset": -77,
+      "period": "Period After Pentecost (Previous Year)",
+      "liturgicalWeek": "Week 41 After Pentecost",
+      "sundayNumber": 7
+    },
+    {
+      "date": "2027-02-21",
+      "paschaOffset": -70,
+      "period": "Triodion",
+      "liturgicalWeek": "Sunday of the Publican and Pharisee",
+      "sundayNumber": 8
+    },
+    {
+      "date": "2027-02-28",
+      "paschaOffset": -63,
+      "period": "Triodion",
+      "liturgicalWeek": "Sunday of the Prodigal Son",
+      "sundayNumber": 9
+    },
+    {
+      "date": "2027-03-07",
+      "paschaOffset": -56,
+      "period": "Triodion",
+      "liturgicalWeek": "Meatfare Sunday",
+      "sundayNumber": 10
+    },
+    {
+      "date": "2027-03-14",
+      "paschaOffset": -49,
+      "period": "Triodion",
+      "liturgicalWeek": "Forgiveness Sunday (Cheesefare)",
+      "sundayNumber": 11
+    },
+    {
+      "date": "2027-03-21",
+      "paschaOffset": -42,
+      "period": "Great Lent",
+      "liturgicalWeek": "Week 2 of Great Lent",
+      "sundayNumber": 12
+    },
+    {
+      "date": "2027-03-28",
+      "paschaOffset": -35,
+      "period": "Great Lent",
+      "liturgicalWeek": "Week 3 of Great Lent",
+      "sundayNumber": 13
+    },
+    {
+      "date": "2027-04-04",
+      "paschaOffset": -28,
+      "period": "Great Lent",
+      "liturgicalWeek": "Week 4 of Great Lent",
+      "sundayNumber": 14
+    },
+    {
+      "date": "2027-04-11",
+      "paschaOffset": -21,
+      "period": "Great Lent",
+      "liturgicalWeek": "Week 5 of Great Lent",
+      "sundayNumber": 15
+    },
+    {
+      "date": "2027-04-18",
+      "paschaOffset": -14,
+      "period": "Great Lent",
+      "liturgicalWeek": "Week 6 of Great Lent",
+      "sundayNumber": 16
+    },
+    {
+      "date": "2027-04-25",
+      "paschaOffset": -7,
+      "period": "Great Lent",
+      "liturgicalWeek": "Palm Sunday (Entry into Jerusalem)",
+      "sundayNumber": 17
+    },
+    {
+      "date": "2027-05-02",
+      "paschaOffset": 0,
+      "period": "Pascha",
+      "liturgicalWeek": "Holy Pascha - Resurrection of Our Lord",
+      "sundayNumber": 18
+    },
+    {
+      "date": "2027-05-09",
+      "paschaOffset": 7,
+      "period": "Pentecostarion",
+      "liturgicalWeek": "Week 2 After Pascha",
+      "sundayNumber": 19
+    },
+    {
+      "date": "2027-05-16",
+      "paschaOffset": 14,
+      "period": "Pentecostarion",
+      "liturgicalWeek": "Week 3 After Pascha",
+      "sundayNumber": 20
+    },
+    {
+      "date": "2027-05-23",
+      "paschaOffset": 21,
+      "period": "Pentecostarion",
+      "liturgicalWeek": "Week 4 After Pascha",
+      "sundayNumber": 21
+    },
+    {
+      "date": "2027-05-30",
+      "paschaOffset": 28,
+      "period": "Pentecostarion",
+      "liturgicalWeek": "Week 5 After Pascha",
+      "sundayNumber": 22
+    },
+    {
+      "date": "2027-06-06",
+      "paschaOffset": 35,
+      "period": "Pentecostarion",
+      "liturgicalWeek": "Week 6 After Pascha",
+      "sundayNumber": 23
+    },
+    {
+      "date": "2027-06-13",
+      "paschaOffset": 42,
+      "period": "Pentecostarion",
+      "liturgicalWeek": "Week 7 After Pascha",
+      "sundayNumber": 24
+    },
+    {
+      "date": "2027-06-20",
+      "paschaOffset": 49,
+      "period": "Pentecostarion",
+      "liturgicalWeek": "Holy Pentecost (Trinity Sunday)",
+      "sundayNumber": 25
+    },
+    {
+      "date": "2027-06-27",
+      "paschaOffset": 56,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 2 After Pentecost",
+      "sundayNumber": 26
+    },
+    {
+      "date": "2027-07-04",
+      "paschaOffset": 63,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 3 After Pentecost",
+      "sundayNumber": 27
+    },
+    {
+      "date": "2027-07-11",
+      "paschaOffset": 70,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 4 After Pentecost",
+      "sundayNumber": 28
+    },
+    {
+      "date": "2027-07-18",
+      "paschaOffset": 77,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 5 After Pentecost",
+      "sundayNumber": 29
+    },
+    {
+      "date": "2027-07-25",
+      "paschaOffset": 84,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 6 After Pentecost",
+      "sundayNumber": 30
+    },
+    {
+      "date": "2027-08-01",
+      "paschaOffset": 91,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 7 After Pentecost",
+      "sundayNumber": 31
+    },
+    {
+      "date": "2027-08-08",
+      "paschaOffset": 98,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 8 After Pentecost",
+      "sundayNumber": 32
+    },
+    {
+      "date": "2027-08-15",
+      "paschaOffset": 105,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 9 After Pentecost",
+      "sundayNumber": 33
+    },
+    {
+      "date": "2027-08-22",
+      "paschaOffset": 112,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 10 After Pentecost",
+      "sundayNumber": 34
+    },
+    {
+      "date": "2027-08-29",
+      "paschaOffset": 119,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 11 After Pentecost",
+      "sundayNumber": 35
+    },
+    {
+      "date": "2027-09-05",
+      "paschaOffset": 126,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 12 After Pentecost",
+      "sundayNumber": 36
+    },
+    {
+      "date": "2027-09-12",
+      "paschaOffset": 133,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 13 After Pentecost",
+      "sundayNumber": 37
+    },
+    {
+      "date": "2027-09-19",
+      "paschaOffset": 140,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 14 After Pentecost",
+      "sundayNumber": 38
+    },
+    {
+      "date": "2027-09-26",
+      "paschaOffset": 147,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 15 After Pentecost",
+      "sundayNumber": 39
+    },
+    {
+      "date": "2027-10-03",
+      "paschaOffset": 154,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 16 After Pentecost",
+      "sundayNumber": 40
+    },
+    {
+      "date": "2027-10-10",
+      "paschaOffset": 161,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 17 After Pentecost",
+      "sundayNumber": 41
+    },
+    {
+      "date": "2027-10-17",
+      "paschaOffset": 168,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 18 After Pentecost",
+      "sundayNumber": 42
+    },
+    {
+      "date": "2027-10-24",
+      "paschaOffset": 175,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 19 After Pentecost",
+      "sundayNumber": 43
+    },
+    {
+      "date": "2027-10-31",
+      "paschaOffset": 182,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 20 After Pentecost",
+      "sundayNumber": 44
+    },
+    {
+      "date": "2027-11-07",
+      "paschaOffset": 189,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 21 After Pentecost",
+      "sundayNumber": 45
+    },
+    {
+      "date": "2027-11-14",
+      "paschaOffset": 196,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 22 After Pentecost",
+      "sundayNumber": 46
+    },
+    {
+      "date": "2027-11-21",
+      "paschaOffset": 203,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 23 After Pentecost",
+      "sundayNumber": 47
+    },
+    {
+      "date": "2027-11-28",
+      "paschaOffset": 210,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 24 After Pentecost",
+      "sundayNumber": 48
+    },
+    {
+      "date": "2027-12-05",
+      "paschaOffset": 217,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 25 After Pentecost",
+      "sundayNumber": 49
+    },
+    {
+      "date": "2027-12-12",
+      "paschaOffset": 224,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 26 After Pentecost",
+      "sundayNumber": 50
+    },
+    {
+      "date": "2027-12-19",
+      "paschaOffset": 231,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 27 After Pentecost",
+      "sundayNumber": 51
+    },
+    {
+      "date": "2027-12-26",
+      "paschaOffset": 238,
+      "period": "Period After Pentecost",
+      "liturgicalWeek": "Week 28 After Pentecost",
+      "sundayNumber": 52
+    }
+  ]
+}

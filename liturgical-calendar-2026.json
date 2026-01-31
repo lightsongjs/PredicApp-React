@@ -1,0 +1,561 @@
+{
+  "liturgicalYear": 2026,
+  "pascha": "2026-04-12",
+  "pentecost": "2026-05-31",
+  "description": "Complete Romanian Orthodox Liturgical Calendar for 2026",
+  "sundays": [
+    {
+      "date": "2026-01-04",
+      "name": "Duminica dinaintea Botezului Domnului",
+      "nameShort": "Înaintea Botezului",
+      "paschaOffset": -98,
+      "category": "pre-triodion",
+      "gospelReading": "Marcu 1:1-8"
+    },
+    {
+      "date": "2026-01-11",
+      "name": "Duminica după Botezul Domnului",
+      "nameShort": "După Botez",
+      "paschaOffset": -91,
+      "category": "pre-triodion",
+      "gospelReading": "Matei 4:12-17"
+    },
+    {
+      "date": "2026-01-18",
+      "name": "Duminica Vameșului și Fariseului (Pregătitoare)",
+      "nameShort": "Pregătitoare",
+      "paschaOffset": -84,
+      "category": "pre-triodion",
+      "gospelReading": "Luca 18:35-43"
+    },
+    {
+      "date": "2026-01-25",
+      "name": "Duminica Zacheului",
+      "nameShort": "Zacheu",
+      "paschaOffset": -77,
+      "category": "pre-triodion",
+      "gospelReading": "Luca 19:1-10"
+    },
+    {
+      "date": "2026-02-01",
+      "name": "Duminica Vameșului și Fariseului",
+      "nameShort": "Vameșul și Fariseul",
+      "paschaOffset": -70,
+      "category": "triodion",
+      "gospelReading": "Luca 18:10-14"
+    },
+    {
+      "date": "2026-02-08",
+      "name": "Duminica Fiului Risipitor",
+      "nameShort": "Fiul Risipitor",
+      "paschaOffset": -63,
+      "category": "triodion",
+      "gospelReading": "Luca 15:11-32"
+    },
+    {
+      "date": "2026-02-15",
+      "name": "Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne)",
+      "nameShort": "Înfricoșata Judecată",
+      "paschaOffset": -56,
+      "category": "triodion",
+      "gospelReading": "Matei 25:31-46"
+    },
+    {
+      "date": "2026-02-22",
+      "name": "Duminica Lăsatului Sec de Brânză (Iertării)",
+      "nameShort": "Iertarea",
+      "paschaOffset": -49,
+      "category": "triodion",
+      "gospelReading": "Matei 6:14-21"
+    },
+    {
+      "date": "2026-03-01",
+      "name": "Duminica I din Postul Mare - Duminica Ortodoxiei",
+      "nameShort": "Duminica Ortodoxiei",
+      "paschaOffset": -42,
+      "category": "lent",
+      "gospelReading": "Ioan 1:43-51"
+    },
+    {
+      "date": "2026-03-08",
+      "name": "Duminica a II-a din Postul Mare - Sfântul Grigorie Palama",
+      "nameShort": "Sf. Grigorie Palama",
+      "paschaOffset": -35,
+      "category": "lent",
+      "gospelReading": "Marcu 2:1-12"
+    },
+    {
+      "date": "2026-03-15",
+      "name": "Duminica a III-a din Postul Mare - Închinarea Sfintei Cruci",
+      "nameShort": "Închinarea Crucii",
+      "paschaOffset": -28,
+      "category": "lent",
+      "gospelReading": "Marcu 8:34-9:1"
+    },
+    {
+      "date": "2026-03-22",
+      "name": "Duminica a IV-a din Postul Mare - Sfântul Ioan Scărarul",
+      "nameShort": "Sf. Ioan Scărarul",
+      "paschaOffset": -21,
+      "category": "lent",
+      "gospelReading": "Marcu 9:17-31"
+    },
+    {
+      "date": "2026-03-29",
+      "name": "Duminica a V-a din Postul Mare - Sfânta Maria Egipteanca",
+      "nameShort": "Sf. Maria Egipteanca",
+      "paschaOffset": -14,
+      "category": "lent",
+      "gospelReading": "Marcu 10:32-45"
+    },
+    {
+      "date": "2026-04-05",
+      "name": "Duminica a VI-a din Postul Mare - Floriile (Intrarea Domnului în Ierusalim)",
+      "nameShort": "Floriile",
+      "paschaOffset": -7,
+      "category": "lent",
+      "gospelReading": "Ioan 12:1-18"
+    },
+    {
+      "date": "2026-04-12",
+      "name": "Învierea Domnului - Sfintele Paști",
+      "nameShort": "Paștele",
+      "paschaOffset": 0,
+      "category": "pascha",
+      "gospelReading": "Ioan 1:1-17"
+    },
+    {
+      "date": "2026-04-19",
+      "name": "Duminica I după Paști - Duminica Tomii (Antipasti)",
+      "nameShort": "Duminica Tomii",
+      "paschaOffset": 7,
+      "category": "pentecostarion",
+      "gospelReading": "Ioan 20:19-31"
+    },
+    {
+      "date": "2026-04-26",
+      "name": "Duminica a II-a după Paști - Duminica Mironosițelor",
+      "nameShort": "Mironosițele",
+      "paschaOffset": 14,
+      "category": "pentecostarion",
+      "gospelReading": "Marcu 15:43-16:8"
+    },
+    {
+      "date": "2026-05-03",
+      "name": "Duminica a III-a după Paști - Duminica Slăbănogului",
+      "nameShort": "Slăbănogul",
+      "paschaOffset": 21,
+      "category": "pentecostarion",
+      "gospelReading": "Ioan 5:1-15"
+    },
+    {
+      "date": "2026-05-10",
+      "name": "Duminica a IV-a după Paști - Duminica Samarinencii",
+      "nameShort": "Samarineanca",
+      "paschaOffset": 28,
+      "category": "pentecostarion",
+      "gospelReading": "Ioan 4:5-42"
+    },
+    {
+      "date": "2026-05-17",
+      "name": "Duminica a V-a după Paști - Duminica Orbului din naștere",
+      "nameShort": "Orbul",
+      "paschaOffset": 35,
+      "category": "pentecostarion",
+      "gospelReading": "Ioan 9:1-38"
+    },
+    {
+      "date": "2026-05-24",
+      "name": "Duminica a VI-a după Paști - Duminica Sfinților Părinți de la Sinodul I Ecumenic",
+      "nameShort": "Sfinții Părinți I",
+      "paschaOffset": 42,
+      "category": "pentecostarion",
+      "gospelReading": "Ioan 17:1-13"
+    },
+    {
+      "date": "2026-05-31",
+      "name": "Rusaliile - Pogorârea Sfântului Duh (Duminica a VII-a după Paști)",
+      "nameShort": "Rusaliile",
+      "paschaOffset": 49,
+      "category": "pentecostarion",
+      "gospelReading": "Ioan 7:37-52; 8:12"
+    },
+    {
+      "date": "2026-06-07",
+      "name": "Duminica I după Rusalii - Duminica Tuturor Sfinților",
+      "nameShort": "Toți Sfinții",
+      "paschaOffset": 56,
+      "pentecostOffset": 7,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 10:32-33, 37-38; 19:27-30"
+    },
+    {
+      "date": "2026-06-14",
+      "name": "Duminica a II-a după Rusalii - Duminica Tuturor Sfinților Români",
+      "nameShort": "Toți Sfinții Români",
+      "paschaOffset": 63,
+      "pentecostOffset": 14,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 4:18-23"
+    },
+    {
+      "date": "2026-06-21",
+      "name": "Duminica a III-a după Rusalii",
+      "nameShort": "Duminica III",
+      "paschaOffset": 70,
+      "pentecostOffset": 21,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 6:22-33"
+    },
+    {
+      "date": "2026-06-28",
+      "name": "Duminica a IV-a după Rusalii",
+      "nameShort": "Duminica IV",
+      "paschaOffset": 77,
+      "pentecostOffset": 28,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 8:5-13"
+    },
+    {
+      "date": "2026-07-05",
+      "name": "Duminica a V-a după Rusalii",
+      "nameShort": "Duminica V",
+      "paschaOffset": 84,
+      "pentecostOffset": 35,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 8:28-9:1"
+    },
+    {
+      "date": "2026-07-12",
+      "name": "Duminica a VI-a după Rusalii",
+      "nameShort": "Duminica VI",
+      "paschaOffset": 91,
+      "pentecostOffset": 42,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 9:1-8"
+    },
+    {
+      "date": "2026-07-19",
+      "name": "Duminica a VII-a după Rusalii",
+      "nameShort": "Duminica VII",
+      "paschaOffset": 98,
+      "pentecostOffset": 49,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 9:27-35"
+    },
+    {
+      "date": "2026-07-26",
+      "name": "Duminica a VIII-a după Rusalii",
+      "nameShort": "Duminica VIII",
+      "paschaOffset": 105,
+      "pentecostOffset": 56,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 14:14-22"
+    },
+    {
+      "date": "2026-08-02",
+      "name": "Duminica a IX-a după Rusalii",
+      "nameShort": "Duminica IX",
+      "paschaOffset": 112,
+      "pentecostOffset": 63,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 14:22-34"
+    },
+    {
+      "date": "2026-08-09",
+      "name": "Duminica a X-a după Rusalii",
+      "nameShort": "Duminica X",
+      "paschaOffset": 119,
+      "pentecostOffset": 70,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 17:14-23"
+    },
+    {
+      "date": "2026-08-16",
+      "name": "Duminica a XI-a după Rusalii",
+      "nameShort": "Duminica XI",
+      "paschaOffset": 126,
+      "pentecostOffset": 77,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 18:23-35"
+    },
+    {
+      "date": "2026-08-23",
+      "name": "Duminica a XII-a după Rusalii",
+      "nameShort": "Duminica XII",
+      "paschaOffset": 133,
+      "pentecostOffset": 84,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 19:16-26"
+    },
+    {
+      "date": "2026-08-30",
+      "name": "Duminica a XIII-a după Rusalii",
+      "nameShort": "Duminica XIII",
+      "paschaOffset": 140,
+      "pentecostOffset": 91,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 21:33-42"
+    },
+    {
+      "date": "2026-09-06",
+      "name": "Duminica a XIV-a după Rusalii - Înălțarea Sfintei Cruci",
+      "nameShort": "Duminica XIV",
+      "paschaOffset": 147,
+      "pentecostOffset": 98,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 22:35-46"
+    },
+    {
+      "date": "2026-09-13",
+      "name": "Duminica a XV-a după Rusalii - Duminica dinaintea Înălțării Sfintei Cruci",
+      "nameShort": "Duminica XV",
+      "paschaOffset": 154,
+      "pentecostOffset": 105,
+      "category": "after-pentecost",
+      "gospelReading": "Ioan 3:13-17"
+    },
+    {
+      "date": "2026-09-20",
+      "name": "Duminica a XVI-a după Rusalii - Duminica după Înălțarea Sfintei Cruci",
+      "nameShort": "Duminica XVI",
+      "paschaOffset": 161,
+      "pentecostOffset": 112,
+      "category": "after-pentecost",
+      "gospelReading": "Marcu 8:34-9:1"
+    },
+    {
+      "date": "2026-09-27",
+      "name": "Duminica a XVII-a după Rusalii",
+      "nameShort": "Duminica XVII",
+      "paschaOffset": 168,
+      "pentecostOffset": 119,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 5:1-11"
+    },
+    {
+      "date": "2026-10-04",
+      "name": "Duminica a XVIII-a după Rusalii",
+      "nameShort": "Duminica XVIII",
+      "paschaOffset": 175,
+      "pentecostOffset": 126,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 6:31-36"
+    },
+    {
+      "date": "2026-10-11",
+      "name": "Duminica a XIX-a după Rusalii",
+      "nameShort": "Duminica XIX",
+      "paschaOffset": 182,
+      "pentecostOffset": 133,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 7:11-16"
+    },
+    {
+      "date": "2026-10-18",
+      "name": "Duminica a XX-a după Rusalii",
+      "nameShort": "Duminica XX",
+      "paschaOffset": 189,
+      "pentecostOffset": 140,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 8:27-39"
+    },
+    {
+      "date": "2026-10-25",
+      "name": "Duminica a XXI-a după Rusalii",
+      "nameShort": "Duminica XXI",
+      "paschaOffset": 196,
+      "pentecostOffset": 147,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 8:41-56"
+    },
+    {
+      "date": "2026-11-01",
+      "name": "Duminica a XXII-a după Rusalii",
+      "nameShort": "Duminica XXII",
+      "paschaOffset": 203,
+      "pentecostOffset": 154,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 10:25-37"
+    },
+    {
+      "date": "2026-11-08",
+      "name": "Duminica a XXIII-a după Rusalii",
+      "nameShort": "Duminica XXIII",
+      "paschaOffset": 210,
+      "pentecostOffset": 161,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 12:16-21"
+    },
+    {
+      "date": "2026-11-15",
+      "name": "Duminica a XXIV-a după Rusalii - Duminica Vameșului și Fariseului (Postul Crăciunului)",
+      "nameShort": "Duminica XXIV",
+      "paschaOffset": 217,
+      "pentecostOffset": 168,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 13:10-17"
+    },
+    {
+      "date": "2026-11-22",
+      "name": "Duminica a XXV-a după Rusalii",
+      "nameShort": "Duminica XXV",
+      "paschaOffset": 224,
+      "pentecostOffset": 175,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 14:16-24"
+    },
+    {
+      "date": "2026-11-29",
+      "name": "Duminica a XXVI-a după Rusalii",
+      "nameShort": "Duminica XXVI",
+      "paschaOffset": 231,
+      "pentecostOffset": 182,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 17:12-19"
+    },
+    {
+      "date": "2026-12-06",
+      "name": "Duminica a XXVII-a după Rusalii - Duminica Sfinților Strămoși",
+      "nameShort": "Sfinții Strămoși",
+      "paschaOffset": 238,
+      "pentecostOffset": 189,
+      "category": "after-pentecost",
+      "gospelReading": "Luca 14:16-24"
+    },
+    {
+      "date": "2026-12-13",
+      "name": "Duminica a XXVIII-a după Rusalii - Duminica Sfinților Părinți",
+      "nameShort": "Sfinții Părinți",
+      "paschaOffset": 245,
+      "pentecostOffset": 196,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 1:1-25"
+    },
+    {
+      "date": "2026-12-20",
+      "name": "Duminica a XXIX-a după Rusalii - Duminica dinaintea Nașterii Domnului",
+      "nameShort": "Înainte de Naștere",
+      "paschaOffset": 252,
+      "pentecostOffset": 203,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 1:18-25"
+    },
+    {
+      "date": "2026-12-27",
+      "name": "Duminica a XXX-a după Rusalii - Duminica după Nașterea Domnului",
+      "nameShort": "După Naștere",
+      "paschaOffset": 259,
+      "pentecostOffset": 210,
+      "category": "after-pentecost",
+      "gospelReading": "Matei 2:13-23"
+    }
+  ],
+  "feastDays": [
+    {
+      "date": "2026-01-06",
+      "name": "Bobotează - Botezul Domnului",
+      "category": "major-feast"
+    },
+    {
+      "date": "2026-04-09",
+      "name": "Joi Mare",
+      "category": "holy-week"
+    },
+    {
+      "date": "2026-04-10",
+      "name": "Vinerea Mare",
+      "category": "holy-week"
+    },
+    {
+      "date": "2026-04-11",
+      "name": "Sâmbăta Mare",
+      "category": "holy-week"
+    },
+    {
+      "date": "2026-05-21",
+      "name": "Înălțarea Domnului",
+      "category": "major-feast",
+      "paschaOffset": 39
+    },
+    {
+      "date": "2026-06-01",
+      "name": "Lunea Rusaliilor (Ziua Sfântului Duh)",
+      "category": "major-feast"
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Schimbarea la Față",
+      "category": "major-feast"
+    },
+    {
+      "date": "2026-08-15",
+      "name": "Adormirea Maicii Domnului",
+      "category": "major-feast"
+    },
+    {
+      "date": "2026-09-14",
+      "name": "Înălțarea Sfintei Cruci",
+      "category": "major-feast"
+    },
+    {
+      "date": "2026-11-08",
+      "name": "Soborul Sfinților Arhangheli Mihail și Gavriil",
+      "category": "major-feast"
+    },
+    {
+      "date": "2026-11-21",
+      "name": "Intrarea în Biserică a Maicii Domnului",
+      "category": "major-feast"
+    },
+    {
+      "date": "2026-11-15",
+      "name": "Începutul Postului Crăciunului",
+      "category": "fasting-period"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Nașterea Domnului - Crăciunul",
+      "category": "major-feast"
+    }
+  ],
+  "fastingPeriods": [
+    {
+      "name": "Postul Mare",
+      "startDate": "2026-02-23",
+      "endDate": "2026-04-11",
+      "duration": 48,
+      "description": "Great Lent - strict fasting"
+    },
+    {
+      "name": "Postul Sfinților Apostoli Petru și Pavel",
+      "startDate": "2026-06-01",
+      "endDate": "2026-06-28",
+      "duration": 28,
+      "description": "Apostles' Fast - variable length"
+    },
+    {
+      "name": "Postul Adormirii Maicii Domnului",
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-14",
+      "duration": 14,
+      "description": "Dormition Fast"
+    },
+    {
+      "name": "Postul Crăciunului",
+      "startDate": "2026-11-15",
+      "endDate": "2026-12-24",
+      "duration": 40,
+      "description": "Nativity Fast"
+    }
+  ],
+  "notes": {
+    "totalSundays": 52,
+    "triodionSundays": 4,
+    "lentSundays": 6,
+    "pentecostarionSundays": 8,
+    "afterPentecostSundays": 30,
+    "preLentPreparation": 4,
+    "liturgicalCycle": "The Romanian Orthodox liturgical year follows the movable Paschal cycle. After Pentecost, Sundays are counted sequentially until the beginning of the next Triodion period in 2027."
+  }
+}

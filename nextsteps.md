@@ -64,3 +64,74 @@ ffmpeg -i input.mp3 -c:a libopus -b:a 48k output.opus
 - Download high-quality images
 - Update sermon data with new image URLs
 - Ensure images are properly licensed (public domain/CC)
+
+---
+
+## 4. Standardize Sermon File Naming Convention
+
+**Goal**: Rename all sermon audio files with a consistent, liturgically-correct naming convention
+
+**Recommended Format**: `[Week Designation] - [Special Name] - [Year].mp3`
+
+**Benefits:**
+- Chronological sorting - files sort in calendar order
+- Complete liturgical context - both week number and special name
+- Easy gap detection - missing weeks are immediately visible
+- Search-friendly - can search by week number OR special name
+- Educational - helps users learn the Orthodox calendar structure
+- App flexibility - can display either designation in UI
+
+**Examples:**
+
+**Pentecostarion (Post-Pascha):**
+```
+Duminica I după Paști - Tomii - 2019.mp3
+Duminica II după Paști - Mironosițelor - 2019.mp3
+Duminica III după Paști - Slăbănogului - 2019.mp3
+Duminica IV după Paști - Samarinencii - 2019.mp3
+Duminica V după Paști - Orbului - 2019.mp3
+Duminica VI după Paști - 2019.mp3
+Duminica VII după Paști - Sfinților Părinți - 2019.mp3
+```
+
+**After Pentecost (no special names):**
+```
+Duminica I după Rusalii - 2019.mp3
+Duminica II după Rusalii - 2019.mp3
+Duminica III după Rusalii - 2019.mp3
+```
+
+**Triodion (Pre-Lent) - already have special names:**
+```
+Duminica Vameșului și Fariseului - 2016.mp3
+Duminica Fiului Risipitor - 2016.mp3
+Duminica Înfricoșătoarei Judecăți - 2020.mp3
+Duminica Iertării - 2016.mp3
+```
+
+**Great Lent:**
+```
+Duminica I din Post - Ortodoxiei - 2019.mp3
+Duminica II din Post - Sfântul Grigorie Palama - 2019.mp3
+Duminica III din Post - Închinarea Sfintei Cruci - 2019.mp3
+Duminica IV din Post - Sfântul Ioan Scărarul - 2019.mp3
+Duminica V din Post - Sfânta Maria Egipteanca - 2019.mp3
+```
+
+**Major Feasts:**
+```
+Nașterea Domnului - 2019.mp3
+Botezul Domnului - 2020.mp3
+Învierea Domnului - 2016.mp3
+Înălțarea Domnului - 2019.mp3
+Pogorârea Sfântului Duh - 2019.mp3
+```
+
+**Implementation Steps:**
+1. Create Python script to analyze current filenames
+2. Generate mapping of old → new names based on sermon metadata
+3. Create batch rename script
+4. Verify all mappings are correct
+5. Execute rename operation
+6. Update all sermon data JSON files with new filenames
+7. Update R2 storage filenames to match
