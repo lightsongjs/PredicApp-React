@@ -22,14 +22,6 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
     }
   };
 
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const percentage = x / rect.width;
-    const newTime = percentage * duration;
-    seek(newTime);
-  };
-
   return (
     <div className="fixed inset-0 bg-gradient-to-b from-primary via-primary to-primary-dark z-50 flex flex-col animate-slide-up overflow-hidden">
       {/* Header */}
