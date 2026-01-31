@@ -87,7 +87,7 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
       </div>
 
       {/* Controls - Spotify Layout */}
-      <div className="px-6 md:px-12 pb-6 flex items-center justify-between">
+      <div className="px-6 md:px-12 pb-8 md:pb-6 flex items-center justify-between">
         <button className="p-2 text-white/60 hover:text-white transition-colors active:scale-95">
           <Shuffle className="w-5 h-5" />
         </button>
@@ -120,8 +120,8 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
         </button>
       </div>
 
-      {/* Volume Control - Spotify Style */}
-      <div className="px-6 md:px-12 pb-8 flex items-center gap-3">
+      {/* Volume Control - Spotify Style (Desktop Only) */}
+      <div className="hidden md:flex px-6 md:px-12 pb-8 items-center gap-3">
         <Volume2 className="w-4 h-4 text-white/60 flex-shrink-0" />
         <div className="flex-1 relative py-2">
           <input
