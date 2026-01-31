@@ -1,5 +1,19 @@
 # Deployment Learnings
 
+## Quick Deploy (After Initial Setup)
+
+**One-liner to build and deploy:**
+```bash
+npm run build && npx wrangler pages deploy dist --project-name=predicapp-react --commit-dirty=true
+```
+
+**With git commit:**
+```bash
+git add -A && git commit -m "Your commit message" && git push && npm run build && npx wrangler pages deploy dist --project-name=predicapp-react --commit-dirty=true
+```
+
+---
+
 ## Deploying to Cloudflare Pages via CLI
 
 ### Initial Setup & Deployment
