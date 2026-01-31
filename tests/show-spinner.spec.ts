@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 
 test('show spinning play button', async ({ page }) => {
   console.log('Opening player page...');
-  await page.goto('http://localhost:5176/player/s004');
+  await page.goto('/player/s004');
   await page.waitForLoadState('networkidle');
 
   console.log('\n=== WATCH THE PLAY BUTTON ===');

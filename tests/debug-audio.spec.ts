@@ -20,7 +20,7 @@ test('debug audio playback with console logs', async ({ page }) => {
   console.log('========================================\n');
 
   console.log('Step 1: Going to player page...');
-  await page.goto('http://localhost:5176/player/s004');
+  await page.goto('/player/s004');
   await page.waitForLoadState('networkidle');
 
   console.log('\nStep 2: Waiting 2 seconds...');

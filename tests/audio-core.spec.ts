@@ -73,7 +73,7 @@ test.describe('Core Audio Playback Functionality', () => {
   test('navigation between pages', async ({ page }) => {
     // Test home -> player -> home flow
     await page.goto('/');
-    expect(page.url()).toContain('localhost:5175');
+    await expect(page).toHaveURL('/');
     console.log('✓ Homepage accessible');
 
     // Navigate to library

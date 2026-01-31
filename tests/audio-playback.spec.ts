@@ -169,7 +169,7 @@ test.describe('PredicApp Audio Playback', () => {
 
     // Should navigate back to home
     await page.waitForURL('/');
-    await expect(page.url()).toBe('http://localhost:5175/');
+    await expect(page).toHaveURL('/');
   });
 
   test('library page displays all sermons', async ({ page }) => {
@@ -230,6 +230,6 @@ test.describe('PredicApp Audio Playback', () => {
     // Click to go home
     await homeButton.click();
     await page.waitForURL('/');
-    expect(page.url()).toBe('http://localhost:5175/');
+    expect(page).toHaveURL('/');
   });
 });

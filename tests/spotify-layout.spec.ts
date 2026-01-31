@@ -7,7 +7,7 @@ test('show Spotify-style player layout', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
 
   console.log('Step 1: Loading homepage...');
-  await page.goto('http://localhost:5176/');
+  await page.goto('/');
   await page.waitForLoadState('networkidle');
 
   // Take screenshot of homepage

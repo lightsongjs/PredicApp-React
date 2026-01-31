@@ -4,7 +4,7 @@ test.describe('Watch Audio Playback', () => {
   test('click sermon and watch loading behavior', async ({ page }) => {
     // Step 1: Go to homepage
     console.log('Step 1: Loading homepage...');
-    await page.goto('http://localhost:5176/');
+    await page.goto('/');
     await page.waitForLoadState('networkidle');
 
     // Wait a bit so you can see
