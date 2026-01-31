@@ -1,4 +1,4 @@
-import { Play, Pause, SkipBack, SkipForward, ChevronUp, X } from 'lucide-react';
+import { Play, Pause, X } from 'lucide-react';
 import { useAudio } from '../../hooks/useAudio';
 import type { Sermon } from '../../data/types';
 
@@ -9,15 +9,8 @@ interface MiniPlayerProps {
 }
 
 export function MiniPlayer({ sermon, onExpand, onClose }: MiniPlayerProps) {
-  const {
-    isPlaying,
-    isLoading,
-    currentTime,
-    duration,
-    play,
-    pause,
-    seek,
-  } = useAudio(sermon.audio_url);
+  const { state, play, pause } = useAudio(sermon.audio_url);
+  const { isPlaying, isLoading, currentTime, duration } = state;
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 

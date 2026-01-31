@@ -9,17 +9,8 @@ interface ExpandedPlayerProps {
 }
 
 export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
-  const {
-    isPlaying,
-    isLoading,
-    currentTime,
-    duration,
-    volume,
-    play,
-    pause,
-    seek,
-    setVolume,
-  } = useAudio(sermon.audio_url);
+  const { state, play, pause, seek, setVolume } = useAudio(sermon.audio_url);
+  const { isPlaying, isLoading, currentTime, duration, volume } = state;
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
