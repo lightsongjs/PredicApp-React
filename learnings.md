@@ -115,3 +115,35 @@ npx playwright test
 - SSL is handled automatically by Cloudflare
 - Use the main domain (predicapp-react.pages.dev) for stable access
 - Deployment-specific subdomains may have SSL issues initially
+
+---
+
+## Next Steps / Future Improvements
+
+### Audio Compression with Opus 48 kbps
+
+**Goal**: Reduce audio file sizes by 75-85% while maintaining excellent speech quality
+
+**Benefits:**
+- Original MP3 (192 kbps): ~25 MB for 30-minute sermon
+- Opus (48 kbps): ~4 MB for 30-minute sermon (84% smaller!)
+- Quality: Excellent for speech content
+- Universal browser support (all modern browsers)
+
+**Implementation Steps:**
+1. Install FFmpeg (audio conversion tool)
+2. Create batch conversion script to convert all MP3s to Opus
+3. Update sermon data to use `.opus` files instead of `.mp3`
+4. Upload compressed files to R2 storage
+5. Update audio player to handle Opus format (already supported in HTML5 audio)
+
+**FFmpeg conversion command:**
+```bash
+ffmpeg -i input.mp3 -c:a libopus -b:a 48k output.opus
+```
+
+**Expected Results:**
+- 75-85% reduction in storage and bandwidth costs
+- Faster loading times for users
+- No noticeable quality loss for sermon audio
+- Better mobile experience with smaller files
