@@ -1,0 +1,191 @@
+{
+  "sermon_structure": {
+    "description": "Complete structure for PredicApp sermon data",
+    "fields": {
+      "id": {
+        "type": "string",
+        "required": true,
+        "example": "s004",
+        "description": "Unique identifier for the sermon"
+      },
+      "title": {
+        "type": "string",
+        "required": true,
+        "example": "Duminica Vameșului și Fariseului",
+        "description": "Sermon title in Romanian"
+      },
+      "category": {
+        "type": "string",
+        "required": true,
+        "example": "Predici Liturgice",
+        "description": "Main category of the sermon"
+      },
+      "subcategory": {
+        "type": "string",
+        "required": false,
+        "example": "Triodion",
+        "description": "Subcategory (e.g., Triodion, Pentecostarion)"
+      },
+      "audio_url": {
+        "type": "string",
+        "required": true,
+        "example": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/sermon.mp3",
+        "description": "URL to audio file (MP3 or Opus)",
+        "note": "Future: Convert to Opus 48kbps for 75-85% size reduction"
+      },
+      "type": {
+        "type": "string",
+        "required": true,
+        "enum": ["fixed", "movable"],
+        "description": "Fixed date (e.g., saints) or movable (based on Pascha)"
+      },
+      "fixed_month": {
+        "type": "number",
+        "required": false,
+        "example": 1,
+        "description": "Month (1-12) for fixed date sermons"
+      },
+      "fixed_day": {
+        "type": "number",
+        "required": false,
+        "example": 7,
+        "description": "Day of month for fixed date sermons"
+      },
+      "pascha_offset": {
+        "type": "number",
+        "required": false,
+        "example": -70,
+        "description": "Days before/after Pascha (for movable feasts)"
+      },
+      "duration": {
+        "type": "string",
+        "required": false,
+        "example": "24:00",
+        "description": "Duration in MM:SS or HH:MM:SS format"
+      },
+      "gospelReading": {
+        "type": "string",
+        "required": false,
+        "example": "Luca 18:10-14",
+        "description": "Gospel reading reference"
+      },
+      "liturgicalDate": {
+        "type": "string",
+        "required": false,
+        "example": "2026-02-01",
+        "description": "Date when this sermon should be shown (YYYY-MM-DD)"
+      },
+      "description": {
+        "type": "string",
+        "required": false,
+        "example": "Predică la Duminica Vameșului și Fariseului",
+        "description": "Short description of the sermon"
+      },
+      "year": {
+        "type": "number",
+        "required": false,
+        "example": 2016,
+        "description": "Year the sermon was recorded"
+      },
+      "image": {
+        "type": "string",
+        "required": false,
+        "example": "https://example.com/icon.jpg",
+        "description": "URL to sermon artwork/icon",
+        "note": "Future: Replace with Orthodox icons from Wikimedia Commons"
+      }
+    }
+  },
+  "current_sermons": [
+    {
+      "id": "s004",
+      "title": "Duminica Vameșului și Fariseului",
+      "category": "Predici Liturgice",
+      "subcategory": "Triodion",
+      "audio_url": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/2026-02-01_Vamesului_si_Fariseului_2016.mp3",
+      "type": "movable",
+      "pascha_offset": -70,
+      "duration": "24:00",
+      "gospelReading": "Luca 18:10-14",
+      "liturgicalDate": "2026-02-01",
+      "description": "Predică la Duminica Vameșului și Fariseului - începutul perioadei Triodului",
+      "year": 2016,
+      "image": "https://images.unsplash.com/photo-1509130298739-651801c76e96?w=400&h=400&q=75&fm=webp&fit=crop"
+    },
+    {
+      "id": "s006",
+      "title": "Duminica Fiului Risipitor",
+      "category": "Predici Liturgice",
+      "subcategory": "Triodion",
+      "audio_url": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/2026-02-08_Fiului_Risipitor_2016.mp3",
+      "type": "movable",
+      "pascha_offset": -63,
+      "duration": "20:00",
+      "gospelReading": "Luca 15:11-32",
+      "liturgicalDate": "2026-02-08",
+      "description": "Predică la Duminica Fiului Risipitor - despre iertare și întoarcerea la Dumnezeu",
+      "year": 2016,
+      "image": "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=400&h=400&q=75&fm=webp&fit=crop"
+    },
+    {
+      "id": "s007",
+      "title": "Duminica Înfricoșătoarei Judecăți",
+      "category": "Predici Liturgice",
+      "subcategory": "Triodion",
+      "audio_url": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/2026-02-15_Infricosatoarei_Judecati_2020.mp3",
+      "type": "movable",
+      "pascha_offset": -56,
+      "duration": "30:00",
+      "gospelReading": "Matei 25:31-46",
+      "liturgicalDate": "2026-02-15",
+      "description": "Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne)",
+      "year": 2020,
+      "image": "https://images.unsplash.com/photo-1516704479583-90473497d037?w=400&h=400&q=75&fm=webp&fit=crop"
+    },
+    {
+      "id": "s008",
+      "title": "Duminica Iertării",
+      "category": "Predici Liturgice",
+      "subcategory": "Triodion",
+      "audio_url": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/2026-02-22_Duminica_Iertarii.mp3",
+      "type": "movable",
+      "pascha_offset": -49,
+      "duration": "45:00",
+      "gospelReading": "Matei 6:14-21",
+      "liturgicalDate": "2026-02-22",
+      "description": "Duminica Lăsatului Sec de Brânză - Duminica Iertării",
+      "year": 2016,
+      "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=400&q=75&fm=webp&fit=crop"
+    }
+  ],
+  "categories": [
+    "Predici Liturgice",
+    "Predici Tematice",
+    "Cateheze",
+    "Viața Sfintilor",
+    "Tâlcuiri Biblice"
+  ],
+  "subcategories": {
+    "liturgical": [
+      "Triodion",
+      "Pentecostarion",
+      "Duminici după Rusalii",
+      "Sărbători împărătești"
+    ]
+  },
+  "file_location": {
+    "typescript": "src/data/sermons.ts",
+    "types": "src/data/types.ts",
+    "note": "Data is stored in TypeScript for type safety, but this JSON shows the structure"
+  },
+  "how_to_add_sermon": {
+    "steps": [
+      "1. Upload audio file to R2 storage (future: convert to Opus 48kbps first)",
+      "2. Get the audio URL from R2",
+      "3. Add new sermon object to src/data/sermons.ts",
+      "4. Follow the structure defined above",
+      "5. Test locally with npm run dev",
+      "6. Deploy with: npm run build && npx wrangler pages deploy dist --project-name=predicapp-react --commit-dirty=true"
+    ]
+  }
+}
