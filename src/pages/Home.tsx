@@ -1,17 +1,27 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { BookOpen, Headphones, Clock } from 'lucide-react';
 import { allSermons } from '../data/sermons';
 import HeroSermonCard from '../components/sermon/HeroSermonCard';
 import SermonList from '../components/sermon/SermonList';
+import { MiniPlayer } from '../components/player/MiniPlayer';
+import { ExpandedPlayer } from '../components/player/ExpandedPlayer';
 import type { Sermon } from '../data/types';
 
 export default function Home() {
-  const navigate = useNavigate();
+  const [currentSermon, setCurrentSermon] = useState<Sermon | null>(null);
+  const [isPlayerExpanded, setIsPlayerExpanded] = useState(false);
+
   const featuredSermon = allSermons[0];
   const recentSermons = allSermons.slice(1);
 
   const handleSermonPlay = (sermon: Sermon) => {
-    navigate(`/player/${sermon.id}`);
+    setCurrentSermon(sermon);
+    setIsPlayerExpanded(false);
+  };
+
+  const handleClosePlayer = () => {
+    setCurrentSermon(null);
+    setIsPlayerExpanded(false);
   };
 
   const totalDurationMinutes = allSermons.reduce((acc, sermon) => {
@@ -98,6 +108,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Mini Player */}
+      {currentSermon && !isPlayerExpanded && (
+        <MiniPlayer
+          sermon={currentSermon}
+          onExpand={() => setIsPlayerExpanded(true)}
+          onClose={handleClosePlayer}
+        />
+      )}
+
+      {/* Expanded Player */}
+      {currentSermon && isPlayerExpanded && (
+        <ExpandedPlayer
+          sermon={currentSermon}
+          onCollapse={() => setIsPlayerExpanded(false)}
+        />
+      )}
     </div>
   );
 }

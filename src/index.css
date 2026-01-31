@@ -46,6 +46,10 @@
   color: var(--color-accent);
 }
 
+.bg-accent-gold {
+  background-color: var(--color-accent);
+}
+
 .text-text {
   color: var(--color-text);
 }
@@ -97,6 +101,21 @@ h1, h2, h3, h4, h5, h6 {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
