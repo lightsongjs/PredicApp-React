@@ -1,4 +1,4 @@
-import { Play, Pause, SkipBack, SkipForward, ChevronDown, Volume2 } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, ChevronDown, Volume2, Shuffle, Repeat } from 'lucide-react';
 import { useAudio } from '../../hooks/useAudio';
 import type { Sermon } from '../../data/types';
 import { formatTime } from '../../utils/time';
@@ -31,91 +31,114 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-b from-primary/95 to-primary z-50 flex flex-col animate-slide-up">
+    <div className="fixed inset-0 bg-gradient-to-b from-primary via-primary to-primary-dark z-50 flex flex-col animate-slide-up overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between p-4">
+      <div className="flex items-center justify-between p-4 md:p-6">
         <button
           onClick={onCollapse}
-          className="p-2 hover:bg-white/10 rounded-full transition-colors"
+          className="p-2 hover:bg-white/10 rounded-full transition-all active:scale-95"
         >
-          <ChevronDown className="w-6 h-6 text-white" />
+          <ChevronDown className="w-7 h-7 text-white" />
         </button>
-        <p className="text-white/80 text-sm uppercase tracking-wider font-semibold">
-          Acum se redă
-        </p>
-        <div className="w-10" /> {/* Spacer for centering */}
+        <div className="text-center">
+          <p className="text-white/90 text-xs uppercase tracking-[0.2em] font-semibold">
+            Acum se redă
+          </p>
+        </div>
+        <div className="w-11" /> {/* Spacer for centering */}
       </div>
 
-      {/* Album Art */}
-      <div className="flex-1 flex items-center justify-center p-8">
+      {/* Album Art - Spotify Style */}
+      <div className="flex-1 flex items-center justify-center px-6 py-8 md:px-12">
         <div
-          className="w-full max-w-md aspect-square rounded-2xl bg-cover bg-center shadow-2xl border-4 border-white/10"
+          className="w-full max-w-sm md:max-w-md aspect-square rounded-lg bg-cover bg-center shadow-2xl"
           style={{ backgroundImage: `url(${sermon.image})` }}
         />
       </div>
 
-      {/* Sermon Info */}
-      <div className="px-8 pb-6">
-        <h2 className="text-white text-2xl font-bold mb-2">{sermon.title}</h2>
-        <p className="text-white/70 text-sm">{sermon.category} • {sermon.subcategory}</p>
-        {sermon.description && (
-          <p className="text-white/60 text-sm mt-2">{sermon.description}</p>
-        )}
+      {/* Sermon Info - Spotify Typography */}
+      <div className="px-6 md:px-12 pb-4">
+        <h1 className="text-white text-2xl md:text-3xl font-bold mb-2 truncate">
+          {sermon.title}
+        </h1>
+        <p className="text-white/60 text-sm md:text-base font-medium">
+          {sermon.category}
+        </p>
       </div>
 
-      {/* Progress Bar */}
-      <div className="px-8 pb-2">
+      {/* Progress Bar - Spotify Style */}
+      <div className="px-6 md:px-12 pb-2">
         <div
-          className="w-full h-2 bg-white/20 rounded-full cursor-pointer hover:h-3 transition-all"
+          className="group w-full h-1 bg-white/20 rounded-full cursor-pointer relative"
           onClick={handleProgressClick}
         >
           <div
-            className="h-full bg-accent-gold rounded-full transition-all"
+            className="h-full bg-white rounded-full relative transition-all"
             style={{ width: `${progress}%` }}
-          />
+          >
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg" />
+          </div>
         </div>
-        <div className="flex justify-between text-white/60 text-xs mt-2">
+        <div className="flex justify-between text-white/50 text-xs font-medium mt-2">
           <span>{formatTime(currentTime)}</span>
           <span>{formatTime(duration)}</span>
         </div>
       </div>
 
-      {/* Controls */}
-      <div className="px-8 pb-8 flex items-center justify-center gap-6">
-        <button className="p-3 hover:bg-white/10 rounded-full transition-colors">
-          <SkipBack className="w-6 h-6 text-white" />
+      {/* Controls - Spotify Layout */}
+      <div className="px-6 md:px-12 pb-6 flex items-center justify-between">
+        <button className="p-2 text-white/60 hover:text-white transition-colors active:scale-95">
+          <Shuffle className="w-5 h-5" />
         </button>
 
-        <button
-          onClick={handlePlayPause}
-          className="w-16 h-16 bg-white rounded-full flex items-center justify-center hover:scale-105 transition-transform shadow-xl"
-        >
-          {isLoading ? (
-            <div className="w-8 h-8 border-3 border-primary/30 border-t-primary rounded-full animate-spin" />
-          ) : isPlaying ? (
-            <Pause className="w-8 h-8 text-primary" />
-          ) : (
-            <Play className="w-8 h-8 text-primary ml-1" />
-          )}
-        </button>
+        <div className="flex items-center gap-4">
+          <button className="p-2 text-white/80 hover:text-white transition-all hover:scale-110 active:scale-95">
+            <SkipBack className="w-7 h-7" />
+          </button>
 
-        <button className="p-3 hover:bg-white/10 rounded-full transition-colors">
-          <SkipForward className="w-6 h-6 text-white" />
+          <button
+            onClick={handlePlayPause}
+            className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center hover:scale-105 active:scale-100 transition-transform shadow-xl"
+          >
+            {isLoading ? (
+              <div className="w-7 h-7 border-3 border-primary/30 border-t-primary rounded-full animate-spin" />
+            ) : isPlaying ? (
+              <Pause className="w-7 h-7 md:w-8 md:h-8 text-primary fill-primary" />
+            ) : (
+              <Play className="w-7 h-7 md:w-8 md:h-8 text-primary fill-primary ml-0.5" />
+            )}
+          </button>
+
+          <button className="p-2 text-white/80 hover:text-white transition-all hover:scale-110 active:scale-95">
+            <SkipForward className="w-7 h-7" />
+          </button>
+        </div>
+
+        <button className="p-2 text-white/60 hover:text-white transition-colors active:scale-95">
+          <Repeat className="w-5 h-5" />
         </button>
       </div>
 
-      {/* Volume Control */}
-      <div className="px-8 pb-8 flex items-center gap-3">
-        <Volume2 className="w-5 h-5 text-white/60" />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value={volume}
-          onChange={(e) => setVolume(parseFloat(e.target.value))}
-          className="flex-1 accent-accent-gold"
-        />
+      {/* Volume Control - Spotify Style */}
+      <div className="px-6 md:px-12 pb-8 flex items-center gap-3">
+        <Volume2 className="w-4 h-4 text-white/60 flex-shrink-0" />
+        <div className="flex-1 h-1 bg-white/20 rounded-full relative group cursor-pointer">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={volume}
+            onChange={(e) => setVolume(parseFloat(e.target.value))}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+          />
+          <div
+            className="h-full bg-white rounded-full relative pointer-events-none"
+            style={{ width: `${volume * 100}%` }}
+          >
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg" />
+          </div>
+        </div>
       </div>
     </div>
   );
