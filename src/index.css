@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  /* Byzantine Modern Color Palette */
+  --color-primary: #8B1E3F;
+  --color-primary-dark: #6B1730;
+  --color-primary-alt: #a22031;
+  --color-accent: #D4AF37;
+  --color-accent-light: #E5C158;
+  --color-background: #F0F4F8;
+  --color-text: #4B3621;
+  --color-card: #FFFFFF;
+  --color-border: #E5E5E5;
+
+  /* Typography */
+  --font-family-serif: Georgia, serif;
+  --font-family-sans: system-ui, -apple-system, sans-serif;
+}
+
+/* Byzantine Color Utilities */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-primary-dark {
+  background-color: var(--color-primary-dark);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.bg-accent-light {
+  background-color: var(--color-accent-light);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-primary-dark {
+  color: var(--color-primary-dark);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-text {
+  color: var(--color-text);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.hover\:bg-primary-dark:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.hover\:bg-accent-light:hover {
+  background-color: var(--color-accent-light);
+}
+
+.shadow-accent\/50 {
+  box-shadow: 0 4px 6px -1px rgba(212, 175, 55, 0.5);
+}
+
+/* Base Styles */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-serif);
+  font-weight: bold;
+}
+
+/* Utility Classes */
+.active\:scale-98:active {
+  transform: scale(0.98);
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spotify-style volume slider */
+.volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.volume-slider:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.volume-slider:hover::-moz-range-thumb {
+  opacity: 1;
+}

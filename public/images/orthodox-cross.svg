@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor">
+  <!-- Vertical beam -->
+  <rect x="45" y="10" width="10" height="80" />
+
+  <!-- Top horizontal beam -->
+  <rect x="35" y="25" width="30" height="8" />
+
+  <!-- Middle horizontal beam -->
+  <rect x="30" y="45" width="40" height="10" />
+
+  <!-- Bottom slanted beam -->
+  <rect x="30" y="75" width="40" height="6" transform="rotate(-15 50 78)" />
+</svg>
