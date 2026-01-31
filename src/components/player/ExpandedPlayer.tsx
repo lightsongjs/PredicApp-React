@@ -68,18 +68,27 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
 
       {/* Progress Bar - Spotify Style */}
       <div className="px-6 md:px-12 pb-2">
-        <div
-          className="group w-full h-1 bg-white/20 rounded-full cursor-pointer relative"
-          onClick={handleProgressClick}
-        >
-          <div
-            className="h-full bg-white rounded-full relative transition-all"
-            style={{ width: `${progress}%` }}
-          >
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg" />
+        <div className="relative w-full py-2">
+          <input
+            type="range"
+            min="0"
+            max={duration || 100}
+            step="0.1"
+            value={currentTime}
+            onChange={(e) => seek(parseFloat(e.target.value))}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+            style={{ margin: 0 }}
+          />
+          <div className="w-full h-1 bg-white/20 rounded-full relative pointer-events-none">
+            <div
+              className="h-full bg-white rounded-full relative transition-all"
+              style={{ width: `${progress}%` }}
+            >
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg" />
+            </div>
           </div>
         </div>
-        <div className="flex justify-between text-white/50 text-xs font-medium mt-2">
+        <div className="flex justify-between text-white/50 text-xs font-medium mt-1">
           <span>{formatTime(currentTime)}</span>
           <span>{formatTime(duration)}</span>
         </div>
@@ -122,7 +131,7 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
       {/* Volume Control - Spotify Style */}
       <div className="px-6 md:px-12 pb-8 flex items-center gap-3">
         <Volume2 className="w-4 h-4 text-white/60 flex-shrink-0" />
-        <div className="flex-1 h-1 bg-white/20 rounded-full relative group cursor-pointer">
+        <div className="flex-1 relative py-2">
           <input
             type="range"
             min="0"
@@ -131,12 +140,15 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
             value={volume}
             onChange={(e) => setVolume(parseFloat(e.target.value))}
             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+            style={{ margin: 0 }}
           />
-          <div
-            className="h-full bg-white rounded-full relative pointer-events-none"
-            style={{ width: `${volume * 100}%` }}
-          >
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg" />
+          <div className="h-1 bg-white/20 rounded-full relative pointer-events-none">
+            <div
+              className="h-full bg-white rounded-full relative"
+              style={{ width: `${volume * 100}%` }}
+            >
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg" />
+            </div>
           </div>
         </div>
       </div>
