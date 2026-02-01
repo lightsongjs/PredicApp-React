@@ -4,6 +4,7 @@ import { useAudio } from '../../hooks/useAudio';
 import ProgressBar from './ProgressBar';
 import PlayerControls from './PlayerControls';
 import VolumeControl from './VolumeControl';
+import SpeedControl from './SpeedControl';
 
 interface AudioPlayerProps {
   sermon: Sermon;
@@ -12,7 +13,7 @@ interface AudioPlayerProps {
 
 export default function AudioPlayer({ sermon, onClose }: AudioPlayerProps) {
   console.log('🎬 [AudioPlayer] Rendering with sermon:', sermon.title);
-  const { play, pause, seek, setVolume, skipForward, skipBackward, state } = useAudio(sermon.audio_url);
+  const { play, pause, seek, setVolume, setPlaybackRate, skipForward, skipBackward, state } = useAudio(sermon.audio_url);
 
   console.log('📊 [AudioPlayer] Current state:', {
     isPlaying: state.isPlaying,
@@ -159,8 +160,12 @@ export default function AudioPlayer({ sermon, onClose }: AudioPlayerProps) {
               />
             </div>
 
-            {/* Right: Extra info or controls */}
+            {/* Right: Speed control and extra info */}
             <div className="hidden md:flex justify-end items-center gap-3">
+              <SpeedControl
+                playbackRate={state.playbackRate}
+                onSpeedChange={setPlaybackRate}
+              />
               {sermon.duration && (
                 <span className="text-white text-opacity-60 text-sm">
                   Durată: {sermon.duration}
@@ -169,11 +174,11 @@ export default function AudioPlayer({ sermon, onClose }: AudioPlayerProps) {
             </div>
           </div>
 
-          {/* Mobile volume */}
-          <div className="md:hidden">
-            <VolumeControl
-              volume={state.volume}
-              onVolumeChange={setVolume}
+          {/* Mobile speed control */}
+          <div className="md:hidden flex justify-center">
+            <SpeedControl
+              playbackRate={state.playbackRate}
+              onSpeedChange={setPlaybackRate}
             />
           </div>
 

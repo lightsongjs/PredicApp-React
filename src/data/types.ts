@@ -24,5 +24,6 @@ export interface AudioState {
   currentTime: number;
   duration: number;
   volume: number;
+  playbackRate: number;
   error: string | null;
 }

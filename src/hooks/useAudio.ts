@@ -6,6 +6,7 @@ interface UseAudioReturn {
   pause: () => void;
   seek: (time: number) => void;
   setVolume: (level: number) => void;
+  setPlaybackRate: (rate: number) => void;
   skipForward: (seconds: number) => void;
   skipBackward: (seconds: number) => void;
   state: AudioState;
@@ -19,6 +20,7 @@ export function useAudio(src: string): UseAudioReturn {
     currentTime: 0,
     duration: 0,
     volume: 0.6,
+    playbackRate: 1,
     error: null,
   });
 
@@ -193,6 +195,12 @@ export function useAudio(src: string): UseAudioReturn {
     setState(prev => ({ ...prev, volume: clampedVolume }));
   };
 
+  const setPlaybackRate = (rate: number) => {
+    if (!audioRef.current) return;
+    audioRef.current.playbackRate = rate;
+    setState(prev => ({ ...prev, playbackRate: rate }));
+  };
+
   const skipForward = (seconds: number) => {
     if (!audioRef.current) return;
     const newTime = Math.min(audioRef.current.duration, audioRef.current.currentTime + seconds);
@@ -210,6 +218,7 @@ export function useAudio(src: string): UseAudioReturn {
     pause,
     seek,
     setVolume,
+    setPlaybackRate,
     skipForward,
     skipBackward,
     state,
