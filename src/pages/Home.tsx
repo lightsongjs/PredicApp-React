@@ -115,6 +115,7 @@ export default function Home() {
           sermon={currentSermon}
           onExpand={() => setIsPlayerExpanded(true)}
           onClose={handleClosePlayer}
+          autoPlay
         />
       )}
 

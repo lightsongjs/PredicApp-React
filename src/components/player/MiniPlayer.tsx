@@ -1,4 +1,5 @@
 import { Play, Pause, X } from 'lucide-react';
+import { useEffect } from 'react';
 import { useAudio } from '../../hooks/useAudio';
 import type { Sermon } from '../../data/types';
 
@@ -6,10 +7,17 @@ interface MiniPlayerProps {
   sermon: Sermon;
   onExpand: () => void;
   onClose: () => void;
+  autoPlay?: boolean;
 }
 
-export function MiniPlayer({ sermon, onExpand, onClose }: MiniPlayerProps) {
+export function MiniPlayer({ sermon, onExpand, onClose, autoPlay = false }: MiniPlayerProps) {
   const { state, play, pause } = useAudio(sermon.audio_url);
+
+  useEffect(() => {
+    if (autoPlay) {
+      play();
+    }
+  }, [autoPlay]);
   const { isPlaying, isLoading, currentTime, duration } = state;
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
