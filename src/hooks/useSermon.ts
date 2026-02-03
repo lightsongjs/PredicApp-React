@@ -1,4 +1,4 @@
-import { allSermons } from '../data/sermons';
+import { allSermons } from '../data/sermonLoader';
 
 export function useSermon(sermonId?: string) {
   const sermon = sermonId

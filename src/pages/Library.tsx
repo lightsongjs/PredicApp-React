@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { allSermons } from '../data/sermons';
+import { allSermons } from '../data/sermonLoader';
 import SermonList from '../components/sermon/SermonList';
 import type { Sermon } from '../data/types';
 

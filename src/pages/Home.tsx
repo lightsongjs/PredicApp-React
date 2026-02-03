@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BookOpen, Headphones, Clock } from 'lucide-react';
-import { allSermons } from '../data/sermons';
+import { allSermons } from '../data/sermonLoader';
 import HeroSermonCard from '../components/sermon/HeroSermonCard';
 import SermonList from '../components/sermon/SermonList';
 import { MiniPlayer } from '../components/player/MiniPlayer';
