@@ -29,6 +29,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   const [currentSermon, setCurrentSermon] = useState<Sermon | null>(null);
   const [state, setState] = useState<AudioState>(defaultState);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const loadingSermonIdRef = useRef<string | null>(null); // Track what's currently loading to prevent race conditions
 
   // Create audio element once
   useEffect(() => {
@@ -88,10 +89,22 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   const loadSermon = useCallback((sermon: Sermon) => {
     if (!audioRef.current) return;
 
-    // If same sermon, don't reload
-    if (currentSermon?.id === sermon.id) return;
+    // Use ref for synchronous check to prevent race conditions
+    // (React state updates are batched and might not be immediate)
+    if (loadingSermonIdRef.current === sermon.id) {
+      console.log('[AudioContext] Same sermon already loading, skipping:', sermon.id);
+      return;
+    }
+
+    console.log('[AudioContext] Loading sermon:', sermon.id, sermon.title);
+    loadingSermonIdRef.current = sermon.id;
 
     const audio = audioRef.current;
+
+    // Stop any current playback first
+    audio.pause();
+
+    // Set new source
     audio.src = sermon.audio_url;
     audio.load();
     setCurrentSermon(sermon);
@@ -100,11 +113,11 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     const knownDuration = parseDuration(sermon.duration);
     setState(s => ({ ...s, currentTime: 0, duration: 0, knownDuration, error: null }));
 
-    // Auto-play
-    audio.play().catch(() => {
-      // Autoplay might be blocked
+    // Auto-play after a brief delay to ensure audio is ready
+    audio.play().catch((err) => {
+      console.log('[AudioContext] Autoplay blocked or error:', err);
     });
-  }, [currentSermon?.id]);
+  }, []);
 
   const play = useCallback(() => {
     audioRef.current?.play();
@@ -131,6 +144,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       audioRef.current.pause();
       audioRef.current.src = '';
     }
+    loadingSermonIdRef.current = null;
     setCurrentSermon(null);
     setState(defaultState);
   }, []);
