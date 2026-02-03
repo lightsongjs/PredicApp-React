@@ -1,20 +1,23 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
 @theme {
   /* Byzantine Modern Color Palette */
-  --color-primary: #8B1E3F;
-  --color-primary-dark: #6B1730;
+  --color-primary: #a22031;
+  --color-primary-dark: #8B1E3F;
   --color-primary-alt: #a22031;
   --color-accent: #D4AF37;
   --color-accent-light: #E5C158;
-  --color-background: #F0F4F8;
-  --color-text: #4B3621;
+  --color-background: #FFFBF0;
+  --color-background-dark: #201214;
+  --color-text: #432818;
   --color-card: #FFFFFF;
   --color-border: #E5E5E5;
 
   /* Typography */
-  --font-family-serif: Georgia, serif;
-  --font-family-sans: system-ui, -apple-system, sans-serif;
+  --font-family-serif: 'Playfair Display', Georgia, serif;
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 /* Byzantine Color Utilities */
@@ -79,11 +82,46 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  min-height: 100dvh;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-serif);
-  font-weight: bold;
+  font-weight: 700;
+}
+
+/* Material Symbols Configuration */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* iOS Blur Effect */
+.ios-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Gold Glow Effect */
+.gold-glow {
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+/* Play Button Shadow */
+.play-btn-shadow {
+  box-shadow: 0 4px 14px 0 rgba(162, 32, 49, 0.39);
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* Utility Classes */

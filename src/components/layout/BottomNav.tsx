@@ -1,39 +1,41 @@
-import { Home, BookOpen, GraduationCap, Settings } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function BottomNav() {
   const location = useLocation();
 
   const tabs = [
-    { name: 'Home', icon: Home, path: '/' },
-    { name: 'Library', icon: BookOpen, path: '/library' },
-    { name: 'Courses', icon: GraduationCap, path: '/courses' },
-    { name: 'Settings', icon: Settings, path: '/settings' },
+    { name: 'Acasă', icon: 'home', path: '/' },
+    { name: 'Căutare', icon: 'search', path: '/search' },
+    { name: 'Bibliotecă', icon: 'library_music', path: '/library' },
+    { name: 'Setări', icon: 'settings', path: '/settings' },
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-border shadow-lg md:hidden z-40">
-      <div className="flex items-center justify-around h-16 px-2">
+    <nav className="fixed bottom-0 left-0 right-0 bg-[#FFFBF0]/95 ios-blur border-t border-primary/10 z-40">
+      <div className="max-w-[480px] mx-auto flex justify-around items-center py-2 px-6">
         {tabs.map((tab) => {
-          const Icon = tab.icon;
           const isActive = location.pathname === tab.path;
 
           return (
             <Link
               key={tab.name}
               to={tab.path}
-              className={`flex flex-col items-center justify-center flex-1 py-2 transition-colors ${
+              className={`flex flex-col items-center gap-0.5 transition-colors ${
                 isActive
                   ? 'text-primary'
-                  : 'text-text opacity-50 hover:opacity-70'
+                  : 'text-[#432818]/40 hover:text-primary'
               }`}
             >
-              <Icon className={`w-6 h-6 ${isActive ? 'fill-primary' : ''}`} />
-              <span className="text-xs mt-1 font-medium">{tab.name}</span>
+              <span className={`material-symbols-outlined ${isActive ? 'filled' : ''}`}>
+                {tab.icon}
+              </span>
+              <span className="text-[10px] font-bold uppercase">{tab.name}</span>
             </Link>
           );
         })}
       </div>
+      {/* iOS Home Indicator Spacer */}
+      <div className="h-6" />
     </nav>
   );
 }

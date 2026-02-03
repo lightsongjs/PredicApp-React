@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Church, Search, User } from 'lucide-react';
 
 declare const __BUILD_TIME__: string;
 
@@ -24,36 +23,31 @@ export default function Header() {
   const buildTime = __BUILD_TIME__;
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
-      <div className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
-        <div
-          className="flex items-center gap-3 relative cursor-pointer"
+    <header className="sticky top-0 z-50 bg-[#FFFBF0]/95 ios-blur border-b border-primary/10">
+      <div className="flex items-center p-4 justify-between max-w-[480px] mx-auto">
+        {/* Hamburger Menu */}
+        <button className="text-primary flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-primary/5 rounded-full transition-colors">
+          <span className="material-symbols-outlined">menu</span>
+        </button>
+
+        {/* Centered Title */}
+        <h2
+          className="text-primary text-xl font-serif font-bold leading-tight tracking-tight flex-1 text-center cursor-pointer relative"
           onMouseEnter={() => setShowBuildInfo(true)}
           onMouseLeave={() => setShowBuildInfo(false)}
         >
-          <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-            <Church className="w-5 h-5 text-white" />
-          </div>
-          <div>
-            <h1 className="font-serif text-lg font-bold text-primary">
-              Predicile Părintelui
-            </h1>
-            <p className="text-xs text-text opacity-70">Biserica Ortodoxă</p>
-          </div>
+          Predicile Părintelui
           {showBuildInfo && (
-            <div className="absolute top-full left-0 mt-2 px-3 py-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-50">
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-50 font-sans font-normal">
               Built: {getTimeAgo(buildTime)}
             </div>
           )}
-        </div>
-        <div className="flex items-center gap-3">
-          <button className="p-2 hover:bg-background rounded-full transition-colors">
-            <Search className="w-5 h-5 text-text" />
-          </button>
-          <button className="p-2 hover:bg-background rounded-full transition-colors">
-            <User className="w-5 h-5 text-text" />
-          </button>
-        </div>
+        </h2>
+
+        {/* Profile Icon */}
+        <button className="flex items-center justify-center rounded-full size-10 bg-transparent text-primary hover:bg-primary/5 transition-colors">
+          <span className="material-symbols-outlined">account_circle</span>
+        </button>
       </div>
     </header>
   );

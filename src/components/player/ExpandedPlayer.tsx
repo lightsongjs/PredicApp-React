@@ -1,4 +1,3 @@
-import { Play, Pause, SkipBack, SkipForward, ChevronDown, Volume2, Shuffle, Repeat } from 'lucide-react';
 import { useAudio } from '../../hooks/useAudio';
 import type { Sermon } from '../../data/types';
 import { formatTime } from '../../utils/time';
@@ -7,6 +6,9 @@ interface ExpandedPlayerProps {
   sermon: Sermon;
   onCollapse: () => void;
 }
+
+// Default image for sermons without images
+const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCrxfGYkpO8Nty6BU8HMTiF-5IIOI9JdPg9bvkSKLLEe-4av4X7IQ0eXjTm5SmPx9EYLknNj8prCQdMjbtb7rsppjNZKXKodk7S0iV5YsgzGxAnMMWuVIC1ch8Ic8Hi9I6Ry7J8RwabzcpUJSCi452jAOKdgXmsTQCbvt2yw302DL2UG4g-WnjyS5uq6ErijH0CFFEBkwXDKuxwcIlEqSeW6yoKDxgv9FGBORhyeYv4aEb5MNNBilKdtNI33Fh8c-p9zV0YSBGCHdde';
 
 export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
   const { state, play, pause, seek, setVolume } = useAudio(sermon.audio_url);
@@ -22,128 +24,142 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
     }
   };
 
+  const backgroundImage = sermon.image || defaultImage;
+
   return (
-    <div className="fixed inset-0 bg-gradient-to-b from-primary via-primary to-primary-dark z-50 flex flex-col animate-slide-up overflow-hidden">
-      {/* Header */}
-      <div className="flex items-center justify-between p-4 md:p-6">
+    <div className="fixed inset-0 bg-[#fdfbf7] z-50 flex flex-col animate-slide-up overflow-hidden">
+      {/* Top Navigation Bar */}
+      <header className="flex items-center justify-between px-6 py-4">
         <button
           onClick={onCollapse}
-          className="p-2 hover:bg-white/10 rounded-full transition-all active:scale-95"
+          className="flex items-center justify-center size-10 rounded-full hover:bg-black/5 transition-colors"
         >
-          <ChevronDown className="w-7 h-7 text-white" />
+          <span className="material-symbols-outlined text-2xl text-[#1a0f10]">expand_more</span>
         </button>
-        <div className="text-center">
-          <p className="text-white/90 text-xs uppercase tracking-[0.2em] font-semibold">
-            Acum se redă
-          </p>
-        </div>
-        <div className="w-11" /> {/* Spacer for centering */}
-      </div>
+        <h2 className="text-sm font-semibold tracking-widest uppercase opacity-60 text-[#1a0f10]">Acum Redă</h2>
+        <button className="flex items-center justify-center size-10 rounded-full hover:bg-black/5 transition-colors">
+          <span className="material-symbols-outlined text-2xl text-[#1a0f10]">share</span>
+        </button>
+      </header>
 
-      {/* Album Art - Spotify Style */}
-      <div className="flex-1 flex items-center justify-center px-6 py-8 md:px-12">
-        <div
-          className="w-full max-w-sm md:max-w-md aspect-square rounded-lg bg-cover bg-center shadow-2xl"
-          style={{ backgroundImage: `url(${sermon.image})` }}
-        />
-      </div>
-
-      {/* Sermon Info - Spotify Typography */}
-      <div className="px-6 md:px-12 pb-4">
-        <h1 className="text-white text-2xl md:text-3xl font-bold mb-2 truncate">
-          {sermon.title}
-        </h1>
-        <p className="text-white/60 text-sm md:text-base font-medium">
-          {sermon.category}
-        </p>
-      </div>
-
-      {/* Progress Bar - Spotify Style */}
-      <div className="px-6 md:px-12 pb-2">
-        <div className="relative w-full py-2">
-          <input
-            type="range"
-            min="0"
-            max={duration || 100}
-            step="0.1"
-            value={currentTime}
-            onChange={(e) => seek(parseFloat(e.target.value))}
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-            style={{ margin: 0 }}
-          />
-          <div className="w-full h-1 bg-white/20 rounded-full relative pointer-events-none">
+      <main className="flex-1 flex flex-col px-8 pb-12 max-w-md mx-auto w-full">
+        {/* Central Album Art */}
+        <div className="mt-4 mb-10 group">
+          <div className="aspect-square w-full rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
             <div
-              className="h-full bg-white rounded-full relative transition-all"
+              className="w-full h-full bg-center bg-no-repeat bg-cover"
+              style={{ backgroundImage: `url("${backgroundImage}")` }}
+            />
+          </div>
+        </div>
+
+        {/* Sermon Title and Speaker */}
+        <div className="text-center mb-10">
+          <h1 className="font-serif text-3xl mb-2 text-[#1a0f10] leading-tight">{sermon.title}</h1>
+          <p className="text-primary font-medium text-lg opacity-80">{sermon.category || 'Predică'}</p>
+        </div>
+
+        {/* Progress Bar Section */}
+        <div className="flex flex-col gap-2 mb-8">
+          <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden relative">
+            <input
+              type="range"
+              min="0"
+              max={duration || 100}
+              step="0.1"
+              value={currentTime}
+              onChange={(e) => seek(parseFloat(e.target.value))}
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+              style={{ margin: 0 }}
+            />
+            {/* Gold Progress with Glow */}
+            <div
+              className="absolute top-0 left-0 h-full bg-[#D4AF37] gold-glow rounded-full transition-all"
               style={{ width: `${progress}%` }}
-            >
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg" />
-            </div>
+            />
+          </div>
+          <div className="flex justify-between text-[11px] font-bold tracking-tighter opacity-50 uppercase text-[#1a0f10]">
+            <span>{formatTime(currentTime)}</span>
+            <span>{formatTime(duration)}</span>
           </div>
         </div>
-        <div className="flex justify-between text-white/50 text-xs font-medium mt-1">
-          <span>{formatTime(currentTime)}</span>
-          <span>{formatTime(duration)}</span>
-        </div>
-      </div>
 
-      {/* Controls - Spotify Layout */}
-      <div className="px-6 md:px-12 pb-8 md:pb-6 flex items-center justify-between">
-        <button className="p-2 text-white/60 hover:text-white transition-colors active:scale-95">
-          <Shuffle className="w-5 h-5" />
-        </button>
+        {/* Playback Controls */}
+        <div className="flex flex-col gap-10">
+          <div className="flex items-center justify-between">
+            {/* Shuffle Toggle */}
+            <button className="text-[#D4AF37] hover:scale-110 transition-transform">
+              <span className="material-symbols-outlined text-2xl">shuffle</span>
+            </button>
 
-        <div className="flex items-center gap-4">
-          <button className="p-2 text-white/80 hover:text-white transition-all hover:scale-110 active:scale-95">
-            <SkipBack className="w-7 h-7" />
-          </button>
+            {/* Main Controls */}
+            <div className="flex items-center gap-8">
+              <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
+                <span className="material-symbols-outlined text-4xl">skip_previous</span>
+              </button>
 
-          <button
-            onClick={handlePlayPause}
-            className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center hover:scale-105 active:scale-100 transition-transform shadow-xl"
-          >
-            {isLoading ? (
-              <div className="w-7 h-7 border-3 border-primary/30 border-t-primary rounded-full animate-spin" />
-            ) : isPlaying ? (
-              <Pause className="w-7 h-7 md:w-8 md:h-8 text-primary fill-primary" />
-            ) : (
-              <Play className="w-7 h-7 md:w-8 md:h-8 text-primary fill-primary ml-0.5" />
-            )}
-          </button>
+              <button
+                onClick={handlePlayPause}
+                className="size-20 bg-primary text-white rounded-full flex items-center justify-center play-btn-shadow hover:scale-105 transition-transform"
+              >
+                {isLoading ? (
+                  <div className="w-8 h-8 border-3 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <span className="material-symbols-outlined text-5xl">
+                    {isPlaying ? 'pause' : 'play_arrow'}
+                  </span>
+                )}
+              </button>
 
-          <button className="p-2 text-white/80 hover:text-white transition-all hover:scale-110 active:scale-95">
-            <SkipForward className="w-7 h-7" />
-          </button>
-        </div>
-
-        <button className="p-2 text-white/60 hover:text-white transition-colors active:scale-95">
-          <Repeat className="w-5 h-5" />
-        </button>
-      </div>
-
-      {/* Volume Control - Spotify Style (Desktop Only) */}
-      <div className="hidden md:flex px-6 md:px-12 pb-8 items-center gap-3">
-        <Volume2 className="w-4 h-4 text-white/60 flex-shrink-0" />
-        <div className="flex-1 relative py-2">
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={volume}
-            onChange={(e) => setVolume(parseFloat(e.target.value))}
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-            style={{ margin: 0 }}
-          />
-          <div className="h-1 bg-white/20 rounded-full relative pointer-events-none">
-            <div
-              className="h-full bg-white rounded-full relative"
-              style={{ width: `${volume * 100}%` }}
-            >
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg" />
+              <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
+                <span className="material-symbols-outlined text-4xl">skip_next</span>
+              </button>
             </div>
+
+            {/* Repeat Toggle */}
+            <button className="opacity-30 hover:opacity-60 transition-opacity text-[#1a0f10]">
+              <span className="material-symbols-outlined text-2xl">repeat</span>
+            </button>
+          </div>
+
+          {/* Bottom Utility Row */}
+          <div className="flex items-center justify-between px-2 pt-4">
+            <button className="opacity-60 hover:opacity-100 transition-opacity text-[#1a0f10]">
+              <span className="material-symbols-outlined">devices</span>
+            </button>
+
+            <div className="flex-1 mx-8 flex items-center gap-3">
+              <span className="material-symbols-outlined text-sm opacity-40 text-[#1a0f10]">volume_down</span>
+              <div className="flex-1 h-1 bg-gray-200 rounded-full relative">
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={volume}
+                  onChange={(e) => setVolume(parseFloat(e.target.value))}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                  style={{ margin: 0 }}
+                />
+                <div
+                  className="absolute top-0 left-0 h-full bg-black/20 rounded-full"
+                  style={{ width: `${volume * 100}%` }}
+                />
+              </div>
+              <span className="material-symbols-outlined text-sm opacity-40 text-[#1a0f10]">volume_up</span>
+            </div>
+
+            <button className="opacity-60 hover:opacity-100 transition-opacity text-[#1a0f10]">
+              <span className="material-symbols-outlined">queue_music</span>
+            </button>
           </div>
         </div>
-      </div>
+      </main>
+
+      {/* Minimal Home Indicator Area (iOS feel) */}
+      <footer className="h-8 flex justify-center items-end pb-2">
+        <div className="w-32 h-1 bg-black/10 rounded-full" />
+      </footer>
     </div>
   );
 }

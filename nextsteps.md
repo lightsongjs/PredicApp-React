@@ -135,3 +135,88 @@ Pogorârea Sfântului Duh - 2019.mp3
 5. Execute rename operation
 6. Update all sermon data JSON files with new filenames
 7. Update R2 storage filenames to match
+
+---
+
+## 5. Visual Design Updates (Design vs Current Site)
+
+**Goal**: Align the current site with the design files (`../design/1.html`, `2.html`, `3.html`)
+
+### 5.1 Homepage Header
+- [ ] Replace orthodox cross logo with hamburger menu icon on left
+- [ ] Center the title "Predicile Părintelui"
+- [ ] Keep only profile icon on right (remove search from header)
+
+### 5.2 Hero/Featured Sermon Card
+- [ ] Add large Byzantine image background with gradient overlay
+- [ ] Change badge from "PREDICA ZILEI" to "Duminica de Astăzi"
+- [ ] Add "Evanghelia zilei" subtitle in primary color
+- [ ] Make "Ascultă Acum" button smaller, rounded-full (not full-width)
+- [ ] Add shadow-lg to the card
+
+### 5.3 Stats Section
+- [ ] Remove the 3 stat circles (Predici, Categorii, Ore) - not in design
+
+### 5.4 Recent Sermons List
+- [ ] Replace solid burgundy squares with actual Byzantine icon images
+- [ ] Change header from "Predici Recente" to "Sermone Recente"
+- [ ] Update list item layout:
+  - Image thumbnail (16x16 rounded-lg)
+  - Title + date/duration format
+  - Play icon with border (not filled background)
+- [ ] Add hover effect: `hover:bg-primary/5`
+
+### 5.5 Categories Section
+- [ ] Replace grid cards with horizontal scrolling carousel
+- [ ] Add actual images to category/series cards
+- [ ] Style as "Serii de Predici" section from design 3.html
+
+### 5.6 Bottom Navigation (Missing)
+- [ ] Add fixed bottom navigation bar with icons:
+  - Acasă (home, filled when active)
+  - Căutare (search)
+  - Bibliotecă (library_music)
+  - Setări (settings)
+- [ ] Style: `fixed bottom-0`, blur background, border-top
+
+### 5.7 Mini Player (Missing)
+- [ ] Add persistent mini player above bottom navigation
+- [ ] Include:
+  - Thumbnail image (40x40)
+  - "Acum se redă" label
+  - Sermon title (truncated)
+  - Pause/Close buttons
+- [ ] Style: `bg-primary/5` with border
+
+### 5.8 Player Page Redesign
+- [ ] Change background from burgundy to light (`#fdfbf7`)
+- [ ] Change header:
+  - Left: down arrow (expand_more) instead of X
+  - Center: "Acum Redă" text
+  - Right: share button
+- [ ] Center album art (full-width, aspect-square)
+- [ ] Move title + speaker below image, centered
+- [ ] Add gold glow effect to progress bar
+- [ ] Show shuffle/repeat toggle buttons
+- [ ] Add volume slider with device/queue icons
+- [ ] Change all text to dark color on light background
+
+### 5.9 Global Style Updates
+- [ ] Change background color from gray to pale cream (`#FFFBF0`)
+- [ ] Add Playfair Display font for headings (`font-serif-elegant`)
+- [ ] Increase use of gold accents (`#D4AF37`)
+- [ ] Add more shadows and depth to cards (`shadow-lg`, `shadow-2xl`)
+- [ ] Add iOS-style blur effect to fixed elements (`backdrop-filter: blur(20px)`)
+
+### Design Reference Files
+- `../design/1.html` - Homepage with mini player
+- `../design/2.html` - Full player page (Now Playing)
+- `../design/3.html` - Alternative dashboard with series carousel
+
+### Priority Order
+1. **High**: Bottom navigation + Mini player (core navigation missing)
+2. **High**: Hero card with image background
+3. **Medium**: Player page redesign (light theme)
+4. **Medium**: Sermon list with image thumbnails
+5. **Low**: Background color and typography updates
+6. **Low**: Remove stats section
