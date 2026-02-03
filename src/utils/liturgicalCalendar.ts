@@ -109,6 +109,48 @@ export function getLiturgicalSermons(sermons: Sermon[]): Sermon[] {
   return sermons.filter(s => s.liturgicalDate);
 }
 
+// Find all sermons related to a specific sermon's theme (by title keywords)
+export function findRelatedSermons(allSermons: Sermon[], targetSermon: Sermon): Sermon[] {
+  // Extract key words from the title (remove common words)
+  const titleWords = targetSermon.title.toLowerCase()
+    .replace(/duminica|predică|predica|sfânt|sfântul|sfânta|din|post|după|rusalii|paști/gi, '')
+    .split(/[\s\-–]+/)
+    .filter(w => w.length > 3);
+
+  if (titleWords.length === 0) return [targetSermon];
+
+  // Find sermons that match at least one key word
+  const related = allSermons.filter(s => {
+    if (s.id === targetSermon.id) return false;
+    const sTitle = s.title.toLowerCase();
+    return titleWords.some(word => sTitle.includes(word));
+  });
+
+  // Return target sermon first, then related ones sorted by year
+  return [targetSermon, ...related.sort((a, b) => (b.year || 0) - (a.year || 0))];
+}
+
+// Get upcoming liturgical sermons (next few Sundays)
+export function getUpcomingSermons(sermons: Sermon[], count: number = 10): Sermon[] {
+  const today = new Date();
+  const todayStr = formatDateInternal(today);
+
+  // Get sermons with future dates or recent past dates
+  return sermons
+    .filter(s => s.liturgicalDate)
+    .sort((a, b) => {
+      const dateA = a.liturgicalDate || '';
+      const dateB = b.liturgicalDate || '';
+      return dateA.localeCompare(dateB);
+    })
+    .filter(s => s.liturgicalDate && s.liturgicalDate >= todayStr)
+    .slice(0, count);
+}
+
+function formatDateInternal(date: Date): string {
+  return date.toISOString().split('T')[0];
+}
+
 // Format date in Romanian
 export function formatDateRomanian(dateStr: string): string {
   const date = new Date(dateStr);

@@ -9,6 +9,8 @@ import type { Sermon } from '../data/types';
 import {
   getThisSundaySermon,
   getLiturgicalSermons,
+  getUpcomingSermons,
+  findRelatedSermons,
   formatDateRomanian,
 } from '../utils/liturgicalCalendar';
 
@@ -50,8 +52,14 @@ export default function Home() {
 
   // Featured sermon is this Sunday's sermon
   const featuredSermon = thisSunday.sermon || allSermons[0];
-  // Recent sermons exclude the featured one
-  const recentSermons = allSermons.filter(s => s.id !== featuredSermon?.id).slice(0, 10);
+
+  // Find related sermons (same theme from different years)
+  const relatedSermons = featuredSermon
+    ? findRelatedSermons(allSermons, featuredSermon).slice(0, 5)
+    : [];
+
+  // Get upcoming liturgical sermons
+  const upcomingSermons = getUpcomingSermons(liturgicalSermons, 10);
 
   const handleSermonPlay = (sermon: Sermon) => {
     setCurrentSermon(sermon);
@@ -91,7 +99,37 @@ export default function Home() {
             />
           </section>
 
-          {/* Series/Categories Carousel (Mobile) / Grid (Desktop) */}
+          {/* Related Sermons - Same theme from different years */}
+          {relatedSermons.length > 1 && (
+            <section className="mt-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-[#432818] text-lg md:text-xl font-serif font-bold">
+                  Alte Înregistrări pe Această Temă
+                </h3>
+              </div>
+              <div className="bg-white rounded-xl border border-primary/10 overflow-hidden">
+                {relatedSermons.slice(1).map((sermon) => (
+                  <div
+                    key={sermon.id}
+                    className="flex items-center gap-4 px-4 py-3 hover:bg-primary/5 transition-colors cursor-pointer border-b border-primary/5 last:border-b-0"
+                    onClick={() => handleSermonPlay(sermon)}
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[#432818] text-sm font-semibold truncate">{sermon.title}</p>
+                      <p className="text-[#432818]/60 text-xs mt-0.5">
+                        {sermon.year && `Înregistrat în ${sermon.year}`} • {sermon.duration}
+                      </p>
+                    </div>
+                    <div className="shrink-0 flex items-center justify-center size-10 rounded-full border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all">
+                      <span className="material-symbols-outlined text-xl">play_arrow</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Series/Categories */}
           <section className="mt-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-[#432818] text-lg md:text-xl font-serif font-bold">Categorii</h3>
@@ -148,17 +186,20 @@ export default function Home() {
           </section>
         </div>
 
-        {/* Right Column - Recent Sermons */}
+        {/* Right Column - Upcoming Liturgical Sermons */}
         <div className="md:col-span-5 lg:col-span-4 mt-6 md:mt-0">
           <section className="md:bg-white md:rounded-2xl md:shadow-lg md:border md:border-primary/10 md:overflow-hidden">
             <div className="flex items-center justify-between px-0 md:px-4 pt-4 md:pt-5 pb-2">
-              <h2 className="text-[#432818] text-xl font-serif font-bold">Sermone Recente</h2>
-              <Link to="/library" className="text-primary text-sm font-semibold hover:underline">
+              <h2 className="text-[#432818] text-xl font-serif font-bold">Predici Viitoare</h2>
+              <Link to="/library?category=liturgical" className="text-primary text-sm font-semibold hover:underline">
                 Vezi toate
               </Link>
             </div>
+            <p className="text-[#432818]/60 text-xs px-0 md:px-4 mb-3">
+              Pregătește-te pentru duminicile următoare
+            </p>
             <div className="space-y-1 md:max-h-[600px] md:overflow-y-auto">
-              <SermonList sermons={recentSermons} onSermonPlay={handleSermonPlay} />
+              <SermonList sermons={upcomingSermons} onSermonPlay={handleSermonPlay} />
             </div>
           </section>
         </div>
