@@ -1,24 +1,17 @@
-import { useEffect } from 'react';
-import { useAudio } from '../../hooks/useAudio';
-import type { Sermon } from '../../data/types';
+import { useAudioContext } from '../../context/AudioContext';
 
 interface MiniPlayerProps {
-  sermon: Sermon;
   onExpand: () => void;
-  onClose: () => void;
 }
 
 // Default image for sermons without images
 const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAZpk9fAfdmCcl-9QzxgEFdROTb9AeYxkD-dRG_C_cH05n3mJRonotdTV5YP_34sLDf5c_HhJp4nDXOiDzRbLjd7nxXMU_Y_FJuakJELPcZHXQIWrCm6lYhoj4ewacn8_PdIrAQ1N9p3IIpKkbNSHSixkgWt5w-pwwJox_VO5mjkAHEU4TZm1MScmigaU1EJ_mwrTUmTAWblLNgld3_DOYa6sGaEw6He8P9DHUdSC5NAHLE-rf1xem-N6J28I1M7_h90YNLUHptjzPt';
 
-export function MiniPlayer({ sermon, onExpand, onClose }: MiniPlayerProps) {
-  const { state, play, pause } = useAudio(sermon.audio_url);
+export function MiniPlayer({ onExpand }: MiniPlayerProps) {
+  const { currentSermon, state, play, pause, closePlayer } = useAudioContext();
   const { isPlaying, isLoading, currentTime, duration } = state;
 
-  // Auto-play when sermon changes
-  useEffect(() => {
-    play();
-  }, [sermon.id]);
+  if (!currentSermon) return null;
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
@@ -31,7 +24,7 @@ export function MiniPlayer({ sermon, onExpand, onClose }: MiniPlayerProps) {
     }
   };
 
-  const backgroundImage = sermon.image || defaultImage;
+  const backgroundImage = currentSermon.image || defaultImage;
 
   return (
     <div className="fixed bottom-[72px] md:bottom-4 left-0 right-0 z-40 animate-slide-up">
@@ -50,7 +43,7 @@ export function MiniPlayer({ sermon, onExpand, onClose }: MiniPlayerProps) {
           {/* Sermon Info */}
           <div className="flex-1 min-w-0">
             <p className="text-[11px] font-bold text-primary uppercase tracking-wider">Acum se redă</p>
-            <p className="text-sm font-semibold text-[#432818] truncate">{sermon.title}</p>
+            <p className="text-sm font-semibold text-[#432818] truncate">{currentSermon.title}</p>
             {/* Progress Bar */}
             <div className="w-full h-1 bg-gray-200 rounded-full mt-1.5 overflow-hidden">
               <div
@@ -81,7 +74,7 @@ export function MiniPlayer({ sermon, onExpand, onClose }: MiniPlayerProps) {
               className="text-[#432818]/60 p-2 hover:bg-primary/10 rounded-full transition-colors"
               onClick={(e) => {
                 e.stopPropagation();
-                onClose();
+                closePlayer();
               }}
             >
               <span className="material-symbols-outlined">close</span>

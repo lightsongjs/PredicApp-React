@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { allSermons } from '../data/sermonLoader';
 import SermonList from '../components/sermon/SermonList';
@@ -20,12 +20,12 @@ interface SermonLibrary {
 
 const library = sermonLibrary as unknown as SermonLibrary;
 
-// Category display names
+// Category display names - must match actual sermon.category values
 const categoryNames: Record<string, string> = {
   liturgical: 'Predici Liturgice',
-  courses: 'Cursuri',
-  saints: 'Sfinți',
-  topical: 'Tematice',
+  courses: 'Cursuri Biblice',
+  saints: 'Despre Sfinți',
+  topical: 'Învățături Tematice',
   archived: 'Arhivă',
 };
 
@@ -33,7 +33,13 @@ export default function Library() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedCategory = searchParams.get('category');
-  const [searchQuery, setSearchQuery] = useState('');
+  const urlSearchQuery = searchParams.get('search') || '';
+  const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
+
+  // Sync search query from URL when it changes
+  useEffect(() => {
+    setSearchQuery(urlSearchQuery);
+  }, [urlSearchQuery]);
 
   // Filter sermons by category and search
   const filteredSermons = useMemo(() => {

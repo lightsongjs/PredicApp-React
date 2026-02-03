@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { allSermons, metadata } from '../data/sermonLoader';
+import { useAudioContext } from '../context/AudioContext';
 import HeroSermonCard from '../components/sermon/HeroSermonCard';
 import SermonList from '../components/sermon/SermonList';
 import { MiniPlayer } from '../components/player/MiniPlayer';
@@ -24,26 +25,26 @@ const categoryData = [
   },
   {
     key: 'courses',
-    name: 'Cursuri',
+    name: 'Cursuri Biblice',
     description: 'Cursuri și serii tematice',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAdBLQ8DF-TTTmqXoYidk8Z5KlOVa8mBzLuOWI-YW0nuo9LlTzTfcSjBCiE4bqaifzpZpx4swDIRqwHAssV48w1S9YXswQLkHN8uNGSpE8bFYoxUZsocmA3RBO-vOM49yTsg8x2nBmHm1jvJQLpeHuy8WqC9ZpZfu9yabeG3j3MM_76lWPi6GUtAdjJRobTK0Uu221AAZEIjuOvnYNI9XoLeRGz0qJ2gBgCZ0yN6isEG-h8b5osfhUsEB0LVn65Nt7UkZYUYXypuRE2',
   },
   {
     key: 'saints',
-    name: 'Sfinți',
+    name: 'Despre Sfinți',
     description: 'Predici despre sfinți',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAlPn82SqThmfdJV7B_sZ6mfBkziIP0t_qicFZ6Pxv1c9Otl5CjEJAajxqW1a_kyb6MNTBLVqTRpzxVD0yLPbIzsDEZwOv9PNNpXUB9tV1QTUzKiY9X72RUs0pAnoenz0rwV8AaCHb58O9uNNe1cIsqaN7EWkG4_bj-UBa6RbVLyLDZUAsr3KZmTo-DCejzmkyAw2G-X9OmGoOBNR_kj6xt2QLw_u4dzXjftGk8tdjea-e6rA6hJH97amv6edYvH-o4dNZ0l99MqoGR',
   },
   {
     key: 'topical',
-    name: 'Tematice',
+    name: 'Învățături Tematice',
     description: 'Predici pe teme specifice',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCrxfGYkpO8Nty6BU8HMTiF-5IIOI9JdPg9bvkSKLLEe-4av4X7IQ0eXjTm5SmPx9EYLknNj8prCQdMjbtb7rsppjNZKXKodk7S0iV5YsgzGxAnMMWuVIC1ch8Ic8Hi9I6Ry7J8RwabzcpUJSCi452jAOKdgXmsTQCbvt2yw302DL2UG4g-WnjyS5uq6ErijH0CFFEBkwXDKuxwcIlEqSeW6yoKDxgv9FGBORhyeYv4aEb5MNNBilKdtNI33Fh8c-p9zV0YSBGCHdde',
   },
 ];
 
 export default function Home() {
-  const [currentSermon, setCurrentSermon] = useState<Sermon | null>(null);
+  const { currentSermon, loadSermon } = useAudioContext();
   const [isPlayerExpanded, setIsPlayerExpanded] = useState(false);
 
   // Get liturgical sermons for Sunday display
@@ -62,12 +63,7 @@ export default function Home() {
   const upcomingSermons = getUpcomingSermons(liturgicalSermons, 10);
 
   const handleSermonPlay = (sermon: Sermon) => {
-    setCurrentSermon(sermon);
-    setIsPlayerExpanded(false);
-  };
-
-  const handleClosePlayer = () => {
-    setCurrentSermon(null);
+    loadSermon(sermon);
     setIsPlayerExpanded(false);
   };
 
@@ -207,19 +203,12 @@ export default function Home() {
 
       {/* Mini Player */}
       {currentSermon && !isPlayerExpanded && (
-        <MiniPlayer
-          sermon={currentSermon}
-          onExpand={() => setIsPlayerExpanded(true)}
-          onClose={handleClosePlayer}
-        />
+        <MiniPlayer onExpand={() => setIsPlayerExpanded(true)} />
       )}
 
       {/* Expanded Player */}
       {currentSermon && isPlayerExpanded && (
-        <ExpandedPlayer
-          sermon={currentSermon}
-          onCollapse={() => setIsPlayerExpanded(false)}
-        />
+        <ExpandedPlayer onCollapse={() => setIsPlayerExpanded(false)} />
       )}
     </div>
   );

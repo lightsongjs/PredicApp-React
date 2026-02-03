@@ -1,18 +1,18 @@
-import { useAudio } from '../../hooks/useAudio';
-import type { Sermon } from '../../data/types';
+import { useAudioContext } from '../../context/AudioContext';
 import { formatTime } from '../../utils/time';
 
 interface ExpandedPlayerProps {
-  sermon: Sermon;
   onCollapse: () => void;
 }
 
 // Default image for sermons without images
 const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCrxfGYkpO8Nty6BU8HMTiF-5IIOI9JdPg9bvkSKLLEe-4av4X7IQ0eXjTm5SmPx9EYLknNj8prCQdMjbtb7rsppjNZKXKodk7S0iV5YsgzGxAnMMWuVIC1ch8Ic8Hi9I6Ry7J8RwabzcpUJSCi452jAOKdgXmsTQCbvt2yw302DL2UG4g-WnjyS5uq6ErijH0CFFEBkwXDKuxwcIlEqSeW6yoKDxgv9FGBORhyeYv4aEb5MNNBilKdtNI33Fh8c-p9zV0YSBGCHdde';
 
-export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
-  const { state, play, pause, seek, setVolume } = useAudio(sermon.audio_url);
+export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
+  const { currentSermon, state, play, pause, seek, setVolume } = useAudioContext();
   const { isPlaying, isLoading, currentTime, duration, volume } = state;
+
+  if (!currentSermon) return null;
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
@@ -24,7 +24,7 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
     }
   };
 
-  const backgroundImage = sermon.image || defaultImage;
+  const backgroundImage = currentSermon.image || defaultImage;
 
   return (
     <div className="fixed inset-0 bg-[#fdfbf7] z-50 flex flex-col animate-slide-up overflow-hidden">
@@ -55,8 +55,8 @@ export function ExpandedPlayer({ sermon, onCollapse }: ExpandedPlayerProps) {
 
         {/* Sermon Title and Speaker */}
         <div className="text-center mb-10">
-          <h1 className="font-serif text-3xl mb-2 text-[#1a0f10] leading-tight">{sermon.title}</h1>
-          <p className="text-primary font-medium text-lg opacity-80">{sermon.category || 'Predică'}</p>
+          <h1 className="font-serif text-3xl mb-2 text-[#1a0f10] leading-tight">{currentSermon.title}</h1>
+          <p className="text-primary font-medium text-lg opacity-80">{currentSermon.category || 'Predică'}</p>
         </div>
 
         {/* Progress Bar Section */}
