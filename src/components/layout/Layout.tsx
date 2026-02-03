@@ -6,10 +6,13 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-[#FFFBF0]">
       <Header />
-      <main className="pb-32">
+      <main className="pb-24 md:pb-8">
         <Outlet />
       </main>
-      <BottomNav />
+      {/* Bottom nav only on mobile */}
+      <div className="md:hidden">
+        <BottomNav />
+      </div>
     </div>
   );
 }
