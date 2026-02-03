@@ -23,6 +23,7 @@ export interface AudioState {
   isLoading: boolean;
   currentTime: number;
   duration: number;
+  knownDuration: number; // Duration from sermon metadata (more reliable than browser-reported)
   volume: number;
   error: string | null;
 }

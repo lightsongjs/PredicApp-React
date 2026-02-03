@@ -9,11 +9,13 @@ const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAZpk9f
 
 export function MiniPlayer({ onExpand }: MiniPlayerProps) {
   const { currentSermon, state, play, pause, closePlayer } = useAudioContext();
-  const { isPlaying, isLoading, currentTime, duration } = state;
+  const { isPlaying, isLoading, currentTime, duration, knownDuration } = state;
 
   if (!currentSermon) return null;
 
-  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+  // Use knownDuration from sermon metadata if available (more reliable for opus files)
+  const displayDuration = knownDuration > 0 ? knownDuration : duration;
+  const progress = displayDuration > 0 ? (currentTime / displayDuration) * 100 : 0;
 
   const handlePlayPause = (e: React.MouseEvent) => {
     e.stopPropagation();

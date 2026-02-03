@@ -18,6 +18,7 @@ export function useAudio(src: string): UseAudioReturn {
     isLoading: false,
     currentTime: 0,
     duration: 0,
+    knownDuration: 0,
     volume: 0.6,
     error: null,
   });

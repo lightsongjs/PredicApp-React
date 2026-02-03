@@ -10,11 +10,13 @@ const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCrxfGY
 
 export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
   const { currentSermon, state, play, pause, seek, setVolume } = useAudioContext();
-  const { isPlaying, isLoading, currentTime, duration, volume } = state;
+  const { isPlaying, isLoading, currentTime, duration, knownDuration, volume } = state;
 
   if (!currentSermon) return null;
 
-  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+  // Use knownDuration from sermon metadata if available (more reliable for opus files)
+  const displayDuration = knownDuration > 0 ? knownDuration : duration;
+  const progress = displayDuration > 0 ? (currentTime / displayDuration) * 100 : 0;
 
   const handlePlayPause = () => {
     if (isPlaying) {
@@ -65,7 +67,7 @@ export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
             <input
               type="range"
               min="0"
-              max={duration || 100}
+              max={displayDuration || 100}
               step="0.1"
               value={currentTime}
               onChange={(e) => seek(parseFloat(e.target.value))}
@@ -80,7 +82,7 @@ export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
           </div>
           <div className="flex justify-between text-[11px] font-bold tracking-tighter opacity-50 uppercase text-[#1a0f10]">
             <span>{formatTime(currentTime)}</span>
-            <span>{formatTime(duration)}</span>
+            <span>{formatTime(displayDuration)}</span>
           </div>
         </div>
 

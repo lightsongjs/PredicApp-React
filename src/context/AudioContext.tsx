@@ -18,6 +18,7 @@ const defaultState: AudioState = {
   isLoading: false,
   currentTime: 0,
   duration: 0,
+  knownDuration: 0, // Duration from sermon metadata (reliable)
   volume: 1,
   error: null,
 };
@@ -71,6 +72,19 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
+  // Parse duration string like "24:00" to seconds
+  const parseDuration = (durationStr?: string): number => {
+    if (!durationStr) return 0;
+    const parts = durationStr.split(':').map(Number);
+    if (parts.length === 2) {
+      return parts[0] * 60 + parts[1];
+    }
+    if (parts.length === 3) {
+      return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    }
+    return 0;
+  };
+
   const loadSermon = useCallback((sermon: Sermon) => {
     if (!audioRef.current) return;
 
@@ -81,7 +95,10 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     audio.src = sermon.audio_url;
     audio.load();
     setCurrentSermon(sermon);
-    setState(s => ({ ...s, currentTime: 0, duration: 0, error: null }));
+
+    // Use sermon's known duration from metadata (more reliable than opus stream duration)
+    const knownDuration = parseDuration(sermon.duration);
+    setState(s => ({ ...s, currentTime: 0, duration: 0, knownDuration, error: null }));
 
     // Auto-play
     audio.play().catch(() => {
