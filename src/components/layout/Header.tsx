@@ -56,14 +56,11 @@ export default function Header() {
           onMouseEnter={() => setShowBuildInfo(true)}
           onMouseLeave={() => setShowBuildInfo(false)}
         >
-          <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-            <span className="material-symbols-outlined text-white">church</span>
-          </div>
+          <img src="/favicon.svg" alt="Orthodox Cross" className="w-10 h-10" />
           <div className="relative">
             <h1 className="font-serif text-xl font-bold text-primary">
-              Predicile Părintelui
+              Predici Padre
             </h1>
-            <p className="text-xs text-[#432818] opacity-70">Biserica Ortodoxă</p>
             {showBuildInfo && (
               <div className="absolute top-full left-0 mt-2 px-3 py-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-50">
                 Built: {getTimeAgo(buildTime)}
@@ -78,7 +75,7 @@ export default function Header() {
           onMouseEnter={() => setShowBuildInfo(true)}
           onMouseLeave={() => setShowBuildInfo(false)}
         >
-          Predicile Părintelui
+          Predici Padre
           {showBuildInfo && (
             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-50 font-sans font-normal">
               Built: {getTimeAgo(buildTime)}

@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { allSermons, allSeries, metadata } from '../data/sermonLoader';
 import { useAudioContext } from '../context/AudioContext';
 import HeroSermonCard from '../components/sermon/HeroSermonCard';
 import SermonList from '../components/sermon/SermonList';
 import SeriesCard from '../components/sermon/SeriesCard';
-import { MiniPlayer } from '../components/player/MiniPlayer';
-import { ExpandedPlayer } from '../components/player/ExpandedPlayer';
 import type { Sermon } from '../data/types';
 import {
   getThisSundaySermon,
@@ -46,8 +43,7 @@ const categoryData = [
 
 export default function Home() {
   const navigate = useNavigate();
-  const { currentSermon, loadSermon } = useAudioContext();
-  const [isPlayerExpanded, setIsPlayerExpanded] = useState(false);
+  const { loadSermon } = useAudioContext();
 
   // Get featured series (exclude the huge "Învățături Generale" which is too broad)
   const featuredSeries = allSeries.filter(s =>
@@ -71,7 +67,6 @@ export default function Home() {
 
   const handleSermonPlay = (sermon: Sermon) => {
     loadSermon(sermon);
-    setIsPlayerExpanded(false);
   };
 
   // Get category counts
@@ -201,15 +196,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Mini Player */}
-      {currentSermon && !isPlayerExpanded && (
-        <MiniPlayer onExpand={() => setIsPlayerExpanded(true)} />
-      )}
-
-      {/* Expanded Player */}
-      {currentSermon && isPlayerExpanded && (
-        <ExpandedPlayer onCollapse={() => setIsPlayerExpanded(false)} />
-      )}
     </div>
   );
 }

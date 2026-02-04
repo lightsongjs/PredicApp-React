@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('User Workflow - Click and Play', () => {
-  test('user clicks sermon and sees player with play button', async ({ page }) => {
+  test('user clicks sermon and sees MiniPlayer', async ({ page }) => {
     // Step 1: Go to homepage
     await page.goto('/');
     console.log('✓ Step 1: Homepage loaded');
@@ -18,84 +18,72 @@ test.describe('User Workflow - Click and Play', () => {
     await listenButton.click();
     console.log('✓ Step 3: Clicked button');
 
-    // Wait for navigation to player
-    await page.waitForURL(/\/player\/s\d+/);
-    console.log('✓ Step 4: Navigated to player page');
+    // Step 4: MiniPlayer should appear (not navigation)
+    await page.waitForTimeout(1000);
+    const miniPlayer = page.getByText('Acum se redă');
+    await expect(miniPlayer).toBeVisible({ timeout: 5000 });
+    console.log('✓ Step 4: MiniPlayer appeared');
 
-    // Take screenshot of player page
-    await page.screenshot({ path: 'test-results/02-player-page.png', fullPage: true });
+    // Take screenshot with MiniPlayer
+    await page.screenshot({ path: 'test-results/02-mini-player.png', fullPage: true });
 
-    // Step 5: Check what's visible on player page
-    console.log('\n=== PLAYER PAGE ANALYSIS ===');
+    // Step 5: Analyze MiniPlayer
+    console.log('\n=== MINI PLAYER ANALYSIS ===');
 
-    // Count all buttons
-    const allButtons = await page.locator('button').all();
-    console.log(`Total buttons found: ${allButtons.length}`);
+    // Check for play/pause button in MiniPlayer
+    const miniPlayerElement = page.locator('[class*="fixed"][class*="bottom"]').filter({ hasText: 'Acum se redă' });
+    const buttons = await miniPlayerElement.locator('button').count();
+    console.log(`Buttons in MiniPlayer: ${buttons}`);
 
-    // List all buttons
-    for (let i = 0; i < allButtons.length; i++) {
-      const buttonText = await allButtons[i].textContent();
-      const isVisible = await allButtons[i].isVisible();
-      console.log(`Button ${i + 1}: "${buttonText || '[icon only]'}" - Visible: ${isVisible}`);
-    }
+    // Step 6: Click MiniPlayer to expand
+    await miniPlayer.click();
+    await page.waitForTimeout(500);
+    console.log('✓ Step 5: Clicked MiniPlayer to expand');
 
-    // Check for play button specifically (it has a Play icon)
-    const playButtons = await page.locator('button').filter({
-      has: page.locator('svg')
-    }).all();
-    console.log(`\nButtons with SVG icons: ${playButtons.length}`);
+    // Take screenshot of expanded player
+    await page.screenshot({ path: 'test-results/03-expanded-player.png', fullPage: true });
 
-    // Check for large circular button (the main play button)
-    const largeButtons = await page.locator('button').filter({
-      has: page.locator('svg')
-    }).all();
+    // Step 7: Verify ExpandedPlayer
+    const expandedPlayer = page.locator('.fixed.inset-0.z-50');
+    await expect(expandedPlayer).toBeVisible();
+    console.log('✓ Step 6: ExpandedPlayer visible');
 
-    let playButtonFound = false;
-    for (const btn of largeButtons) {
+    // Check for large play button
+    const allButtons = await expandedPlayer.locator('button').all();
+    console.log(`\nTotal buttons in ExpandedPlayer: ${allButtons.length}`);
+
+    let largePlayFound = false;
+    for (const btn of allButtons) {
       const box = await btn.boundingBox();
-      if (box && box.width > 60 && box.height > 60) {
-        console.log(`\n✓ LARGE PLAY BUTTON FOUND: ${box.width}x${box.height}px`);
-        playButtonFound = true;
-
-        // Try to click it
-        await btn.click();
-        console.log('✓ Clicked play button');
-        await page.waitForTimeout(2000);
-
-        // Take screenshot after clicking
-        await page.screenshot({ path: 'test-results/03-after-play-click.png', fullPage: true });
-        break;
+      if (box && box.width > 50 && box.height > 50) {
+        console.log(`✓ Large button found: ${Math.round(box.width)}x${Math.round(box.height)}px`);
+        largePlayFound = true;
       }
     }
 
-    if (!playButtonFound) {
-      console.log('\n❌ LARGE PLAY BUTTON NOT FOUND!');
-    }
-
-    // Check for images
-    const images = await page.locator('img').all();
-    console.log(`\nImages found: ${images.length}`);
-    for (let i = 0; i < images.length; i++) {
-      const src = await images[i].getAttribute('src');
-      const alt = await images[i].getAttribute('alt');
-      console.log(`Image ${i + 1}: src="${src}", alt="${alt}"`);
-    }
-
-    // Check for the Orthodox cross SVG
-    const svgs = await page.locator('svg').all();
-    console.log(`\nSVG elements found: ${svgs.length}`);
-
-    // Check what text is visible
-    const sermonTitle = await page.getByText('Duminica Vameșului și Fariseului').isVisible();
-    console.log(`\nSermon title visible: ${sermonTitle}`);
-
-    const category = await page.getByText('Predici Liturgice').isVisible();
-    console.log(`Category visible: ${category}`);
-
     // Summary
     console.log('\n=== SUMMARY ===');
-    console.log(`Play button found: ${playButtonFound ? '✅ YES' : '❌ NO'}`);
-    console.log(`Images found: ${images.length}`);
-    console.log(`Sermon info visible: ${sermonTitle && category ? '✅ YES' : '❌ NO'}`);
+    console.log(`MiniPlayer shown: ✅ YES`);
+    console.log(`ExpandedPlayer shown: ✅ YES`);
+    console.log(`Large play button found: ${largePlayFound ? '✅ YES' : '❌ NO'}`);
+  });
+
+  test('user can navigate via bottom nav on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('/');
+
+    // Click on Bibliotecă in bottom nav (fixed at bottom)
+    const bottomNav = page.locator('nav.fixed.bottom-0');
+    await bottomNav.getByText('Bibliotecă').click();
+    await page.waitForURL('/library');
+    console.log('✓ Navigated to Library via bottom nav');
+
+    // Verify we're on library page
+    await expect(page.locator('h1').filter({ hasText: 'Biblioteca' })).toBeVisible();
+
+    // Click on Acasă to go back
+    await bottomNav.getByText('Acasă').click();
+    await page.waitForURL('/');
+    console.log('✓ Navigated back to Home via bottom nav');
   });
 });

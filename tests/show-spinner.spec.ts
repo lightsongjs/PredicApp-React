@@ -1,52 +1,26 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
-test('show spinning play button', async ({ page }) => {
-  console.log('Opening player page...');
-  await page.goto('/player/s004');
-  await page.waitForLoadState('networkidle');
+test('show loading state when playing', async ({ page }) => {
+  console.log('1. Navigate to homepage');
+  await page.goto('/');
 
-  console.log('\n=== WATCH THE PLAY BUTTON ===');
-  console.log('1. You should see a GOLD circle play button');
-  console.log('2. Click it and watch it SPIN while loading');
-  console.log('3. The spinner should replace the play icon');
+  console.log('2. Click play button');
+  await page.getByRole('button', { name: /Ascultă Acum/i }).click();
 
-  await page.waitForTimeout(3000);
+  console.log('3. Check MiniPlayer appears');
+  const miniPlayer = page.getByText('Acum se redă');
+  await expect(miniPlayer).toBeVisible({ timeout: 5000 });
 
-  console.log('\nClicking PLAY button now...');
-  const playButton = page.locator('button').filter({
-    has: page.locator('svg')
-  }).nth(6);
+  console.log('4. MiniPlayer is showing - check for loading/playing state');
 
-  await playButton.click();
+  // Take screenshot
+  await page.screenshot({ path: 'test-results/mini-player-loading.png' });
 
-  console.log('>>> BUTTON CLICKED - Watch for spinning animation! <<<');
+  // Check if there's a loading spinner or play button
+  const miniPlayerElement = page.locator('[class*="fixed"][class*="bottom"]').filter({ hasText: 'Acum se redă' });
+  const buttons = await miniPlayerElement.locator('button').count();
+  console.log(`5. Found ${buttons} button(s) in MiniPlayer`);
 
-  // Take screenshot of spinning button
-  await page.waitForTimeout(500);
-  await page.screenshot({ path: 'test-results/spinning-button.png' });
-
-  console.log('\nWaiting 10 seconds for you to observe...');
-  await page.waitForTimeout(10000);
-
-  // Check audio state
-  const audioState = await page.evaluate(() => {
-    const audios = document.querySelectorAll('audio');
-    if (audios.length > 0) {
-      return {
-        exists: true,
-        paused: audios[0].paused,
-        readyState: audios[0].readyState,
-        currentTime: audios[0].currentTime,
-        duration: audios[0].duration,
-        src: audios[0].src,
-      };
-    }
-    return { exists: false };
-  });
-
-  console.log('\n=== AUDIO STATE ===');
-  console.log(JSON.stringify(audioState, null, 2));
-
-  console.log('\nKeeping window open for another 20 seconds...');
-  await page.waitForTimeout(20000);
+  expect(buttons).toBeGreaterThan(0);
+  console.log('✅ Loading state test complete');
 });
