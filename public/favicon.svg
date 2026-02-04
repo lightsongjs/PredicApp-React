@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Orthodox Cross in Byzantine Red (#a22031) -->
+  <!-- Vertical beam -->
+  <rect x="43" y="8" width="14" height="84" rx="2" fill="#a22031"/>
+
+  <!-- Top horizontal beam -->
+  <rect x="32" y="22" width="36" height="10" rx="2" fill="#a22031"/>
+
+  <!-- Middle horizontal beam (main crossbar) -->
+  <rect x="26" y="42" width="48" height="12" rx="2" fill="#a22031"/>
+
+  <!-- Bottom slanted beam -->
+  <rect x="28" y="72" width="44" height="8" rx="2" fill="#a22031" transform="rotate(-15 50 76)"/>
+</svg>
