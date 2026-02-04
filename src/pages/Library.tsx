@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { allSermons, allSeries } from '../data/sermonLoader';
 import { useAudioContext } from '../context/AudioContext';
 import SermonList from '../components/sermon/SermonList';
@@ -41,7 +41,6 @@ const categoryNames: Record<string, string> = {
 };
 
 export default function Library() {
-  const navigate = useNavigate();
   const { loadSermon } = useAudioContext();
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedCategory = searchParams.get('category');

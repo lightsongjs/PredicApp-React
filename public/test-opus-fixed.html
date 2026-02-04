@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Opus Original vs Fixed Test</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .player { margin: 20px 0; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+    audio { width: 100%; }
+    h2 { margin-top: 0; }
+    .info { color: #666; font-size: 14px; margin-top: 10px; }
+    .status { font-weight: bold; margin-top: 10px; }
+    .good { color: green; }
+    .bad { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Opus: Original vs Re-encoded Test</h1>
+  <p>Testing if re-encoding with FFmpeg fixes the duration/looping issue.</p>
+
+  <div class="player">
+    <h2>Original Opus (from R2)</h2>
+    <audio id="original" controls preload="auto" src="https://prediciduminica-r2.lightsongjs.workers.dev/audio/Despre%20fratele%20fiului%20risipitor.opus">
+    </audio>
+    <div class="info" id="original-info">Loading...</div>
+    <div class="status" id="original-status"></div>
+  </div>
+
+  <div class="player">
+    <h2>Re-encoded Opus (FFmpeg fixed)</h2>
+    <audio id="fixed" controls preload="auto" src="/test-fixed.opus">
+    </audio>
+    <div class="info" id="fixed-info">Loading...</div>
+    <div class="status" id="fixed-status"></div>
+  </div>
+
+  <script>
+    function updateInfo(id, audio) {
+      const info = document.getElementById(id + '-info');
+      const status = document.getElementById(id + '-status');
+
+      const update = () => {
+        const dur = audio.duration;
+        info.innerHTML = `Duration: ${dur?.toFixed(2) || 'N/A'}s | ` +
+          `Current: ${audio.currentTime?.toFixed(2)}s | ` +
+          `ReadyState: ${audio.readyState} | ` +
+          `Buffered: ${audio.buffered.length > 0 ? audio.buffered.end(audio.buffered.length-1).toFixed(2) + 's' : 'none'}`;
+
+        // Check if duration is reasonable (> 1000s for this file which is ~34 min)
+        if (dur > 1000) {
+          status.innerHTML = 'GOOD: Duration looks correct!';
+          status.className = 'status good';
+        } else if (dur && dur < 100) {
+          status.innerHTML = 'BAD: Duration too short - metadata issue!';
+          status.className = 'status bad';
+        }
+      };
+
+      audio.addEventListener('loadedmetadata', () => {
+        console.log(`[${id}] Metadata loaded, duration: ${audio.duration}`);
+        update();
+      });
+      audio.addEventListener('durationchange', () => {
+        console.log(`[${id}] Duration changed: ${audio.duration}`);
+        update();
+      });
+      audio.addEventListener('canplaythrough', () => {
+        console.log(`[${id}] Can play through`);
+        update();
+      });
+      audio.addEventListener('timeupdate', update);
+      audio.addEventListener('error', (e) => {
+        console.error(`[${id}] Error:`, audio.error);
+        info.innerHTML = `Error: ${audio.error?.message || 'Unknown error'}`;
+        status.innerHTML = 'ERROR loading file';
+        status.className = 'status bad';
+      });
+    }
+
+    updateInfo('original', document.getElementById('original'));
+    updateInfo('fixed', document.getElementById('fixed'));
+  </script>
+</body>
+</html>
