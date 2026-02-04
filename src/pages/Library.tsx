@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
-import { allSermons } from '../data/sermonLoader';
+import { allSermons, allSeries } from '../data/sermonLoader';
+import { useAudioContext } from '../context/AudioContext';
 import SermonList from '../components/sermon/SermonList';
 import type { Sermon } from '../data/types';
 import sermonLibrary from '../../complete-sermon-library.json';
@@ -31,15 +32,26 @@ const categoryNames: Record<string, string> = {
 
 export default function Library() {
   const navigate = useNavigate();
+  const { loadSermon } = useAudioContext();
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedCategory = searchParams.get('category');
+  const selectedTab = searchParams.get('tab') || 'sermons';
+  const selectedSeriesId = searchParams.get('series');
   const urlSearchQuery = searchParams.get('search') || '';
   const [searchQuery, setSearchQuery] = useState(urlSearchQuery);
+  const [expandedSeries, setExpandedSeries] = useState<string | null>(selectedSeriesId);
 
   // Sync search query from URL when it changes
   useEffect(() => {
     setSearchQuery(urlSearchQuery);
   }, [urlSearchQuery]);
+
+  // Expand series from URL parameter
+  useEffect(() => {
+    if (selectedSeriesId) {
+      setExpandedSeries(selectedSeriesId);
+    }
+  }, [selectedSeriesId]);
 
   // Filter sermons by category and search
   const filteredSermons = useMemo(() => {
@@ -64,7 +76,7 @@ export default function Library() {
   }, [selectedCategory, searchQuery]);
 
   const handleSermonPlay = (sermon: Sermon) => {
-    navigate(`/player/${sermon.id}`);
+    loadSermon(sermon);
   };
 
   const handleCategoryClick = (category: string | null) => {
@@ -72,6 +84,28 @@ export default function Library() {
       setSearchParams({ category });
     } else {
       setSearchParams({});
+    }
+  };
+
+  const handleTabClick = (tab: string) => {
+    if (tab === 'sermons') {
+      setSearchParams({});
+    } else {
+      setSearchParams({ tab });
+    }
+  };
+
+  const handleSeriesToggle = (seriesId: string) => {
+    if (expandedSeries === seriesId) {
+      setExpandedSeries(null);
+    } else {
+      setExpandedSeries(seriesId);
+    }
+  };
+
+  const handlePlayAll = (seriesSermons: Sermon[]) => {
+    if (seriesSermons.length > 0) {
+      loadSermon(seriesSermons[0]);
     }
   };
 
@@ -92,75 +126,169 @@ export default function Library() {
           Biblioteca
         </h1>
         <p className="text-[#432818]/60">
-          {filteredSermons.length} predici {selectedCategory ? `în ${categoryNames[selectedCategory]}` : 'disponibile'}
+          {selectedTab === 'series'
+            ? `${allSeries.length} serii de predici`
+            : `${filteredSermons.length} predici ${selectedCategory ? `în ${categoryNames[selectedCategory]}` : 'disponibile'}`
+          }
         </p>
       </div>
 
-      {/* Search */}
-      <div className="mb-6">
-        <div className="relative">
-          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#432818]/40">
-            search
-          </span>
-          <input
-            type="text"
-            placeholder="Caută predici..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 rounded-xl border border-primary/10 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 text-[#432818]"
-          />
-        </div>
-      </div>
-
-      {/* Category Filters */}
-      <div className="mb-6 flex flex-wrap gap-2">
+      {/* Tab Navigation */}
+      <div className="mb-6 flex gap-1 bg-primary/5 p-1 rounded-xl w-fit">
         <button
-          onClick={() => handleCategoryClick(null)}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-            !selectedCategory
-              ? 'bg-primary text-white'
-              : 'bg-white border border-primary/20 text-[#432818] hover:bg-primary/5'
+          onClick={() => handleTabClick('sermons')}
+          className={`px-5 py-2 rounded-lg text-sm font-semibold transition-colors ${
+            selectedTab === 'sermons'
+              ? 'bg-white text-primary shadow-sm'
+              : 'text-[#432818]/60 hover:text-[#432818]'
           }`}
         >
-          Toate ({allSermons.length})
+          Predici
         </button>
-        {categories.map((cat) => (
-          <button
-            key={cat.key}
-            onClick={() => handleCategoryClick(cat.key)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              selectedCategory === cat.key
-                ? 'bg-primary text-white'
-                : 'bg-white border border-primary/20 text-[#432818] hover:bg-primary/5'
-            }`}
-          >
-            {cat.name} ({cat.count})
-          </button>
-        ))}
+        <button
+          onClick={() => handleTabClick('series')}
+          className={`px-5 py-2 rounded-lg text-sm font-semibold transition-colors ${
+            selectedTab === 'series'
+              ? 'bg-white text-primary shadow-sm'
+              : 'text-[#432818]/60 hover:text-[#432818]'
+          }`}
+        >
+          Serii
+        </button>
       </div>
 
-      {/* Breadcrumb when category is selected */}
-      {selectedCategory && (
-        <div className="mb-4 flex items-center gap-2 text-sm">
-          <Link to="/library" className="text-primary hover:underline">
-            Biblioteca
-          </Link>
-          <span className="text-[#432818]/40">/</span>
-          <span className="text-[#432818]">{categoryNames[selectedCategory]}</span>
+      {selectedTab === 'sermons' ? (
+        <>
+          {/* Search */}
+          <div className="mb-6">
+            <div className="relative">
+              <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#432818]/40">
+                search
+              </span>
+              <input
+                type="text"
+                placeholder="Caută predici..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 rounded-xl border border-primary/10 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 text-[#432818]"
+              />
+            </div>
+          </div>
+
+          {/* Category Filters */}
+          <div className="mb-6 flex flex-wrap gap-2">
+            <button
+              onClick={() => handleCategoryClick(null)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                !selectedCategory
+                  ? 'bg-primary text-white'
+                  : 'bg-white border border-primary/20 text-[#432818] hover:bg-primary/5'
+              }`}
+            >
+              Toate ({allSermons.length})
+            </button>
+            {categories.map((cat) => (
+              <button
+                key={cat.key}
+                onClick={() => handleCategoryClick(cat.key)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  selectedCategory === cat.key
+                    ? 'bg-primary text-white'
+                    : 'bg-white border border-primary/20 text-[#432818] hover:bg-primary/5'
+                }`}
+              >
+                {cat.name} ({cat.count})
+              </button>
+            ))}
+          </div>
+
+          {/* Breadcrumb when category is selected */}
+          {selectedCategory && (
+            <div className="mb-4 flex items-center gap-2 text-sm">
+              <Link to="/library" className="text-primary hover:underline">
+                Biblioteca
+              </Link>
+              <span className="text-[#432818]/40">/</span>
+              <span className="text-[#432818]">{categoryNames[selectedCategory]}</span>
+            </div>
+          )}
+
+          {/* Sermon List */}
+          <div className="bg-white rounded-2xl shadow-lg border border-primary/10 overflow-hidden">
+            {filteredSermons.length > 0 ? (
+              <SermonList sermons={filteredSermons} onSermonPlay={handleSermonPlay} />
+            ) : (
+              <div className="p-8 text-center">
+                <span className="material-symbols-outlined text-5xl text-[#432818]/20 mb-4">search_off</span>
+                <p className="text-[#432818]/60">Nu am găsit predici care să corespundă căutării.</p>
+              </div>
+            )}
+          </div>
+        </>
+      ) : (
+        /* Series Tab Content */
+        <div className="space-y-4">
+          {allSeries.map((series) => (
+            <div
+              key={series.id}
+              className="bg-white rounded-xl shadow-md border border-primary/10 overflow-hidden"
+            >
+              {/* Series Header */}
+              <div
+                className="flex items-center gap-4 p-4 cursor-pointer hover:bg-primary/5 transition-colors"
+                onClick={() => handleSeriesToggle(series.id)}
+              >
+                <div className="shrink-0 w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-primary text-2xl">playlist_play</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-[#432818] truncate">{series.name}</h3>
+                  <p className="text-sm text-[#432818]/60">{series.sermons.length} părți</p>
+                </div>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePlayAll(series.sermons);
+                  }}
+                  className="shrink-0 flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary-dark transition-colors"
+                >
+                  <span className="material-symbols-outlined text-lg">play_arrow</span>
+                  <span className="hidden sm:inline">Redă tot</span>
+                </button>
+                <span className={`material-symbols-outlined text-[#432818]/40 transition-transform ${expandedSeries === series.id ? 'rotate-180' : ''}`}>
+                  expand_more
+                </span>
+              </div>
+
+              {/* Expanded Series Content */}
+              {expandedSeries === series.id && (
+                <div className="border-t border-primary/10">
+                  {series.sermons.map((sermon, index) => (
+                    <div
+                      key={sermon.id}
+                      className="flex items-center gap-3 px-4 py-3 hover:bg-primary/5 transition-colors cursor-pointer border-b border-primary/5 last:border-b-0"
+                      onClick={() => handleSermonPlay(sermon)}
+                    >
+                      <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-medium text-primary">
+                        {index + 1}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[#432818] text-sm font-medium truncate">{sermon.title}</p>
+                        <p className="text-[#432818]/60 text-xs">
+                          {sermon.duration || 'Durată necunoscută'}
+                        </p>
+                      </div>
+                      <div className="shrink-0 flex items-center justify-center size-9 rounded-full border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all">
+                        <span className="material-symbols-outlined text-lg">play_arrow</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       )}
-
-      {/* Sermon List */}
-      <div className="bg-white rounded-2xl shadow-lg border border-primary/10 overflow-hidden">
-        {filteredSermons.length > 0 ? (
-          <SermonList sermons={filteredSermons} onSermonPlay={handleSermonPlay} />
-        ) : (
-          <div className="p-8 text-center">
-            <span className="material-symbols-outlined text-5xl text-[#432818]/20 mb-4">search_off</span>
-            <p className="text-[#432818]/60">Nu am găsit predici care să corespundă căutării.</p>
-          </div>
-        )}
-      </div>
     </div>
   );
 }

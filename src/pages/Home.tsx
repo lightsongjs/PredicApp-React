@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { allSermons, metadata } from '../data/sermonLoader';
+import { Link, useNavigate } from 'react-router-dom';
+import { allSermons, allSeries, metadata } from '../data/sermonLoader';
 import { useAudioContext } from '../context/AudioContext';
 import HeroSermonCard from '../components/sermon/HeroSermonCard';
 import SermonList from '../components/sermon/SermonList';
+import SeriesCard from '../components/sermon/SeriesCard';
 import { MiniPlayer } from '../components/player/MiniPlayer';
 import { ExpandedPlayer } from '../components/player/ExpandedPlayer';
 import type { Sermon } from '../data/types';
@@ -44,8 +45,14 @@ const categoryData = [
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
   const { currentSermon, loadSermon } = useAudioContext();
   const [isPlayerExpanded, setIsPlayerExpanded] = useState(false);
+
+  // Get featured series (exclude the huge "Învățături Generale" which is too broad)
+  const featuredSeries = allSeries.filter(s =>
+    s.name !== 'Învățături Generale' && s.sermons.length >= 2
+  ).slice(0, 6);
 
   // Get liturgical sermons for Sunday display
   const liturgicalSermons = getLiturgicalSermons(allSermons);
@@ -92,40 +99,33 @@ export default function Home() {
             <HeroSermonCard
               sermon={featuredSermon}
               onPlay={() => handleSermonPlay(featuredSermon)}
+              relatedSermons={relatedSermons.slice(1, 5)}
+              onRelatedPlay={handleSermonPlay}
             />
           </section>
 
-          {/* Related Sermons - Same theme from different years */}
-          {relatedSermons.length > 1 && (
+          {/* Series/Playlists Carousel */}
+          {featuredSeries.length > 0 && (
             <section className="mt-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-[#432818] text-lg md:text-xl font-serif font-bold">
-                  Alte Înregistrări pe Această Temă
-                </h3>
+                <h3 className="text-[#432818] text-lg md:text-xl font-serif font-bold">Serii de Predici</h3>
+                <Link to="/library?tab=series" className="text-primary text-sm font-semibold hover:underline">
+                  Vezi toate
+                </Link>
               </div>
-              <div className="bg-white rounded-xl border border-primary/10 overflow-hidden">
-                {relatedSermons.slice(1).map((sermon) => (
-                  <div
-                    key={sermon.id}
-                    className="flex items-center gap-4 px-4 py-3 hover:bg-primary/5 transition-colors cursor-pointer border-b border-primary/5 last:border-b-0"
-                    onClick={() => handleSermonPlay(sermon)}
-                  >
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[#432818] text-sm font-semibold truncate">{sermon.title}</p>
-                      <p className="text-[#432818]/60 text-xs mt-0.5">
-                        {sermon.year && `Înregistrat în ${sermon.year}`} • {sermon.duration}
-                      </p>
-                    </div>
-                    <div className="shrink-0 flex items-center justify-center size-10 rounded-full border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all">
-                      <span className="material-symbols-outlined text-xl">play_arrow</span>
-                    </div>
-                  </div>
+              <div className="flex overflow-x-auto snap-x scrollbar-hide gap-4 pb-4 -mx-4 px-4">
+                {featuredSeries.map((series) => (
+                  <SeriesCard
+                    key={series.id}
+                    series={series}
+                    onClick={() => navigate(`/library?tab=series&series=${series.id}`)}
+                  />
                 ))}
               </div>
             </section>
           )}
 
-          {/* Series/Categories */}
+          {/* Categories */}
           <section className="mt-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-[#432818] text-lg md:text-xl font-serif font-bold">Categorii</h3>

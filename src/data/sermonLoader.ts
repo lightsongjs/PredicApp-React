@@ -69,3 +69,42 @@ function loadAllSermons(): Sermon[] {
 
 export const allSermons = loadAllSermons();
 export const metadata = (sermonLibrary as unknown as SermonLibrary).metadata;
+
+// Series/Playlist type
+export interface Series {
+  id: string;
+  name: string;
+  description?: string;
+  sermons: Sermon[];
+  image?: string;
+}
+
+// Extract series from courses category
+function loadSeries(): Series[] {
+  const library = sermonLibrary as unknown as SermonLibrary;
+  const courses = library.categories.courses;
+
+  if (!courses || !courses.sermons) return [];
+
+  // Group sermons by subcategory (series name)
+  const seriesMap: Record<string, Sermon[]> = {};
+
+  for (const sermon of courses.sermons) {
+    const key = sermon.subcategory || 'Alte Cursuri';
+    if (!seriesMap[key]) seriesMap[key] = [];
+    seriesMap[key].push(transformSermon(sermon));
+  }
+
+  // Convert to Series array, sorted by number of sermons (descending)
+  const seriesArray: Series[] = Object.entries(seriesMap)
+    .map(([name, sermons]) => ({
+      id: name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
+      name,
+      sermons: sermons.sort((a, b) => (a.title > b.title ? 1 : -1)),
+    }))
+    .sort((a, b) => b.sermons.length - a.sermons.length);
+
+  return seriesArray;
+}
+
+export const allSeries = loadSeries();
