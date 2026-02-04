@@ -9,8 +9,8 @@ interface ExpandedPlayerProps {
 const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCrxfGYkpO8Nty6BU8HMTiF-5IIOI9JdPg9bvkSKLLEe-4av4X7IQ0eXjTm5SmPx9EYLknNj8prCQdMjbtb7rsppjNZKXKodk7S0iV5YsgzGxAnMMWuVIC1ch8Ic8Hi9I6Ry7J8RwabzcpUJSCi452jAOKdgXmsTQCbvt2yw302DL2UG4g-WnjyS5uq6ErijH0CFFEBkwXDKuxwcIlEqSeW6yoKDxgv9FGBORhyeYv4aEb5MNNBilKdtNI33Fh8c-p9zV0YSBGCHdde';
 
 export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
-  const { currentSermon, state, play, pause, seek, setVolume } = useAudioContext();
-  const { isPlaying, isLoading, currentTime, duration, knownDuration, volume } = state;
+  const { currentSermon, state, play, pause, seek } = useAudioContext();
+  const { isPlaying, isLoading, currentTime, duration, knownDuration } = state;
 
   if (!currentSermon) return null;
 
@@ -87,74 +87,27 @@ export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
         </div>
 
         {/* Playback Controls */}
-        <div className="flex flex-col gap-10">
-          <div className="flex items-center justify-between">
-            {/* Shuffle Toggle */}
-            <button className="text-[#D4AF37] hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-2xl">shuffle</span>
-            </button>
+        <div className="flex items-center justify-center gap-8">
+          <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
+            <span className="material-symbols-outlined text-4xl">skip_previous</span>
+          </button>
 
-            {/* Main Controls */}
-            <div className="flex items-center gap-8">
-              <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
-                <span className="material-symbols-outlined text-4xl">skip_previous</span>
-              </button>
+          <button
+            onClick={handlePlayPause}
+            className="size-20 bg-primary text-white rounded-full flex items-center justify-center play-btn-shadow hover:scale-105 transition-transform"
+          >
+            {isLoading ? (
+              <div className="w-8 h-8 border-3 border-white/30 border-t-white rounded-full animate-spin" />
+            ) : (
+              <span className="material-symbols-outlined text-5xl">
+                {isPlaying ? 'pause' : 'play_arrow'}
+              </span>
+            )}
+          </button>
 
-              <button
-                onClick={handlePlayPause}
-                className="size-20 bg-primary text-white rounded-full flex items-center justify-center play-btn-shadow hover:scale-105 transition-transform"
-              >
-                {isLoading ? (
-                  <div className="w-8 h-8 border-3 border-white/30 border-t-white rounded-full animate-spin" />
-                ) : (
-                  <span className="material-symbols-outlined text-5xl">
-                    {isPlaying ? 'pause' : 'play_arrow'}
-                  </span>
-                )}
-              </button>
-
-              <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
-                <span className="material-symbols-outlined text-4xl">skip_next</span>
-              </button>
-            </div>
-
-            {/* Repeat Toggle */}
-            <button className="opacity-30 hover:opacity-60 transition-opacity text-[#1a0f10]">
-              <span className="material-symbols-outlined text-2xl">repeat</span>
-            </button>
-          </div>
-
-          {/* Bottom Utility Row */}
-          <div className="flex items-center justify-between px-2 pt-4">
-            <button className="opacity-60 hover:opacity-100 transition-opacity text-[#1a0f10]">
-              <span className="material-symbols-outlined">devices</span>
-            </button>
-
-            <div className="flex-1 mx-8 flex items-center gap-3">
-              <span className="material-symbols-outlined text-sm opacity-40 text-[#1a0f10]">volume_down</span>
-              <div className="flex-1 h-1 bg-gray-200 rounded-full relative">
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.01"
-                  value={volume}
-                  onChange={(e) => setVolume(parseFloat(e.target.value))}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                  style={{ margin: 0 }}
-                />
-                <div
-                  className="absolute top-0 left-0 h-full bg-black/20 rounded-full"
-                  style={{ width: `${volume * 100}%` }}
-                />
-              </div>
-              <span className="material-symbols-outlined text-sm opacity-40 text-[#1a0f10]">volume_up</span>
-            </div>
-
-            <button className="opacity-60 hover:opacity-100 transition-opacity text-[#1a0f10]">
-              <span className="material-symbols-outlined">queue_music</span>
-            </button>
-          </div>
+          <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
+            <span className="material-symbols-outlined text-4xl">skip_next</span>
+          </button>
         </div>
       </main>
 
