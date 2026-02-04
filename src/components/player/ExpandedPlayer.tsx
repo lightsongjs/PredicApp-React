@@ -44,10 +44,10 @@ export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
         </button>
       </header>
 
-      <main className="flex-1 flex flex-col px-8 pb-12 max-w-md mx-auto w-full">
+      <main className="flex-1 flex flex-col px-8 pb-6 max-w-md mx-auto w-full justify-center">
         {/* Central Album Art */}
-        <div className="mt-4 mb-10 group">
-          <div className="aspect-square w-full rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+        <div className="mb-6 group">
+          <div className="aspect-square w-full max-h-[40vh] rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] mx-auto" style={{ maxWidth: '40vh' }}>
             <div
               className="w-full h-full bg-center bg-no-repeat bg-cover"
               style={{ backgroundImage: `url("${backgroundImage}")` }}
@@ -56,13 +56,13 @@ export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
         </div>
 
         {/* Sermon Title and Speaker */}
-        <div className="text-center mb-10">
-          <h1 className="font-serif text-3xl mb-2 text-[#1a0f10] leading-tight">{currentSermon.title}</h1>
-          <p className="text-primary font-medium text-lg opacity-80">{currentSermon.category || 'Predică'}</p>
+        <div className="text-center mb-6">
+          <h1 className="font-serif text-2xl mb-1 text-[#1a0f10] leading-tight">{currentSermon.title}</h1>
+          <p className="text-primary font-medium text-base opacity-80">{currentSermon.category || 'Predică'}</p>
         </div>
 
         {/* Progress Bar Section */}
-        <div className="flex flex-col gap-2 mb-8">
+        <div className="flex flex-col gap-2 mb-6">
           <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden relative">
             <input
               type="range"
