@@ -15,6 +15,8 @@ interface JsonSermon {
   type?: string;
   paschaOffset?: number | null;
   keywords?: string[];
+  partNumber?: number;
+  totalParts?: number;
 }
 
 interface CategoryData {
@@ -48,6 +50,7 @@ function transformSermon(json: JsonSermon): Sermon {
     duration: json.duration,
     year: json.recordingYear ?? json.year,
     liturgicalDate: json.date,
+    partNumber: json.partNumber,
   };
 }
 
@@ -100,7 +103,7 @@ function loadSeries(): Series[] {
     .map(([name, sermons]) => ({
       id: name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
       name,
-      sermons: sermons.sort((a, b) => (a.title > b.title ? 1 : -1)),
+      sermons: sermons.sort((a, b) => (a.partNumber || 0) - (b.partNumber || 0)),
     }))
     .sort((a, b) => b.sermons.length - a.sermons.length);
 

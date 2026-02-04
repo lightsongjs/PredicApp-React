@@ -16,6 +16,7 @@ export interface Sermon {
   liturgicalDate?: string;
   year?: number;  // Year the sermon was recorded
   image?: string;  // Image URL for sermon artwork
+  partNumber?: number;  // Part number in a series
 }
 
 export interface AudioState {
