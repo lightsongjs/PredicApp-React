@@ -44,6 +44,18 @@ export function useAudio(src: string): UseAudioReturn {
       }));
     };
 
+    // Handle duration updates - opus files often report wrong initial duration
+    // Chrome updates it as more data is buffered
+    const handleDurationChange = () => {
+      if (audio.duration && isFinite(audio.duration)) {
+        console.log('📏 [useAudio] Duration changed:', audio.duration);
+        setState(prev => ({
+          ...prev,
+          duration: audio.duration,
+        }));
+      }
+    };
+
     const handleTimeUpdate = () => {
       setState(prev => ({
         ...prev,
@@ -101,6 +113,7 @@ export function useAudio(src: string): UseAudioReturn {
     audio.addEventListener('loadstart', handleLoadStart);
     audio.addEventListener('loadedmetadata', handleLoadedMetadata);
     audio.addEventListener('loadeddata', handleLoadedData);
+    audio.addEventListener('durationchange', handleDurationChange);
     audio.addEventListener('canplay', handleCanPlay);
     audio.addEventListener('playing', handlePlaying);
     audio.addEventListener('timeupdate', handleTimeUpdate);
@@ -115,6 +128,7 @@ export function useAudio(src: string): UseAudioReturn {
       audio.removeEventListener('loadstart', handleLoadStart);
       audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
       audio.removeEventListener('loadeddata', handleLoadedData);
+      audio.removeEventListener('durationchange', handleDurationChange);
       audio.removeEventListener('canplay', handleCanPlay);
       audio.removeEventListener('playing', handlePlaying);
       audio.removeEventListener('timeupdate', handleTimeUpdate);
@@ -139,23 +153,58 @@ export function useAudio(src: string): UseAudioReturn {
       return;
     }
 
+    const audio = audioRef.current;
+
     try {
       console.log('🔄 [useAudio] Setting loading state...');
       setState(prev => ({ ...prev, isLoading: true, error: null }));
 
-      const readyState = audioRef.current.readyState;
+      const readyState = audio.readyState;
       console.log('📊 [useAudio] Current readyState:', readyState, '(0=nothing, 1=metadata, 2=current, 3=future, 4=enough)');
 
-      // Load the audio if not already loaded
-      if (readyState < 2) {
-        console.log('🔄 [useAudio] ReadyState < 2, calling load()...');
-        audioRef.current.load();
+      // Wait for enough data to be buffered before playing
+      // This prevents the looping issue with opus files
+      if (readyState < 4) {
+        console.log('⏳ [useAudio] Waiting for canplaythrough (enough data buffered)...');
+
+        await new Promise<void>((resolve, reject) => {
+          const timeout = setTimeout(() => {
+            console.log('⚠️ [useAudio] Timeout waiting for buffer, attempting play anyway...');
+            audio.removeEventListener('canplaythrough', onReady);
+            audio.removeEventListener('error', onError);
+            resolve();
+          }, 5000);
+
+          const onReady = () => {
+            console.log('✅ [useAudio] canplaythrough - enough data buffered');
+            clearTimeout(timeout);
+            audio.removeEventListener('canplaythrough', onReady);
+            audio.removeEventListener('error', onError);
+            resolve();
+          };
+
+          const onError = () => {
+            clearTimeout(timeout);
+            audio.removeEventListener('canplaythrough', onReady);
+            audio.removeEventListener('error', onError);
+            reject(new Error('Audio loading failed'));
+          };
+
+          audio.addEventListener('canplaythrough', onReady);
+          audio.addEventListener('error', onError);
+
+          // Trigger load if needed
+          if (readyState < 2) {
+            console.log('🔄 [useAudio] ReadyState < 2, calling load()...');
+            audio.load();
+          }
+        });
       } else {
-        console.log('✅ [useAudio] Audio already loaded, readyState:', readyState);
+        console.log('✅ [useAudio] Audio already buffered, readyState:', readyState);
       }
 
       console.log('🎵 [useAudio] Calling audio.play()...');
-      const playPromise = audioRef.current.play();
+      const playPromise = audio.play();
 
       console.log('⏳ [useAudio] Waiting for play() promise...');
       await playPromise;

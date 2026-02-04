@@ -10,9 +10,26 @@ interface AudioPlayerProps {
   onClose: () => void;
 }
 
+// Parse duration string like "24:00" or "1:30:00" to seconds
+function parseDuration(durationStr?: string): number {
+  if (!durationStr) return 0;
+  const parts = durationStr.split(':').map(Number);
+  if (parts.length === 2) {
+    return parts[0] * 60 + parts[1];
+  }
+  if (parts.length === 3) {
+    return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  }
+  return 0;
+}
+
 export default function AudioPlayer({ sermon, onClose }: AudioPlayerProps) {
   console.log('🎬 [AudioPlayer] Rendering with sermon:', sermon.title);
   const { play, pause, seek, setVolume, skipForward, skipBackward, state } = useAudio(sermon.audio_url);
+
+  // Use sermon metadata duration if available (more reliable than opus stream duration)
+  const knownDuration = parseDuration(sermon.duration);
+  const displayDuration = knownDuration > 0 ? knownDuration : state.duration;
 
   console.log('📊 [AudioPlayer] Current state:', {
     isPlaying: state.isPlaying,
@@ -133,7 +150,7 @@ export default function AudioPlayer({ sermon, onClose }: AudioPlayerProps) {
           {/* Progress bar - full width like Spotify */}
           <ProgressBar
             currentTime={state.currentTime}
-            duration={state.duration}
+            duration={displayDuration}
             onSeek={seek}
           />
 
