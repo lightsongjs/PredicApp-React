@@ -30,3 +30,22 @@ playwright/.cache/
 
 # Backup files
 *.backup
+
+# Test files and scripts
+test-*.mjs
+test-*.opus
+test-*.png
+test-videos/
+*.mjs
+!vite.config.mjs
+
+# Screenshots
+screenshot-*.png
+
+# Wrangler
+.wrangler/
+
+# Temporary files
+opus-files-to-delete.txt
+public/test-*.opus
+public/test-*.html
