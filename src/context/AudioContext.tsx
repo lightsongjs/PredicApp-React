@@ -92,7 +92,10 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       setState(s => ({ ...s, isPlaying: true }));
     };
     const handlePause = () => {
-      console.log('[Audio] pause event');
+      console.log('[Audio] pause event - currentTime:', audio.currentTime, 'duration:', audio.duration);
+      console.log('[Audio] pause - readyState:', audio.readyState, 'ended:', audio.ended);
+      // Log stack trace to see what triggered the pause
+      console.trace('[Audio] pause stack trace');
       setState(s => ({ ...s, isPlaying: false }));
     };
     const handleTimeUpdate = () => setState(s => ({ ...s, currentTime: audio.currentTime }));
@@ -104,12 +107,28 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       setState(s => ({ ...s, error: `Audio error: ${error?.message || 'Unknown'}`, isLoading: false }));
     };
     const handleEnded = () => {
-      console.log('[Audio] ended');
+      console.log('[Audio] ended at currentTime:', audio.currentTime, 'duration:', audio.duration);
+      console.log('[Audio] ended - readyState:', audio.readyState, 'networkState:', audio.networkState);
+      console.log('[Audio] ended - paused:', audio.paused, 'ended:', audio.ended);
       setState(s => ({ ...s, isPlaying: false }));
     };
-    const handleStalled = () => console.log('[Audio] stalled - network issue?');
-    const handleWaiting = () => console.log('[Audio] waiting - buffering...');
-    const handleSuspend = () => console.log('[Audio] suspend');
+    const handleStalled = () => {
+      console.log('[Audio] stalled - network issue?');
+      console.log('[Audio] stalled - currentTime:', audio.currentTime, 'buffered:', audio.buffered.length > 0 ? `${audio.buffered.start(0)}-${audio.buffered.end(0)}` : 'none');
+    };
+    const handleWaiting = () => {
+      console.log('[Audio] waiting - buffering...');
+      console.log('[Audio] waiting - currentTime:', audio.currentTime, 'readyState:', audio.readyState);
+    };
+    const handleSuspend = () => {
+      console.log('[Audio] suspend - currentTime:', audio.currentTime, 'paused:', audio.paused);
+    };
+    const handleAbort = () => {
+      console.log('[Audio] abort - playback was aborted');
+    };
+    const handleEmptied = () => {
+      console.log('[Audio] emptied - media resource emptied');
+    };
 
     audio.addEventListener('loadstart', handleLoadStart);
     audio.addEventListener('canplay', handleCanPlay);
@@ -123,6 +142,8 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     audio.addEventListener('stalled', handleStalled);
     audio.addEventListener('waiting', handleWaiting);
     audio.addEventListener('suspend', handleSuspend);
+    audio.addEventListener('abort', handleAbort);
+    audio.addEventListener('emptied', handleEmptied);
 
     return () => {
       audio.removeEventListener('loadstart', handleLoadStart);
@@ -137,6 +158,8 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       audio.removeEventListener('stalled', handleStalled);
       audio.removeEventListener('waiting', handleWaiting);
       audio.removeEventListener('suspend', handleSuspend);
+      audio.removeEventListener('abort', handleAbort);
+      audio.removeEventListener('emptied', handleEmptied);
       audio.pause();
       audio.src = '';
     };

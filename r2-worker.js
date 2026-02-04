@@ -20,8 +20,28 @@ export default {
     }
 
     try {
-      // Get object from R2
-      const object = await env.R2_BUCKET.get(key);
+      // Parse range header BEFORE fetching
+      const rangeHeader = request.headers.get('Range');
+      let rangeOptions = undefined;
+      let start = 0;
+      let end = undefined;
+
+      if (rangeHeader) {
+        const match = rangeHeader.match(/bytes=(\d+)-(\d*)/);
+        if (match) {
+          start = parseInt(match[1]);
+          end = match[2] ? parseInt(match[2]) : undefined;
+
+          // R2 range option: offset and optional length
+          rangeOptions = {
+            offset: start,
+            length: end !== undefined ? end - start + 1 : undefined,
+          };
+        }
+      }
+
+      // Get object from R2 with optional range
+      const object = await env.R2_BUCKET.get(key, { range: rangeOptions });
 
       if (object === null) {
         return new Response('File not found', { status: 404 });
@@ -32,30 +52,26 @@ export default {
       object.writeHttpMetadata(headers);
       headers.set('etag', object.httpEtag);
       headers.set('Access-Control-Allow-Origin', '*');
-      headers.set('Cache-Control', 'public, max-age=31536000'); // Cache for 1 year
+      headers.set('Cache-Control', 'public, max-age=31536000');
+      headers.set('Accept-Ranges', 'bytes');
 
-      // Support range requests for audio seeking
-      const rangeHeader = request.headers.get('Range');
-      if (rangeHeader) {
-        headers.set('Accept-Ranges', 'bytes');
-        // Parse range header and return partial content
-        const range = rangeHeader.match(/bytes=(\d+)-(\d*)/);
-        if (range) {
-          const start = parseInt(range[1]);
-          const end = range[2] ? parseInt(range[2]) : object.size - 1;
-          const length = end - start + 1;
+      // Handle range response
+      if (rangeHeader && rangeOptions) {
+        // For range requests, end defaults to file size - 1
+        const actualEnd = end !== undefined ? end : object.size - 1;
+        const contentLength = actualEnd - start + 1;
 
-          headers.set('Content-Range', `bytes ${start}-${end}/${object.size}`);
-          headers.set('Content-Length', length.toString());
+        headers.set('Content-Range', `bytes ${start}-${actualEnd}/${object.size}`);
+        headers.set('Content-Length', contentLength.toString());
 
-          return new Response(object.body, {
-            status: 206,
-            headers,
-          });
-        }
+        return new Response(object.body, {
+          status: 206,
+          headers,
+        });
       }
 
       // Return full file
+      headers.set('Content-Length', object.size.toString());
       return new Response(object.body, {
         headers,
       });

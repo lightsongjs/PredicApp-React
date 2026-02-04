@@ -232,3 +232,122 @@ This is acceptable because:
 ### Key Takeaway
 
 **Opus files need proper Ogg container metadata to work correctly in browsers. Always re-encode with FFmpeg using libopus if you encounter duration/playback issues.**
+
+---
+
+## Cloudflare R2 Worker Range Request Bug (Critical)
+
+**Date:** February 2026
+**Time spent debugging:** ~2 hours
+
+### The Problem
+
+Audio would **loop the first ~3 seconds** endlessly while the progress bar kept advancing. Seeking appeared to work (206 responses returned), but audio kept repeating the beginning.
+
+### Root Cause
+
+**The R2 Worker was returning the FULL file body while claiming to return a partial range.**
+
+```js
+// ❌ WRONG - Returns full file, lies about Content-Range
+const object = await env.R2_BUCKET.get(key);  // Gets FULL object
+
+if (rangeHeader) {
+  headers.set('Content-Range', `bytes ${start}-${end}/${size}`);
+  return new Response(object.body, { status: 206 });  // Body is FULL, not sliced!
+}
+```
+
+The browser trusted the `Content-Range` header but received the same initial bytes repeatedly, causing the decoder to replay the same Opus pages.
+
+### Why This Is Subtle
+
+- HTTP response returns `206 Partial Content` ✅
+- `Content-Range` header looks correct ✅
+- `Content-Length` header looks correct ✅
+- But the **body is wrong** - it's the full file, not the requested slice
+
+### The Solution
+
+**R2 requires requesting the range WHEN FETCHING, not after:**
+
+```js
+// ✅ CORRECT - Request the range from R2 directly
+const rangeOptions = rangeHeader ? {
+  offset: start,
+  length: end - start + 1
+} : undefined;
+
+const object = await env.R2_BUCKET.get(key, { range: rangeOptions });
+
+// Now object.body contains ONLY the requested bytes
+return new Response(object.body, { status: 206, headers });
+```
+
+### Headers Checklist for Audio Streaming
+
+For proper audio seeking, ALL responses must include:
+
+| Header | Non-Range Request | Range Request |
+|--------|-------------------|---------------|
+| `Accept-Ranges` | `bytes` | `bytes` |
+| `Content-Length` | Full file size | Partial size (`end - start + 1`) |
+| `Content-Range` | Not needed | `bytes start-end/total` |
+| Status Code | `200` | `206` |
+
+### How to Verify Range Requests Work
+
+```bash
+# Request bytes 500000 onwards
+curl -I -H "Range: bytes=500000-" "https://your-worker.workers.dev/audio/file.opus"
+
+# Verify response:
+# - Status: 206 Partial Content
+# - Content-Range: bytes 500000-XXXXX/TOTAL (NOT bytes 0-...)
+# - Content-Length: TOTAL - 500000 (NOT full file size)
+```
+
+### Why Opus Is More Sensitive Than MP3
+
+- **MP3**: Frame-based, can recover mid-stream, more forgiving
+- **Opus in Ogg**: Page-granule based, strongly dependent on correct byte offsets
+- Replaying the same Opus pages = audible loop, while MP3 might sound like stuttering
+
+### Key Takeaway
+
+**When serving audio from R2 with range support, you MUST use `env.R2_BUCKET.get(key, { range: { offset, length } })` to fetch only the requested bytes. You cannot slice the body after fetching the full object.**
+
+---
+
+## CSS Specificity with Tailwind Custom Classes
+
+**Date:** February 2026
+
+### The Problem
+
+Play button icon disappeared on hover - background turned red (primary) but icon stayed red too, making it invisible.
+
+### Root Cause
+
+Custom CSS class `.text-primary` in `index.css` was overriding Tailwind's generated `group-hover/btn:text-white` utility due to CSS specificity or load order.
+
+### The Solution
+
+Two approaches:
+
+1. **Use a dedicated class with `!important`** (what we did):
+```css
+/* index.css */
+.group:hover .play-btn span,
+.play-btn:hover span {
+  color: white !important;
+}
+```
+
+Then add `play-btn` class to all play buttons.
+
+2. **Avoid mixing custom CSS classes with Tailwind utilities** on the same property.
+
+### Key Takeaway
+
+**When mixing custom CSS with Tailwind, be aware of specificity conflicts. Using a dedicated class with `!important` for critical hover states is a reliable solution.**
