@@ -21,6 +21,16 @@ interface SermonLibrary {
 
 const library = sermonLibrary as unknown as SermonLibrary;
 
+// Normalize Romanian diacritics for search
+function normalizeText(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[ăâ]/g, 'a')
+    .replace(/[î]/g, 'i')
+    .replace(/[șş]/g, 's')
+    .replace(/[țţ]/g, 't');
+}
+
 // Category display names - must match actual sermon.category values
 const categoryNames: Record<string, string> = {
   liturgical: 'Predici Liturgice',
@@ -63,12 +73,12 @@ export default function Library() {
       sermons = sermons.filter(s => s.category === categoryName);
     }
 
-    // Filter by search query
+    // Filter by search query (diacritic-insensitive)
     if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
+      const query = normalizeText(searchQuery);
       sermons = sermons.filter(s =>
-        s.title.toLowerCase().includes(query) ||
-        s.category.toLowerCase().includes(query)
+        normalizeText(s.title).includes(query) ||
+        normalizeText(s.category).includes(query)
       );
     }
 
