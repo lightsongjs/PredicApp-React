@@ -42,8 +42,8 @@ export default function SermonCard({ sermon, onPlay }: SermonCardProps) {
       </div>
 
       {/* Play Button */}
-      <div className="shrink-0 flex items-center justify-center size-10 rounded-full border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all">
-        <span className="material-symbols-outlined text-[24px]">play_circle</span>
+      <div className="play-btn shrink-0 flex items-center justify-center size-10 rounded-full border border-primary/20 bg-white group-hover:bg-primary transition-all">
+        <span className="material-symbols-outlined text-[24px] text-primary transition-colors">play_arrow</span>
       </div>
     </div>
   );

@@ -287,8 +287,8 @@ export default function Library() {
                           {sermon.duration || 'Durată necunoscută'}
                         </p>
                       </div>
-                      <div className="shrink-0 flex items-center justify-center size-9 rounded-full border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all">
-                        <span className="material-symbols-outlined text-lg">play_arrow</span>
+                      <div className="shrink-0 group/btn flex items-center justify-center size-9 rounded-full border border-primary/20 bg-white hover:bg-primary transition-all">
+                        <span className="material-symbols-outlined text-lg text-primary group-hover/btn:text-white transition-colors">play_arrow</span>
                       </div>
                     </div>
                   ))}
