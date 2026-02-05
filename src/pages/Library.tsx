@@ -31,6 +31,26 @@ function normalizeText(text: string): string {
     .replace(/[țţ]/g, 't');
 }
 
+// Natural sort: compare strings so embedded numbers sort numerically
+// e.g. "Duminica a 3-a" < "Duminica a 27-a" < "Duminica a 29-a" < "Duminica a 30-a"
+function naturalCompare(a: string, b: string): number {
+  const ax = a.match(/(\d+|\D+)/g) || [];
+  const bx = b.match(/(\d+|\D+)/g) || [];
+  for (let i = 0; i < Math.max(ax.length, bx.length); i++) {
+    if (i >= ax.length) return -1;
+    if (i >= bx.length) return 1;
+    const an = parseInt(ax[i], 10);
+    const bn = parseInt(bx[i], 10);
+    if (!isNaN(an) && !isNaN(bn)) {
+      if (an !== bn) return an - bn;
+    } else {
+      const cmp = ax[i].localeCompare(bx[i], 'ro');
+      if (cmp !== 0) return cmp;
+    }
+  }
+  return 0;
+}
+
 // Category display names - must match actual sermon.category values
 const categoryNames: Record<string, string> = {
   liturgical: 'Predici Liturgice',
@@ -81,7 +101,7 @@ export default function Library() {
       );
     }
 
-    return sermons;
+    return sermons.sort((a, b) => naturalCompare(a.title, b.title));
   }, [selectedCategory, searchQuery]);
 
   const handleSermonPlay = (sermon: Sermon) => {
