@@ -69,19 +69,23 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Mobile: Centered Title */}
-        <h2
-          className="md:hidden text-primary text-xl font-serif font-bold leading-tight tracking-tight flex-1 text-center cursor-pointer relative"
+        {/* Mobile: Logo and Title */}
+        <Link
+          to="/"
+          className="md:hidden flex items-center gap-2 flex-1 justify-center cursor-pointer relative"
           onMouseEnter={() => setShowBuildInfo(true)}
           onMouseLeave={() => setShowBuildInfo(false)}
         >
-          Predici Padre
+          <img src="/favicon.svg" alt="Orthodox Cross" className="w-8 h-8" />
+          <h2 className="text-primary text-xl font-serif font-bold leading-tight tracking-tight">
+            Predici Padre
+          </h2>
           {showBuildInfo && (
             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-50 font-sans font-normal">
               Built: {getTimeAgo(buildTime)}
             </div>
           )}
-        </h2>
+        </Link>
 
         {/* Desktop: Navigation */}
         <nav className="hidden md:flex items-center gap-1">
