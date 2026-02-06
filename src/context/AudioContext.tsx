@@ -210,7 +210,8 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     setCurrentSermon(sermon);
 
     // Set new source - this triggers load automatically
-    audio.src = sermon.audio_url;
+    // Use encodeURI to properly encode special characters (diacritics) in filenames
+    audio.src = encodeURI(sermon.audio_url);
 
     // Play when enough data is buffered
     const playWhenReady = () => {

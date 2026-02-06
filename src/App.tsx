@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AudioProvider } from './context/AudioContext';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
@@ -14,6 +14,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="library" element={<Library />} />
+            <Route path="search" element={<Navigate to="/library" replace />} />
             <Route path="player/:sermonId" element={<Player />} />
             <Route path="*" element={<NotFound />} />
           </Route>
