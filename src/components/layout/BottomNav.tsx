@@ -5,9 +5,7 @@ export default function BottomNav() {
 
   const tabs = [
     { name: 'Acasă', icon: 'home', path: '/' },
-    { name: 'Căutare', icon: 'search', path: '/search' },
     { name: 'Bibliotecă', icon: 'library_music', path: '/library' },
-    { name: 'Setări', icon: 'settings', path: '/settings' },
   ];
 
   return (
