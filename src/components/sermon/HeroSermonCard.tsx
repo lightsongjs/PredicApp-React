@@ -11,6 +11,17 @@ export default function HeroSermonCard({ sermon, onPlay, relatedSermons = [], on
   // Default Byzantine icon if sermon doesn't have one
   const sermonImage = sermon.image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzSBbPQtWbGTySS5VBFd0eFMXU_-XglPITi1prQRByCBJQLpwPReVm5tUnH7RiWGkaieo4YxkP6DE5nVPSAW9c-xRIdcE-aBufsp9mb2rIhorvPtIEF1hHJ5FYTV2gqNLBWNcP8kWMpnuAzVjRYqkPXkAQg7o0qPrIGe58ICU8k8eC6_WmJiihy4g17rPDcj5W7Kg2PTns5NoHMkdfW45Pm69VSrE-P2ecgs84YNgaLYqo0B3EmgzjEy9XgblqmObPSHAe9ZH94_zW';
 
+  // Extract the actual recording name from the audio URL
+  const recordingName = (() => {
+    try {
+      const url = new URL(sermon.audio_url);
+      const filename = decodeURIComponent(url.pathname.split('/').pop() || '');
+      return filename.replace(/\.opus$/, '');
+    } catch {
+      return '';
+    }
+  })();
+
   return (
     <div className="rounded-xl overflow-hidden shadow-lg bg-white border border-[#D4AF37]/20">
       {/* Main Content - Compact horizontal layout */}
@@ -28,8 +39,13 @@ export default function HeroSermonCard({ sermon, onPlay, relatedSermons = [], on
           <h2 className="text-[#432818] text-lg md:text-xl font-serif font-bold leading-tight mb-2">
             {sermon.title}
           </h2>
-          <p className="text-[#432818]/60 text-sm mb-3">
-            {sermon.duration && `${sermon.duration} • `}Predica de la Sfânta Liturghie
+          {recordingName && (
+            <p className="text-[#432818]/80 text-sm mb-1">
+              {recordingName}
+            </p>
+          )}
+          <p className="text-[#432818]/60 text-xs mb-3">
+            {sermon.duration}
           </p>
           <button
             onClick={onPlay}
