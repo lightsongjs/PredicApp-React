@@ -6545,12 +6545,12 @@
         },
         {
           "id": "topical-16",
-          "title": "Predică la Duminica a 34-a după Rusalii - 2018",
+          "title": "Predică la Duminica a 34-a după Rusalii (a Întoarcerii Fiului risipitor) - 2018",
           "category": "Învățături Tematice",
           "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2018.opus",
           "duration": "21:00",
           "fileSize": 22375443,
-          "recordingYear": null,
+          "recordingYear": 2018,
           "paschaOffset": -63,
           "keywords": [
             "duminică",
@@ -6562,12 +6562,12 @@
         },
         {
           "id": "topical-17",
-          "title": "Predică la Duminica a 34-a după Rusalii - 2019",
+          "title": "Predică la Duminica a 34-a după Rusalii (a Întoarcerii Fiului risipitor) - 2019",
           "category": "Învățături Tematice",
           "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2019.opus",
           "duration": "57:00",
           "fileSize": 60067341,
-          "recordingYear": null,
+          "recordingYear": 2019,
           "paschaOffset": -63,
           "keywords": [
             "duminică",
@@ -12526,7 +12526,7 @@
     },
     {
       "id": "topical-16",
-      "title": "Predică la Duminica a 34-a după Rusalii - 2018",
+      "title": "Predică la Duminica a 34-a după Rusalii (a Întoarcerii Fiului risipitor) - 2018",
       "category": "Învățături Tematice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2018.opus",
       "duration": "21:00",
@@ -12541,7 +12541,7 @@
     },
     {
       "id": "topical-17",
-      "title": "Predică la Duminica a 34-a după Rusalii - 2019",
+      "title": "Predică la Duminica a 34-a după Rusalii (a Întoarcerii Fiului risipitor) - 2019",
       "category": "Învățături Tematice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2019.opus",
       "duration": "57:00",

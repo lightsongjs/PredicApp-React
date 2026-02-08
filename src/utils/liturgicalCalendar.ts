@@ -118,8 +118,13 @@ export function findRelatedSermons(allSermons: Sermon[], targetSermon: Sermon): 
     return s.pascha_offset != null && s.pascha_offset === targetSermon.pascha_offset;
   });
 
-  // Return target sermon first, then related ones sorted by year
-  return [targetSermon, ...related.sort((a, b) => (b.year || 0) - (a.year || 0))];
+  // Return target sermon first, then related ones sorted by year (no year goes last)
+  return [targetSermon, ...related.sort((a, b) => {
+    if (a.year && b.year) return b.year - a.year;
+    if (a.year) return -1;
+    if (b.year) return 1;
+    return 0;
+  })];
 }
 
 // Get upcoming liturgical sermons (next few Sundays)
