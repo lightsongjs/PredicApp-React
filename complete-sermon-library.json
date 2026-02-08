@@ -1533,6 +1533,7 @@
           "duration": "24:00",
           "fileSize": 23754291,
           "recordingYear": null,
+          "paschaOffset": 84,
           "keywords": [
             "dumnezeu",
             "seminței",
@@ -8736,6 +8737,7 @@
       "category": "Cursuri Biblice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Despre Dumnezeu -”risipitorul” Seminței.opus",
       "duration": "24:00",
+      "paschaOffset": 84,
       "keywords": [
         "dumnezeu",
         "seminței",

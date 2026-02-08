@@ -109,21 +109,13 @@ export function getLiturgicalSermons(sermons: Sermon[]): Sermon[] {
   return sermons.filter(s => s.liturgicalDate);
 }
 
-// Find all sermons related to a specific sermon's theme (by title keywords)
+// Find all sermons related to a specific sermon's theme (by paschaOffset)
 export function findRelatedSermons(allSermons: Sermon[], targetSermon: Sermon): Sermon[] {
-  // Extract key words from the title (remove common words)
-  const titleWords = targetSermon.title.toLowerCase()
-    .replace(/duminica|predică|predica|sfânt|sfântul|sfânta|din|post|după|rusalii|paști/gi, '')
-    .split(/[\s\-–]+/)
-    .filter(w => w.length > 3);
+  if (targetSermon.pascha_offset == null) return [targetSermon];
 
-  if (titleWords.length === 0) return [targetSermon];
-
-  // Find sermons that match at least one key word
   const related = allSermons.filter(s => {
     if (s.id === targetSermon.id) return false;
-    const sTitle = s.title.toLowerCase();
-    return titleWords.some(word => sTitle.includes(word));
+    return s.pascha_offset != null && s.pascha_offset === targetSermon.pascha_offset;
   });
 
   // Return target sermon first, then related ones sorted by year
