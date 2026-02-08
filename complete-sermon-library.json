@@ -6314,6 +6314,7 @@
           "duration": "31:00",
           "fileSize": 32861203,
           "recordingYear": null,
+          "paschaOffset": -63,
           "keywords": [
             "fiului",
             "despre",
@@ -12319,6 +12320,7 @@
       "category": "Învățături Tematice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Despre fratele fiului risipitor.opus",
       "duration": "31:00",
+      "paschaOffset": -63,
       "keywords": [
         "fiului",
         "despre",
