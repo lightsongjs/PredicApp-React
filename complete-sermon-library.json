@@ -4994,6 +4994,7 @@
           "duration": "26:00",
           "fileSize": 25775541,
           "recordingYear": 2016,
+          "paschaOffset": -63,
           "keywords": [
             "fiului",
             "rusalii",
@@ -6550,6 +6551,7 @@
           "duration": "21:00",
           "fileSize": 22375443,
           "recordingYear": null,
+          "paschaOffset": -63,
           "keywords": [
             "duminică",
             "după",
@@ -6566,6 +6568,7 @@
           "duration": "57:00",
           "fileSize": 60067341,
           "recordingYear": null,
+          "paschaOffset": -63,
           "keywords": [
             "duminică",
             "după",
@@ -11433,6 +11436,7 @@
       "category": "Cursuri Biblice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2016.opus",
       "duration": "26:00",
+      "paschaOffset": -63,
       "keywords": [
         "fiului",
         "rusalii",
@@ -12526,6 +12530,7 @@
       "category": "Învățături Tematice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2018.opus",
       "duration": "21:00",
+      "paschaOffset": -63,
       "keywords": [
         "duminică",
         "după",
@@ -12540,6 +12545,7 @@
       "category": "Învățături Tematice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2019.opus",
       "duration": "57:00",
+      "paschaOffset": -63,
       "keywords": [
         "duminică",
         "după",
