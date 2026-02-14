@@ -538,7 +538,7 @@
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți - 2020.opus",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne) - 2020.opus",
           "duration": "30:00",
           "fileSize": 30388139,
           "recordingYear": 2020,
@@ -5500,22 +5500,24 @@
         },
         {
           "id": "course-invatături-generale-141",
-          "title": "Predică la Duminica Înfricoșătoarei Judecăți - 2016",
+          "title": "Predică la Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne) - 2016",
           "category": "Cursuri Biblice",
           "subcategory": "Învățături Generale",
           "seriesId": "invatături-generale",
           "seriesTitle": "Învățături Generale",
           "partNumber": 141,
           "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți - 2016.opus",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne) - 2016.opus",
           "duration": "24:00",
           "fileSize": 23944880,
           "recordingYear": 2016,
+          "paschaOffset": -56,
           "keywords": [
             "judecăți",
             "duminică",
             "înfricoșătoarei",
-            "predică",
+            "lăsatul",
+            "carne",
             "duminica"
           ]
         },
@@ -7465,7 +7467,7 @@
       "id": "lit-2026-2026-02-15",
       "title": "Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne)",
       "category": "Predici Liturgice",
-      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți - 2020.opus",
+      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne) - 2020.opus",
       "duration": "30:00",
       "keywords": [
         "judecăți",
@@ -8141,9 +8143,9 @@
     },
     {
       "id": "lit-2027-2027-03-07",
-      "title": "Duminica Înfricoșătoarei Judecăți",
+      "title": "Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne)",
       "category": "Predici Liturgice",
-      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți - 2020.opus",
+      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne) - 2020.opus",
       "duration": "30:00",
       "keywords": [
         "judecăți",
@@ -11781,15 +11783,16 @@
     },
     {
       "id": "course-invatături-generale-141",
-      "title": "Predică la Duminica Înfricoșătoarei Judecăți - 2016",
+      "title": "Predică la Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne) - 2016",
       "category": "Cursuri Biblice",
-      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți - 2016.opus",
+      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne) - 2016.opus",
       "duration": "24:00",
       "keywords": [
         "judecăți",
         "duminică",
         "înfricoșătoarei",
-        "predică",
+        "lăsatul",
+        "carne",
         "duminica"
       ]
     },
