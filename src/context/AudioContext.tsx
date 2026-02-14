@@ -9,6 +9,7 @@ interface AudioContextValue {
   pause: () => void;
   seek: (time: number) => void;
   setVolume: (volume: number) => void;
+  cyclePlaybackRate: () => void;
   loadSermon: (sermon: Sermon) => void;
   closePlayer: () => void;
 }
@@ -20,6 +21,7 @@ const defaultState: AudioState = {
   duration: 0,
   knownDuration: 0, // Duration from sermon metadata (reliable)
   volume: 1,
+  playbackRate: 1,
   error: null,
 };
 
@@ -101,6 +103,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     const handleTimeUpdate = () => setState(s => ({ ...s, currentTime: audio.currentTime }));
     const handleDurationChange = () => setState(s => ({ ...s, duration: audio.duration || 0 }));
     const handleVolumeChange = () => setState(s => ({ ...s, volume: audio.volume }));
+    const handleRateChange = () => setState(s => ({ ...s, playbackRate: audio.playbackRate }));
     const handleError = () => {
       const error = audio.error;
       console.error('[Audio] ERROR:', error?.code, error?.message);
@@ -137,6 +140,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     audio.addEventListener('timeupdate', handleTimeUpdate);
     audio.addEventListener('durationchange', handleDurationChange);
     audio.addEventListener('volumechange', handleVolumeChange);
+    audio.addEventListener('ratechange', handleRateChange);
     audio.addEventListener('error', handleError);
     audio.addEventListener('ended', handleEnded);
     audio.addEventListener('stalled', handleStalled);
@@ -153,6 +157,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       audio.removeEventListener('timeupdate', handleTimeUpdate);
       audio.removeEventListener('durationchange', handleDurationChange);
       audio.removeEventListener('volumechange', handleVolumeChange);
+      audio.removeEventListener('ratechange', handleRateChange);
       audio.removeEventListener('error', handleError);
       audio.removeEventListener('ended', handleEnded);
       audio.removeEventListener('stalled', handleStalled);
@@ -257,6 +262,14 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  const cyclePlaybackRate = useCallback(() => {
+    if (!audioRef.current) return;
+    const rates = [1, 1.5, 2];
+    const currentIdx = rates.indexOf(audioRef.current.playbackRate);
+    const nextRate = rates[(currentIdx + 1) % rates.length];
+    audioRef.current.playbackRate = nextRate;
+  }, []);
+
   const closePlayer = useCallback(() => {
     if (audioRef.current) {
       audioRef.current.pause();
@@ -275,6 +288,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       pause,
       seek,
       setVolume,
+      cyclePlaybackRate,
       loadSermon,
       closePlayer,
     }}>

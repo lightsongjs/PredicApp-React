@@ -26,5 +26,6 @@ export interface AudioState {
   duration: number;
   knownDuration: number; // Duration from sermon metadata (more reliable than browser-reported)
   volume: number;
+  playbackRate: number;
   error: string | null;
 }

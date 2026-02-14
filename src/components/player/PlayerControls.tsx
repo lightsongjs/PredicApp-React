@@ -1,34 +1,37 @@
-import { Play, Pause, SkipBack, SkipForward, Shuffle, Repeat, Loader2 } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, Repeat, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 
 interface PlayerControlsProps {
   isPlaying: boolean;
   isLoading?: boolean;
+  playbackRate?: number;
   onPlayPause: () => void;
   onSkipForward: () => void;
   onSkipBackward: () => void;
+  onCyclePlaybackRate?: () => void;
 }
 
 export default function PlayerControls({
   isPlaying,
   isLoading = false,
+  playbackRate = 1,
   onPlayPause,
   onSkipForward,
   onSkipBackward,
+  onCyclePlaybackRate,
 }: PlayerControlsProps) {
-  const [shuffle, setShuffle] = useState(false);
   const [repeat, setRepeat] = useState(false);
 
   return (
     <div className="flex items-center justify-center gap-6">
       <button
-        onClick={() => setShuffle(!shuffle)}
-        className={`p-2 transition-colors ${
-          shuffle ? 'text-accent' : 'text-white opacity-60 hover:opacity-90'
+        onClick={onCyclePlaybackRate}
+        className={`px-2 py-1 rounded-full text-xs font-bold transition-colors ${
+          playbackRate !== 1 ? 'text-accent' : 'text-white opacity-60 hover:opacity-90'
         }`}
         disabled={isLoading}
       >
-        <Shuffle className="w-5 h-5" />
+        {playbackRate}x
       </button>
 
       <button

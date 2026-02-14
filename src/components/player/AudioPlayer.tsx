@@ -25,7 +25,7 @@ function parseDuration(durationStr?: string): number {
 
 export default function AudioPlayer({ sermon, onClose }: AudioPlayerProps) {
   console.log('🎬 [AudioPlayer] Rendering with sermon:', sermon.title);
-  const { play, pause, seek, setVolume, skipForward, skipBackward, state } = useAudio(sermon.audio_url);
+  const { play, pause, seek, setVolume, skipForward, skipBackward, cyclePlaybackRate, state } = useAudio(sermon.audio_url);
 
   // Use sermon metadata duration if available (more reliable than opus stream duration)
   const knownDuration = parseDuration(sermon.duration);
@@ -170,9 +170,11 @@ export default function AudioPlayer({ sermon, onClose }: AudioPlayerProps) {
               <PlayerControls
                 isPlaying={state.isPlaying}
                 isLoading={state.isLoading}
+                playbackRate={state.playbackRate}
                 onPlayPause={handlePlayPause}
                 onSkipForward={() => skipForward(15)}
                 onSkipBackward={() => skipBackward(15)}
+                onCyclePlaybackRate={cyclePlaybackRate}
               />
             </div>
 

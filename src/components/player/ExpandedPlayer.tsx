@@ -9,8 +9,8 @@ interface ExpandedPlayerProps {
 const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCrxfGYkpO8Nty6BU8HMTiF-5IIOI9JdPg9bvkSKLLEe-4av4X7IQ0eXjTm5SmPx9EYLknNj8prCQdMjbtb7rsppjNZKXKodk7S0iV5YsgzGxAnMMWuVIC1ch8Ic8Hi9I6Ry7J8RwabzcpUJSCi452jAOKdgXmsTQCbvt2yw302DL2UG4g-WnjyS5uq6ErijH0CFFEBkwXDKuxwcIlEqSeW6yoKDxgv9FGBORhyeYv4aEb5MNNBilKdtNI33Fh8c-p9zV0YSBGCHdde';
 
 export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
-  const { currentSermon, state, play, pause, seek } = useAudioContext();
-  const { isPlaying, isLoading, currentTime, duration, knownDuration } = state;
+  const { currentSermon, state, play, pause, seek, cyclePlaybackRate } = useAudioContext();
+  const { isPlaying, isLoading, currentTime, duration, knownDuration, playbackRate } = state;
 
   if (!currentSermon) return null;
 
@@ -107,6 +107,16 @@ export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
 
           <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
             <span className="material-symbols-outlined text-4xl">skip_next</span>
+          </button>
+        </div>
+
+        {/* Speed Control */}
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={cyclePlaybackRate}
+            className="px-4 py-1.5 rounded-full border border-[#1a0f10]/20 text-sm font-bold text-[#1a0f10] hover:bg-black/5 transition-colors"
+          >
+            {playbackRate}x
           </button>
         </div>
       </main>
