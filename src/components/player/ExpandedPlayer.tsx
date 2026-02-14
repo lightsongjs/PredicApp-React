@@ -87,37 +87,43 @@ export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
         </div>
 
         {/* Playback Controls */}
-        <div className="flex items-center justify-center gap-8">
-          <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
-            <span className="material-symbols-outlined text-4xl">skip_previous</span>
-          </button>
-
-          <button
-            onClick={handlePlayPause}
-            className="size-20 bg-primary text-white rounded-full flex items-center justify-center play-btn-shadow hover:scale-105 transition-transform"
-          >
-            {isLoading ? (
-              <div className="w-8 h-8 border-3 border-white/30 border-t-white rounded-full animate-spin" />
-            ) : (
-              <span className="material-symbols-outlined text-5xl">
-                {isPlaying ? 'pause' : 'play_arrow'}
-              </span>
-            )}
-          </button>
-
-          <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
-            <span className="material-symbols-outlined text-4xl">skip_next</span>
-          </button>
-        </div>
-
-        {/* Speed Control */}
-        <div className="flex justify-center mt-4">
+        <div className="flex items-center justify-between">
           <button
             onClick={cyclePlaybackRate}
-            className="px-4 py-1.5 rounded-full border border-[#1a0f10]/20 text-sm font-bold text-[#1a0f10] hover:bg-black/5 transition-colors"
+            className={`size-10 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
+              playbackRate !== 1
+                ? 'bg-[#1a0f10] text-[#fdfbf7]'
+                : 'text-[#1a0f10]/60 hover:text-[#1a0f10] hover:bg-black/5'
+            }`}
           >
             {playbackRate}x
           </button>
+
+          <div className="flex items-center gap-8">
+            <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
+              <span className="material-symbols-outlined text-4xl">skip_previous</span>
+            </button>
+
+            <button
+              onClick={handlePlayPause}
+              className="size-20 bg-primary text-white rounded-full flex items-center justify-center play-btn-shadow hover:scale-105 transition-transform"
+            >
+              {isLoading ? (
+                <div className="w-8 h-8 border-3 border-white/30 border-t-white rounded-full animate-spin" />
+              ) : (
+                <span className="material-symbols-outlined text-5xl">
+                  {isPlaying ? 'pause' : 'play_arrow'}
+                </span>
+              )}
+            </button>
+
+            <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
+              <span className="material-symbols-outlined text-4xl">skip_next</span>
+            </button>
+          </div>
+
+          {/* Spacer to balance the speed button */}
+          <div className="size-10" />
         </div>
       </main>
 
