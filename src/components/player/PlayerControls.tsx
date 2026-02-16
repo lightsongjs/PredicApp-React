@@ -1,4 +1,4 @@
-import { Play, Pause, SkipBack, SkipForward, Repeat, Loader2 } from 'lucide-react';
+import { Play, Pause, RotateCcw, RotateCw, Repeat, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 
 interface PlayerControlsProps {
@@ -36,10 +36,14 @@ export default function PlayerControls({
 
       <button
         onClick={onSkipBackward}
-        className="p-2 text-white opacity-80 hover:opacity-100 transition-opacity"
+        className="relative p-2 text-white opacity-80 hover:opacity-100 transition-opacity"
         disabled={isLoading}
+        title="Back 10 seconds"
       >
-        <SkipBack className="w-6 h-6" />
+        <RotateCcw className="w-8 h-8" />
+        <span className="absolute inset-0 flex items-center justify-center text-xs font-bold pointer-events-none">
+          10
+        </span>
       </button>
 
       <button
@@ -57,10 +61,14 @@ export default function PlayerControls({
 
       <button
         onClick={onSkipForward}
-        className="p-2 text-white opacity-80 hover:opacity-100 transition-opacity"
+        className="relative p-2 text-white opacity-80 hover:opacity-100 transition-opacity"
         disabled={isLoading}
+        title="Forward 30 seconds"
       >
-        <SkipForward className="w-6 h-6" />
+        <RotateCw className="w-8 h-8" />
+        <span className="absolute inset-0 flex items-center justify-center text-xs font-bold pointer-events-none">
+          30
+        </span>
       </button>
 
       <button

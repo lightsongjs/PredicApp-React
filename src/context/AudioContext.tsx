@@ -8,6 +8,8 @@ interface AudioContextValue {
   play: () => void;
   pause: () => void;
   seek: (time: number) => void;
+  skipForward: (seconds: number) => void;
+  skipBackward: (seconds: number) => void;
   setVolume: (volume: number) => void;
   cyclePlaybackRate: () => void;
   loadSermon: (sermon: Sermon) => void;
@@ -256,6 +258,18 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  const skipForward = useCallback((seconds: number) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = Math.min(audioRef.current.currentTime + seconds, audioRef.current.duration || 0);
+    }
+  }, []);
+
+  const skipBackward = useCallback((seconds: number) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = Math.max(audioRef.current.currentTime - seconds, 0);
+    }
+  }, []);
+
   const setVolume = useCallback((volume: number) => {
     if (audioRef.current) {
       audioRef.current.volume = Math.max(0, Math.min(1, volume));
@@ -287,6 +301,8 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       play,
       pause,
       seek,
+      skipForward,
+      skipBackward,
       setVolume,
       cyclePlaybackRate,
       loadSermon,

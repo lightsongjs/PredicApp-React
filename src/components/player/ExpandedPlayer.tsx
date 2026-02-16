@@ -1,5 +1,6 @@
 import { useAudioContext } from '../../context/AudioContext';
 import { formatTime } from '../../utils/time';
+import { RotateCcw, RotateCw } from 'lucide-react';
 
 interface ExpandedPlayerProps {
   onCollapse: () => void;
@@ -9,7 +10,7 @@ interface ExpandedPlayerProps {
 const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCrxfGYkpO8Nty6BU8HMTiF-5IIOI9JdPg9bvkSKLLEe-4av4X7IQ0eXjTm5SmPx9EYLknNj8prCQdMjbtb7rsppjNZKXKodk7S0iV5YsgzGxAnMMWuVIC1ch8Ic8Hi9I6Ry7J8RwabzcpUJSCi452jAOKdgXmsTQCbvt2yw302DL2UG4g-WnjyS5uq6ErijH0CFFEBkwXDKuxwcIlEqSeW6yoKDxgv9FGBORhyeYv4aEb5MNNBilKdtNI33Fh8c-p9zV0YSBGCHdde';
 
 export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
-  const { currentSermon, state, play, pause, seek, cyclePlaybackRate } = useAudioContext();
+  const { currentSermon, state, play, pause, seek, skipForward, skipBackward, cyclePlaybackRate } = useAudioContext();
   const { isPlaying, isLoading, currentTime, duration, knownDuration, playbackRate } = state;
 
   if (!currentSermon) return null;
@@ -100,8 +101,15 @@ export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
           </button>
 
           <div className="flex items-center gap-8">
-            <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
-              <span className="material-symbols-outlined text-4xl">skip_previous</span>
+            <button
+              onClick={() => skipBackward(10)}
+              className="relative hover:opacity-70 transition-opacity text-[#1a0f10]"
+              title="Back 10 seconds"
+            >
+              <RotateCcw className="w-10 h-10" />
+              <span className="absolute inset-0 flex items-center justify-center text-xs font-bold pointer-events-none">
+                10
+              </span>
             </button>
 
             <button
@@ -117,8 +125,15 @@ export function ExpandedPlayer({ onCollapse }: ExpandedPlayerProps) {
               )}
             </button>
 
-            <button className="hover:opacity-70 transition-opacity text-[#1a0f10]">
-              <span className="material-symbols-outlined text-4xl">skip_next</span>
+            <button
+              onClick={() => skipForward(30)}
+              className="relative hover:opacity-70 transition-opacity text-[#1a0f10]"
+              title="Forward 30 seconds"
+            >
+              <RotateCw className="w-10 h-10" />
+              <span className="absolute inset-0 flex items-center justify-center text-xs font-bold pointer-events-none">
+                30
+              </span>
             </button>
           </div>
 

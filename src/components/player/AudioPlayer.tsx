@@ -172,8 +172,8 @@ export default function AudioPlayer({ sermon, onClose }: AudioPlayerProps) {
                 isLoading={state.isLoading}
                 playbackRate={state.playbackRate}
                 onPlayPause={handlePlayPause}
-                onSkipForward={() => skipForward(15)}
-                onSkipBackward={() => skipBackward(15)}
+                onSkipForward={() => skipForward(30)}
+                onSkipBackward={() => skipBackward(10)}
                 onCyclePlaybackRate={cyclePlaybackRate}
               />
             </div>
