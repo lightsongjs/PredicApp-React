@@ -555,7 +555,7 @@
         },
         {
           "id": "lit-2026-2026-02-22",
-          "title": "Duminica Lăsatului Sec de Brânză (Iertării)",
+          "title": "Duminica Izgonirii lui Adam din Rai (Lăsatul Sec de Brânză)",
           "date": "2026-02-22",
           "year": 2026,
           "category": "Predici Liturgice",
@@ -567,9 +567,10 @@
           "type": "pascha-offset",
           "paschaOffset": -49,
           "keywords": [
+            "izgonirii",
+            "adam",
+            "rai",
             "brânză",
-            "lăsatului",
-            "iertării",
             "duminică",
             "duminica"
           ]
@@ -4094,6 +4095,7 @@
           "duration": "1:06:00",
           "fileSize": 65694591,
           "recordingYear": null,
+          "paschaOffset": -49,
           "keywords": [
             "iertării",
             "celei",
@@ -6083,6 +6085,7 @@
           "duration": "23:00",
           "fileSize": 22970617,
           "recordingYear": 2017,
+          "paschaOffset": -49,
           "keywords": [
             "vecernia",
             "iertării"
@@ -7480,14 +7483,15 @@
     },
     {
       "id": "lit-2026-2026-02-22",
-      "title": "Duminica Lăsatului Sec de Brânză (Iertării)",
+      "title": "Duminica Izgonirii lui Adam din Rai (Lăsatul Sec de Brânză)",
       "category": "Predici Liturgice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 36 după Rusalii - 2019.opus",
       "duration": "45:00",
       "keywords": [
+        "izgonirii",
+        "adam",
+        "rai",
         "brânză",
-        "lăsatului",
-        "iertării",
         "duminică",
         "duminica"
       ]
@@ -10825,6 +10829,7 @@
       "category": "Cursuri Biblice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Omilie la Vecernia Iertării - Postul Mare - șansa celei de a doua chemări.opus",
       "duration": "1:06:00",
+      "paschaOffset": -49,
       "keywords": [
         "iertării",
         "celei",
@@ -12169,6 +12174,7 @@
       "category": "Cursuri Biblice",
       "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Vecernia iertării - 2017.opus",
       "duration": "23:00",
+      "paschaOffset": -49,
       "keywords": [
         "vecernia",
         "iertării"

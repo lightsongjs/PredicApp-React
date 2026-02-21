@@ -44,7 +44,12 @@ export default {
       const object = await env.R2_BUCKET.get(key, { range: rangeOptions });
 
       if (object === null) {
-        return new Response('File not found', { status: 404 });
+        return new Response('File not found: ' + key, {
+          status: 404,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          },
+        });
       }
 
       // Get headers for response

@@ -111,11 +111,11 @@ export function getLiturgicalSermons(sermons: Sermon[]): Sermon[] {
 
 // Find all sermons related to a specific sermon's theme (by paschaOffset)
 export function findRelatedSermons(allSermons: Sermon[], targetSermon: Sermon): Sermon[] {
-  if (targetSermon.pascha_offset == null) return [targetSermon];
+  if (targetSermon.paschaOffset == null) return [targetSermon];
 
   const related = allSermons.filter(s => {
     if (s.id === targetSermon.id) return false;
-    return s.pascha_offset != null && s.pascha_offset === targetSermon.pascha_offset;
+    return s.paschaOffset != null && s.paschaOffset === targetSermon.paschaOffset;
   });
 
   // Return target sermon first, then related ones sorted by year (no year goes last)

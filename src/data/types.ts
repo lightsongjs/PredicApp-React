@@ -9,7 +9,7 @@ export interface Sermon {
   type: SermonType;
   fixed_month?: number;
   fixed_day?: number;
-  pascha_offset?: number;
+  paschaOffset?: number;
   duration?: string;
   description?: string;
   gospelReading?: string;

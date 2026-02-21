@@ -46,7 +46,7 @@ function transformSermon(json: JsonSermon): Sermon {
     subcategory: json.subcategory,
     audio_url: json.audioFile,
     type: json.type === 'fixed-feast' ? 'fixed' : 'movable',
-    pascha_offset: json.paschaOffset ?? undefined,
+    paschaOffset: json.paschaOffset ?? undefined,
     duration: json.duration,
     year: json.recordingYear ?? json.year,
     liturgicalDate: json.date,
