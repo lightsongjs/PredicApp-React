@@ -44,11 +44,6 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-[#FFFBF0]/95 ios-blur border-b border-primary/10">
       <div className="flex items-center p-4 justify-between max-w-7xl mx-auto gap-4">
-        {/* Mobile: Hamburger Menu */}
-        <button className="md:hidden text-primary flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-primary/5 rounded-full transition-colors">
-          <span className="material-symbols-outlined">menu</span>
-        </button>
-
         {/* Desktop: Logo and Title */}
         <Link
           to="/"
