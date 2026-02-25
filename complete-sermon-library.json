@@ -3750,7 +3750,7 @@
         },
         {
           "id": "course-invatături-generale-60",
-          "title": "Duminica întâi din Post - 2017",
+          "title": "Duminica I din Postul Mare - Duminica Ortodoxiei",
           "category": "Cursuri Biblice",
           "subcategory": "Învățături Generale",
           "seriesId": "invatături-generale",
@@ -3761,11 +3761,16 @@
           "duration": "14:00",
           "fileSize": 13650128,
           "recordingYear": 2017,
+          "type": "pascha-offset",
+          "paschaOffset": -42,
           "keywords": [
             "post",
             "duminică",
             "duminica",
-            "întâi"
+            "întâi",
+            "ortodoxiei",
+            "mare",
+            "postul"
           ]
         },
         {
@@ -4275,6 +4280,8 @@
           "duration": "27:00",
           "fileSize": 27344978,
           "recordingYear": null,
+          "type": "pascha-offset",
+          "paschaOffset": -49,
           "keywords": [
             "început",
             "stadion",
@@ -4486,7 +4493,7 @@
         },
         {
           "id": "course-invatături-generale-94",
-          "title": "Predică la Duminica a 2-a din Post (a Sf. Ier. Grigorie Palama) - 2016",
+          "title": "Duminica a II-a din Postul Mare - Sfântul Grigorie Palama",
           "category": "Cursuri Biblice",
           "subcategory": "Învățături Generale",
           "seriesId": "invatături-generale",
@@ -4497,6 +4504,8 @@
           "duration": "24:00",
           "fileSize": 24206105,
           "recordingYear": 2016,
+          "type": "pascha-offset",
+          "paschaOffset": -35,
           "keywords": [
             "duminica",
             "duminică",
@@ -4504,7 +4513,10 @@
             "grigorie",
             "sfânt",
             "post",
-            "palama"
+            "palama",
+            "mare",
+            "postul",
+            "sfântul"
           ]
         },
         {
@@ -4770,7 +4782,7 @@
         },
         {
           "id": "course-invatături-generale-107",
-          "title": "Predică la Duminica a 3-a din Post (a Sfintei Cruci) - 2016",
+          "title": "Duminica a III-a din Postul Mare - Închinarea Sfintei Cruci",
           "category": "Cursuri Biblice",
           "subcategory": "Învățături Generale",
           "seriesId": "invatături-generale",
@@ -4781,13 +4793,18 @@
           "duration": "28:00",
           "fileSize": 27701497,
           "recordingYear": 2016,
+          "type": "pascha-offset",
+          "paschaOffset": -28,
           "keywords": [
             "cruci",
             "duminică",
             "predică",
             "sfintei",
             "post",
-            "duminica"
+            "duminica",
+            "mare",
+            "postul",
+            "închinarea"
           ]
         },
         {
@@ -5052,7 +5069,7 @@
         },
         {
           "id": "course-invatături-generale-120",
-          "title": "Predică la Duminica a 4-a din Post (a Sf. Cuv. Ioan Scărarul) - 2016",
+          "title": "Duminica a IV-a din Postul Mare - Sfântul Ioan Scărarul",
           "category": "Cursuri Biblice",
           "subcategory": "Învățături Generale",
           "seriesId": "invatături-generale",
@@ -5063,6 +5080,8 @@
           "duration": "30:00",
           "fileSize": 30388139,
           "recordingYear": 2016,
+          "type": "pascha-offset",
+          "paschaOffset": -21,
           "keywords": [
             "ioan",
             "duminică",
@@ -5070,7 +5089,10 @@
             "sfânt",
             "post",
             "scărarul",
-            "duminica"
+            "duminica",
+            "mare",
+            "postul",
+            "sfântul"
           ]
         },
         {
@@ -5117,7 +5139,7 @@
         },
         {
           "id": "course-invatături-generale-123",
-          "title": "Predică la Duminica a 5-a din Post (a Sf. Cuv. Maria Egipteanca) - 2016",
+          "title": "Duminica a V-a din Postul Mare - Sfânta Maria Egipteanca",
           "category": "Cursuri Biblice",
           "subcategory": "Învățături Generale",
           "seriesId": "invatături-generale",
@@ -5128,6 +5150,8 @@
           "duration": "25:00",
           "fileSize": 25062085,
           "recordingYear": 2016,
+          "type": "pascha-offset",
+          "paschaOffset": -14,
           "keywords": [
             "egipteanca",
             "duminică",
@@ -5135,12 +5159,15 @@
             "predică",
             "sfânt",
             "post",
-            "duminica"
+            "duminica",
+            "mare",
+            "postul",
+            "sfânta"
           ]
         },
         {
           "id": "course-invatături-generale-124",
-          "title": "Predică la Duminica a 5-a din Postul Mare",
+          "title": "Duminica a V-a din Postul Mare - Sfânta Maria Egipteanca",
           "category": "Cursuri Biblice",
           "subcategory": "Învățături Generale",
           "seriesId": "invatături-generale",
@@ -5151,13 +5178,18 @@
           "duration": "22:00",
           "fileSize": 22470320,
           "recordingYear": null,
+          "type": "pascha-offset",
+          "paschaOffset": -14,
           "keywords": [
             "duminică",
             "predică",
             "post",
             "mare",
             "postul",
-            "duminica"
+            "duminica",
+            "sfânta",
+            "maria",
+            "egipteanca"
           ]
         },
         {
@@ -5525,7 +5557,7 @@
         },
         {
           "id": "course-invatături-generale-142",
-          "title": "Predică la Duminica întâi din Post (a Ortodoxiei) - 2016",
+          "title": "Duminica I din Postul Mare - Duminica Ortodoxiei",
           "category": "Cursuri Biblice",
           "subcategory": "Învățături Generale",
           "seriesId": "invatături-generale",
@@ -5536,13 +5568,17 @@
           "duration": "35:00",
           "fileSize": 34691865,
           "recordingYear": 2016,
+          "type": "pascha-offset",
+          "paschaOffset": -42,
           "keywords": [
             "duminică",
             "predică",
             "post",
             "ortodoxiei",
             "duminica",
-            "întâi"
+            "întâi",
+            "mare",
+            "postul"
           ]
         },
         {
@@ -6584,17 +6620,24 @@
         },
         {
           "id": "topical-18",
-          "title": "Predică la Duminica a 4-a din Post - 2019",
+          "title": "Duminica a IV-a din Postul Mare - Sfântul Ioan Scărarul",
           "category": "Învățături Tematice",
           "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 din Post - 2019.opus",
           "duration": "43:00",
           "fileSize": 45943749,
-          "recordingYear": null,
+          "recordingYear": 2019,
+          "type": "pascha-offset",
+          "paschaOffset": -21,
           "keywords": [
             "post",
             "predică",
             "duminica",
-            "duminică"
+            "duminică",
+            "mare",
+            "postul",
+            "sfântul",
+            "ioan",
+            "scărarul"
           ]
         },
         {
@@ -6760,16 +6803,23 @@
         },
         {
           "id": "archived-4",
-          "title": "Duminica a 2-a din Post - 2017",
+          "title": "Duminica a II-a din Postul Mare - Sfântul Grigorie Palama",
           "category": "Arhivă",
           "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 2 din Post - 2017.opus",
           "duration": "27:00",
           "fileSize": 29105004,
-          "recordingYear": null,
+          "recordingYear": 2017,
+          "type": "pascha-offset",
+          "paschaOffset": -35,
           "keywords": [
             "post",
             "duminica",
-            "duminică"
+            "duminică",
+            "mare",
+            "postul",
+            "sfântul",
+            "grigorie",
+            "palama"
           ]
         },
         {
@@ -6895,16 +6945,23 @@
         },
         {
           "id": "archived-13",
-          "title": "Duminica a 3-a din Post - 2017",
+          "title": "Duminica a III-a din Postul Mare - Închinarea Sfintei Cruci",
           "category": "Arhivă",
           "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 3 din Post - 2017.opus",
           "duration": "22:00",
           "fileSize": 23612603,
-          "recordingYear": null,
+          "recordingYear": 2017,
+          "type": "pascha-offset",
+          "paschaOffset": -28,
           "keywords": [
             "post",
             "duminica",
-            "duminică"
+            "duminică",
+            "mare",
+            "postul",
+            "închinarea",
+            "sfintei",
+            "cruci"
           ]
         },
         {
@@ -7000,16 +7057,23 @@
         },
         {
           "id": "archived-20",
-          "title": "Duminica a 4-a din Post - 2017",
+          "title": "Duminica a IV-a din Postul Mare - Sfântul Ioan Scărarul",
           "category": "Arhivă",
           "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 din Post - 2017.opus",
           "duration": "23:00",
           "fileSize": 25134392,
-          "recordingYear": null,
+          "recordingYear": 2017,
+          "type": "pascha-offset",
+          "paschaOffset": -21,
           "keywords": [
             "post",
             "duminica",
-            "duminică"
+            "duminică",
+            "mare",
+            "postul",
+            "sfântul",
+            "ioan",
+            "scărarul"
           ]
         },
         {
@@ -7029,16 +7093,23 @@
         },
         {
           "id": "archived-22",
-          "title": "Duminica a 5-a din Post - 2017",
+          "title": "Duminica a V-a din Postul Mare - Sfânta Maria Egipteanca",
           "category": "Arhivă",
           "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 5 din Post - 2017.opus",
           "duration": "25:00",
           "fileSize": 26370715,
-          "recordingYear": null,
+          "recordingYear": 2017,
+          "type": "pascha-offset",
+          "paschaOffset": -14,
           "keywords": [
             "post",
             "duminica",
-            "duminică"
+            "duminică",
+            "mare",
+            "postul",
+            "sfânta",
+            "maria",
+            "egipteanca"
           ]
         },
         {
@@ -7058,17 +7129,25 @@
         },
         {
           "id": "archived-24",
-          "title": "Duminica a 6-a din Post (a Floriilor) - 2016",
+          "title": "Duminica a VI-a din Postul Mare - Floriile (Intrarea Domnului în Ierusalim)",
           "category": "Arhivă",
           "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 6 din Post - 2016.opus",
           "duration": "9:00",
           "fileSize": 10058604,
-          "recordingYear": null,
+          "recordingYear": 2016,
+          "type": "pascha-offset",
+          "paschaOffset": -7,
           "keywords": [
             "post",
             "floriilor",
             "duminica",
-            "duminică"
+            "duminică",
+            "mare",
+            "postul",
+            "floriile",
+            "intrarea",
+            "domnului",
+            "ierusalim"
           ]
         },
         {
