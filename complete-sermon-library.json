@@ -6,7 +6,7 @@
     "totalDuration": "~176 hours",
     "lastUpdated": "2026-01-31",
     "categories": {
-      "liturgical": 97,
+      "liturgical": 98,
       "courses": 266,
       "saints": 2,
       "topical": 25,
@@ -17,7 +17,7 @@
     "liturgical": {
       "name": "Predici Liturgice",
       "description": "Predici pentru toate duminicile și sărbătorile anului liturgic 2026-2027",
-      "count": 50,
+      "count": 51,
       "sermons": [
         {
           "id": "lit-2026-2026-01-05",
@@ -141,6 +141,28 @@
           ]
         },
         {
+          "id": "lit-2026-2026-04-19",
+          "title": "Duminica I după Paști - Duminica Tomii",
+          "date": "2026-04-19",
+          "year": 2026,
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 2 după Paști (a Sf. Ap. Toma) - 2019.opus",
+          "duration": "32:00",
+          "fileSize": 31520435,
+          "recordingYear": 2019,
+          "type": "pascha-offset",
+          "paschaOffset": 7,
+          "keywords": [
+            "toma",
+            "apostolul",
+            "paști",
+            "duminică",
+            "după",
+            "duminica"
+          ]
+        },
+        {
           "id": "lit-2026-2026-03-01",
           "title": "Duminica I din Postul Mare - Duminica Ortodoxiei",
           "date": "2026-03-01",
@@ -231,10 +253,10 @@
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 2 după Paști (a Sf. Ap. Toma) - 2019.opus",
-          "duration": "32:00",
-          "fileSize": 31520435,
-          "recordingYear": 2019,
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 3 după Paști - 2020.opus",
+          "duration": "23:00",
+          "fileSize": 23302895,
+          "recordingYear": 2020,
           "type": "pascha-offset",
           "paschaOffset": 14,
           "keywords": [
@@ -476,10 +498,10 @@
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 3 după Paști - 2020.opus",
-          "duration": "23:00",
-          "fileSize": 23302895,
-          "recordingYear": 2020,
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 după Paști (Vindecarea slăbănogului de la Vitezda) - 2019.opus",
+          "duration": "37:00",
+          "fileSize": 37278890,
+          "recordingYear": 2019,
           "type": "pascha-offset",
           "paschaOffset": 21,
           "keywords": [
@@ -652,10 +674,10 @@
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 5 după Paști - 2017.opus",
-          "duration": "18:00",
-          "fileSize": 18476720,
-          "recordingYear": 2017,
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 6 după Paști (Vindecarea orbului din naștere) - 2019.opus",
+          "duration": "39:00",
+          "fileSize": 38841011,
+          "recordingYear": 2019,
           "type": "pascha-offset",
           "paschaOffset": 35,
           "keywords": [
@@ -720,10 +742,10 @@
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 6 după Paști (Vindecarea orbului din naștere) - 2019.opus",
-          "duration": "39:00",
-          "fileSize": 38841011,
-          "recordingYear": 2019,
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 7 după Paști (a Sf. Părininți de la Sinodul I Ecumenic) - 2020.opus",
+          "duration": "21:00",
+          "fileSize": 20996178,
+          "recordingYear": 2020,
           "type": "pascha-offset",
           "paschaOffset": 42,
           "keywords": [
@@ -978,10 +1000,10 @@
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 după Paști (Vindecarea slăbănogului de la Vitezda) - 2019.opus",
-          "duration": "37:00",
-          "fileSize": 37278890,
-          "recordingYear": 2019,
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 5 după Paști - 2017.opus",
+          "duration": "18:00",
+          "fileSize": 18476720,
+          "recordingYear": 2017,
           "type": "pascha-offset",
           "paschaOffset": 28,
           "keywords": [
@@ -4532,6 +4554,7 @@
           "duration": "20:00",
           "fileSize": 19664978,
           "recordingYear": 2016,
+          "paschaOffset": 7,
           "keywords": [
             "paști",
             "înviere",
@@ -4556,6 +4579,7 @@
           "duration": "22:00",
           "fileSize": 21638163,
           "recordingYear": null,
+          "paschaOffset": 7,
           "keywords": [
             "paști",
             "înviere",
@@ -6830,6 +6854,7 @@
           "duration": "17:00",
           "fileSize": 17977259,
           "recordingYear": null,
+          "paschaOffset": 7,
           "keywords": [
             "înviere",
             "paști",
@@ -7281,6 +7306,21 @@
       ]
     },
     {
+      "id": "lit-2026-2026-04-19",
+      "title": "Duminica I după Paști - Duminica Tomii",
+      "category": "Predici Liturgice",
+      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 2 după Paști (a Sf. Ap. Toma) - 2019.opus",
+      "duration": "32:00",
+      "keywords": [
+        "toma",
+        "apostolul",
+        "paști",
+        "duminică",
+        "după",
+        "duminica"
+      ]
+    },
+    {
       "id": "lit-2026-2026-03-01",
       "title": "Duminica I din Postul Mare - Duminica Ortodoxiei",
       "category": "Predici Liturgice",
@@ -7340,8 +7380,8 @@
       "id": "lit-2026-2026-04-26",
       "title": "Duminica a II-a după Paști - Duminica Mironosițelor",
       "category": "Predici Liturgice",
-      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 2 după Paști (a Sf. Ap. Toma) - 2019.opus",
-      "duration": "32:00",
+      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 3 după Paști - 2020.opus",
+      "duration": "23:00",
       "keywords": [
         "mironosițelor",
         "paști",
@@ -7508,8 +7548,8 @@
       "id": "lit-2026-2026-05-03",
       "title": "Duminica a III-a după Paști - Duminica Slăbănogului",
       "category": "Predici Liturgice",
-      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 3 după Paști - 2020.opus",
-      "duration": "23:00",
+      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 după Paști (Vindecarea slăbănogului de la Vitezda) - 2019.opus",
+      "duration": "37:00",
       "keywords": [
         "paști",
         "înviere",
@@ -7628,8 +7668,8 @@
       "id": "lit-2026-2026-05-17",
       "title": "Duminica a V-a după Paști - Duminica Orbului din naștere",
       "category": "Predici Liturgice",
-      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 5 după Paști - 2017.opus",
-      "duration": "18:00",
+      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 6 după Paști (Vindecarea orbului din naștere) - 2019.opus",
+      "duration": "39:00",
       "keywords": [
         "paști",
         "înviere",
@@ -7675,8 +7715,8 @@
       "id": "lit-2026-2026-05-24",
       "title": "Duminica a VI-a după Paști - Duminica Sfinților Părinți de la Sinodul I Ecumenic",
       "category": "Predici Liturgice",
-      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 6 după Paști (Vindecarea orbului din naștere) - 2019.opus",
-      "duration": "39:00",
+      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 7 după Paști (a Sf. Părininți de la Sinodul I Ecumenic) - 2020.opus",
+      "duration": "21:00",
       "keywords": [
         "ecumenic",
         "sinodul",
@@ -7849,8 +7889,8 @@
       "id": "lit-2026-2026-05-10",
       "title": "Duminica a IV-a după Paști - Duminica Samarinencii",
       "category": "Predici Liturgice",
-      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 după Paști (Vindecarea slăbănogului de la Vitezda) - 2019.opus",
-      "duration": "37:00",
+      "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 5 după Paști - 2017.opus",
+      "duration": "18:00",
       "keywords": [
         "paști",
         "înviere",
