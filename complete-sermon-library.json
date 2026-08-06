@@ -1,15 +1,15 @@
 {
   "metadata": {
     "totalFiles": 345,
-    "totalSize": 11834724754,
-    "totalSizeMB": 11286.47,
+    "totalSize": 9463963461,
+    "totalSizeMB": 9025.54,
     "totalDuration": "~176 hours",
     "lastUpdated": "2026-01-31",
     "categories": {
-      "liturgical": 98,
-      "courses": 266,
+      "liturgical": 91,
+      "courses": 222,
       "saints": 2,
-      "topical": 25,
+      "topical": 3,
       "archived": 27
     }
   },
@@ -17,12 +17,12 @@
     "liturgical": {
       "name": "Predici Liturgice",
       "description": "Predici pentru toate duminicile și sărbătorile anului liturgic 2026-2027",
-      "count": 51,
+      "count": 91,
       "sermons": [
         {
           "id": "lit-2026-2026-01-05",
           "title": "Botezul Domnului",
-          "date": "2026-01-05",
+          "date": "2026-01-06",
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
@@ -35,12 +35,13 @@
           "keywords": [
             "domnului",
             "botezul"
-          ]
+          ],
+          "feastKey": "botezul-domnului"
         },
         {
           "id": "lit-2026-2026-03-24",
           "title": "Buna Vestire",
-          "date": "2026-03-24",
+          "date": "2026-03-25",
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
@@ -53,7 +54,8 @@
           "keywords": [
             "vestire",
             "buna"
-          ]
+          ],
+          "feastKey": "buna-vestire"
         },
         {
           "id": "lit-2026-2026-02-08",
@@ -103,7 +105,7 @@
         {
           "id": "lit-2026-2026-12-24",
           "title": "Nașterea Domnului",
-          "date": "2026-12-24",
+          "date": "2026-12-25",
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
@@ -117,7 +119,8 @@
             "domnului",
             "crăciun",
             "nașterea"
-          ]
+          ],
+          "feastKey": "nasterea-domnului"
         },
         {
           "id": "lit-2026-2026-04-12",
@@ -807,7 +810,7 @@
         {
           "id": "lit-2026-2026-09-13",
           "title": "Înălțarea Sfintei Cruci",
-          "date": "2026-09-13",
+          "date": "2026-09-14",
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
@@ -821,7 +824,8 @@
             "înălțarea",
             "cruci",
             "sfintei"
-          ]
+          ],
+          "feastKey": "inaltarea-sfintei-cruci"
         },
         {
           "id": "lit-2026-2026-08-09",
@@ -1016,31 +1020,6 @@
           ]
         },
         {
-          "id": "lit-2026-2026-05-31",
-          "title": "Rusaliile - Pogorârea Sfântului Duh (Duminica a VII-a după Paști)",
-          "date": "2026-05-31",
-          "year": 2026,
-          "category": "Predici Liturgice",
-          "subcategory": "2026",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 7 după Paști (a Sf. Părininți de la Sinodul I Ecumenic) - 2020.opus",
-          "duration": "21:00",
-          "fileSize": 20996178,
-          "recordingYear": 2020,
-          "type": "pascha-offset",
-          "paschaOffset": 49,
-          "keywords": [
-            "paști",
-            "înviere",
-            "duminică",
-            "după",
-            "pogorârea",
-            "sfânt",
-            "rusaliile",
-            "sfântului",
-            "duminica"
-          ]
-        },
-        {
           "id": "lit-2026-2026-07-19",
           "title": "Duminica a VII-a după Rusalii",
           "date": "2026-07-19",
@@ -1102,9 +1081,9 @@
           ]
         },
         {
-          "id": "lit-2026-2026-08-05",
-          "title": "Schimbarea la Față",
-          "date": "2026-08-05",
+          "id": "lit-schimbarea-la-fata-2017",
+          "title": "Schimbarea la Față a Domnului",
+          "date": "2026-08-06",
           "year": 2026,
           "category": "Predici Liturgice",
           "subcategory": "2026",
@@ -1117,14 +1096,929 @@
           "keywords": [
             "față",
             "schimbarea"
-          ]
+          ],
+          "feastKey": "schimbarea-la-fata"
+        },
+        {
+          "id": "lit-schimbarea-la-fata-2015",
+          "title": "Schimbarea la Față a Domnului",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Schimbarea la Față - 2015.opus",
+          "duration": "15:00",
+          "fileSize": 15884119,
+          "recordingYear": 2015,
+          "keywords": [
+            "schimbarea",
+            "față",
+            "domnului",
+            "schimbarea la față"
+          ],
+          "subcategory": "2026",
+          "date": "2026-08-06",
+          "year": 2026,
+          "type": "fixed-feast",
+          "paschaOffset": null,
+          "feastKey": "schimbarea-la-fata"
+        },
+        {
+          "id": "lit-schimbarea-la-fata-2016",
+          "title": "Schimbarea la Față a Domnului",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Schimbarea la Față a Domnului - 2016.opus",
+          "duration": "20:00",
+          "fileSize": 21923630,
+          "recordingYear": 2016,
+          "keywords": [
+            "schimbarea",
+            "față",
+            "domnului",
+            "schimbarea la față"
+          ],
+          "subcategory": "2026",
+          "date": "2026-08-06",
+          "year": 2026,
+          "type": "fixed-feast",
+          "paschaOffset": null,
+          "feastKey": "schimbarea-la-fata"
+        },
+        {
+          "id": "lit-rusalii-10-2015",
+          "title": "Duminica a X-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 10 după Rusalii - 2015.opus",
+          "duration": "26:00",
+          "fileSize": 27890415,
+          "recordingYear": 2015,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-08-09",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 119
+        },
+        {
+          "id": "lit-rusalii-10-2016",
+          "title": "Duminica a X-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 10 după Rusalii - 2016.opus",
+          "duration": "17:00",
+          "fileSize": 18000247,
+          "recordingYear": 2016,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-08-09",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 119
+        },
+        {
+          "id": "lit-rusalii-22-2017",
+          "title": "Duminica a XXII-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 22 după Rusalii - 2017.opus",
+          "duration": "25:00",
+          "fileSize": 26917824,
+          "recordingYear": 2017,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-11-01",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 203
+        },
+        {
+          "id": "lit-rusalii-23-2018",
+          "title": "Duminica a XXIII-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 23 după Rusalii - 2018.opus",
+          "duration": "25:00",
+          "fileSize": 26941230,
+          "recordingYear": 2018,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-11-08",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 210
+        },
+        {
+          "id": "lit-rusalii-25-2017",
+          "title": "Duminica a XXV-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 25 după Rusalii - 2017.opus",
+          "duration": "14:00",
+          "fileSize": 15599489,
+          "recordingYear": 2017,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-11-22",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 224
+        },
+        {
+          "id": "lit-rusalii-26-2017",
+          "title": "Duminica a XXVI-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 26 după Rusalii - 2017.opus",
+          "duration": "16:00",
+          "fileSize": 17478216,
+          "recordingYear": 2017,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-11-29",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 231
+        },
+        {
+          "id": "lit-rusalii-27-2017",
+          "title": "Duminica a XXVII-a după Rusalii - Duminica Sfinților Strămoși",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 27 după Rusalii (Sf. Nicolae) - 2017.opus",
+          "duration": "19:00",
+          "fileSize": 20046157,
+          "recordingYear": 2017,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-12-06",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 238
+        },
+        {
+          "id": "lit-rusalii-29-2019",
+          "title": "Duminica a XXIX-a după Rusalii - Duminica dinaintea Nașterii Domnului",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 29 după Rusalii - 2019.opus",
+          "duration": "40:00",
+          "fileSize": 42551917,
+          "recordingYear": 2019,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-12-20",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 252
+        },
+        {
+          "id": "lit-pasti-3-2019",
+          "title": "Duminica a II-a după Paști - Duminica Mironosițelor",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 3 după Paști - 2019.opus",
+          "duration": "47:00",
+          "fileSize": 50023356,
+          "recordingYear": 2019,
+          "keywords": [
+            "paști",
+            "înviere",
+            "duminică",
+            "după",
+            "predică",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-04-26",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 14
+        },
+        {
+          "id": "lit-rusalii-30-2015",
+          "title": "Duminica a XXX-a după Rusalii - Duminica după Nașterea Domnului",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 30 după Rusalii - 2015.opus",
+          "duration": "37:00",
+          "fileSize": 39423581,
+          "recordingYear": 2015,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-12-27",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 259
+        },
+        {
+          "id": "lit-rusalii-30-2017",
+          "title": "Duminica a XXX-a după Rusalii - Duminica după Nașterea Domnului",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 30 după Rusalii - 2017.opus",
+          "duration": "19:00",
+          "fileSize": 20759195,
+          "recordingYear": 2017,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-12-27",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 259
+        },
+        {
+          "id": "lit-rusalii-33-2018",
+          "title": "Duminica Vameșului și Fariseului",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 33 după Rusalii (a Vameșului și a Fariseului) - 2018.opus",
+          "duration": "17:00",
+          "fileSize": 18143189,
+          "recordingYear": 2018,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-02-01",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -70
+        },
+        {
+          "id": "lit-rusalii-34-2018",
+          "title": "Duminica Fiului Risipitor",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2018.opus",
+          "duration": "21:00",
+          "fileSize": 22375443,
+          "recordingYear": 2018,
+          "paschaOffset": -63,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-02-08",
+          "year": 2026,
+          "type": "pascha-offset"
+        },
+        {
+          "id": "lit-rusalii-34-2019",
+          "title": "Duminica Fiului Risipitor",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2019.opus",
+          "duration": "57:00",
+          "fileSize": 60067341,
+          "recordingYear": 2019,
+          "paschaOffset": -63,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-02-08",
+          "year": 2026,
+          "type": "pascha-offset"
+        },
+        {
+          "id": "lit-post-4-2019",
+          "title": "Duminica a IV-a din Postul Mare - Sfântul Ioan Scărarul",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 din Post - 2019.opus",
+          "duration": "43:00",
+          "fileSize": 45943749,
+          "recordingYear": 2019,
+          "type": "pascha-offset",
+          "paschaOffset": -21,
+          "keywords": [
+            "post",
+            "predică",
+            "duminica",
+            "duminică",
+            "mare",
+            "postul",
+            "sfântul",
+            "ioan",
+            "scărarul"
+          ],
+          "subcategory": "2026",
+          "date": "2026-03-22",
+          "year": 2026
+        },
+        {
+          "id": "lit-pasti-4-nedatat",
+          "title": "Duminica a III-a după Paști - Duminica Slăbănogului",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 după Paști (Vindecarea slăbănogului de la Vitezda).opus",
+          "duration": "19:00",
+          "fileSize": 20520959,
+          "recordingYear": null,
+          "keywords": [
+            "vitezda",
+            "paști",
+            "înviere",
+            "duminică",
+            "după",
+            "vindecarea",
+            "predică",
+            "slăbănogului",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-05-03",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 21
+        },
+        {
+          "id": "lit-rusalii-7-2015",
+          "title": "Duminica a VII-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 7 după Rusalii - 2015.opus",
+          "duration": "17:00",
+          "fileSize": 18022817,
+          "recordingYear": 2015,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-07-19",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 98
+        },
+        {
+          "id": "lit-rusalii-7-2016",
+          "title": "Duminica a VII-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 7 după Rusalii - 2016.opus",
+          "duration": "16:00",
+          "fileSize": 17453556,
+          "recordingYear": 2016,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-07-19",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 98
+        },
+        {
+          "id": "lit-rusalii-8-2015",
+          "title": "Duminica a VIII-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 8 după Rusalii - 2015.opus",
+          "duration": "18:00",
+          "fileSize": 19829654,
+          "recordingYear": 2015,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-07-26",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 105
+        },
+        {
+          "id": "lit-rusalii-8-2016",
+          "title": "Duminica a VIII-a după Rusalii",
+          "category": "Predici Liturgice",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 8 după Rusalii - 2016.opus",
+          "duration": "24:00",
+          "fileSize": 25561546,
+          "recordingYear": 2016,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "subcategory": "2026",
+          "date": "2026-07-26",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 105
+        },
+        {
+          "id": "lit-rusaliile-2015",
+          "title": "Rusaliile - Pogorârea Sfântului Duh",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Rusalii - 2015.opus",
+          "duration": "18:00",
+          "fileSize": 18261889,
+          "recordingYear": 2015,
+          "keywords": [
+            "duminică",
+            "predică",
+            "duminica",
+            "rusaliilor"
+          ],
+          "date": "2026-05-31",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 49
+        },
+        {
+          "id": "lit-rusaliile-2016",
+          "title": "Rusaliile - Pogorârea Sfântului Duh",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Rusalii - 2016.opus",
+          "duration": "8:00",
+          "fileSize": 8061595,
+          "recordingYear": 2016,
+          "keywords": [
+            "duminică",
+            "predică",
+            "duminica",
+            "rusaliilor"
+          ],
+          "date": "2026-05-31",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 49
+        },
+        {
+          "id": "lit-rusaliile-2020",
+          "title": "Rusaliile - Pogorârea Sfântului Duh",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Rusalii - 2020.opus",
+          "duration": "15:00",
+          "fileSize": 15147257,
+          "recordingYear": 2020,
+          "keywords": [
+            "duminică",
+            "predică",
+            "duminica",
+            "rusaliilor"
+          ],
+          "date": "2026-05-31",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 49
+        },
+        {
+          "id": "lit-rusalii-1-2017",
+          "title": "Duminica a I-a după Rusalii - a Tuturor Sfinților",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 1 după Rusalii (a Tuturor Sfinților) - 2017.opus",
+          "duration": "18:00",
+          "fileSize": 18024906,
+          "recordingYear": 2017,
+          "keywords": [
+            "duminică",
+            "după",
+            "rusalii",
+            "duminica",
+            "întâi"
+          ],
+          "date": "2026-06-07",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 56
+        },
+        {
+          "id": "lit-rusalii-1-2015",
+          "title": "Duminica a I-a după Rusalii - a Tuturor Sfinților",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 1 după Rusalii (a Tuturor Sfinților) - 2015.opus",
+          "duration": "25:00",
+          "fileSize": 25203355,
+          "recordingYear": 2015,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "date": "2026-06-07",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 56
+        },
+        {
+          "id": "lit-rusalii-1-nedatat",
+          "title": "Duminica a I-a după Rusalii - a Tuturor Sfinților",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 1 după Rusalii (a Tuturor Sfinților).opus",
+          "duration": "26:00",
+          "fileSize": 26227355,
+          "recordingYear": null,
+          "keywords": [
+            "duminică",
+            "tuturor",
+            "după",
+            "predică",
+            "sfinților",
+            "rusalii",
+            "duminica",
+            "întâi"
+          ],
+          "date": "2026-06-07",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 56
+        },
+        {
+          "id": "lit-rusalii-1-2019",
+          "title": "Duminica a I-a după Rusalii - a Tuturor Sfinților",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 1 după Rusalii (a Tuturor Sfinților) - 2019.opus",
+          "duration": "34:00",
+          "fileSize": 34136765,
+          "recordingYear": 2019,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica",
+            "întâi"
+          ],
+          "date": "2026-06-07",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 56
+        },
+        {
+          "id": "lit-dupa-botez-2017",
+          "title": "Duminica după Botezul Domnului",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica după Botezul Domnului - 2017.opus",
+          "duration": "14:00",
+          "fileSize": 14482284,
+          "recordingYear": 2017,
+          "keywords": [
+            "duminică",
+            "după",
+            "domnului",
+            "botezul",
+            "duminica"
+          ],
+          "date": "2026-01-11",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -91
+        },
+        {
+          "id": "lit-dupa-botez-2019",
+          "title": "Duminica după Botezul Domnului",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica după Botezul Domnului - 2019.opus",
+          "duration": "42:00",
+          "fileSize": 42379218,
+          "recordingYear": 2019,
+          "keywords": [
+            "duminică",
+            "după",
+            "domnului",
+            "botezul",
+            "duminica"
+          ],
+          "date": "2026-01-11",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -91
+        },
+        {
+          "id": "lit-dupa-botez-2018",
+          "title": "Duminica după Botezul Domnului",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica după Botezul Domnului - 2018.opus",
+          "duration": "20:00",
+          "fileSize": 20425664,
+          "recordingYear": 2018,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "domnului",
+            "botezul",
+            "duminica"
+          ],
+          "date": "2026-01-11",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -91
+        },
+        {
+          "id": "lit-dupa-botez-2020",
+          "title": "Duminica după Botezul Domnului",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica după Botezul Domnului - 2020.opus",
+          "duration": "21:00",
+          "fileSize": 21305468,
+          "recordingYear": 2020,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "domnului",
+            "botezul",
+            "duminica"
+          ],
+          "date": "2026-01-11",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -91
+        },
+        {
+          "id": "lit-rusalii-31-2015",
+          "title": "Duminica a XXXI-a după Rusalii",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 31 după Rusalii - 2015.opus",
+          "duration": "26:00",
+          "fileSize": 25609194,
+          "recordingYear": 2015,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "date": "2026-01-18",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -84
+        },
+        {
+          "id": "lit-rusalii-31-2017",
+          "title": "Duminica a XXXI-a după Rusalii",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 31 după Rusalii - 2017.opus",
+          "duration": "18:00",
+          "fileSize": 18144025,
+          "recordingYear": 2017,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "date": "2026-01-18",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -84
+        },
+        {
+          "id": "lit-rusalii-31-2019",
+          "title": "Duminica a XXXI-a după Rusalii",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 31 după Rusalii - 2019.opus",
+          "duration": "31:00",
+          "fileSize": 31217165,
+          "recordingYear": 2019,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "date": "2026-01-18",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -84
+        },
+        {
+          "id": "lit-zacheu-nedatat",
+          "title": "Duminica Zacheului",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 32 după Rusalii (Chemarea lui Zaheu).opus",
+          "duration": "23:00",
+          "fileSize": 23256083,
+          "recordingYear": null,
+          "keywords": [
+            "zaheu",
+            "duminică",
+            "după",
+            "chemarea",
+            "rusalii",
+            "duminica"
+          ],
+          "date": "2026-01-25",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -77
+        },
+        {
+          "id": "lit-zacheu-2018",
+          "title": "Duminica Zacheului",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 32 după Rusalii (Chemarea lui Zaheu) - 2018.opus",
+          "duration": "18:00",
+          "fileSize": 17596080,
+          "recordingYear": 2018,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "date": "2026-01-25",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -77
+        },
+        {
+          "id": "lit-zacheu-2020",
+          "title": "Duminica Zacheului",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 32 după Rusalii (Chemarea lui Zaheu) - 2020.opus",
+          "duration": "22:00",
+          "fileSize": 21852159,
+          "recordingYear": 2020,
+          "keywords": [
+            "duminică",
+            "după",
+            "predică",
+            "rusalii",
+            "duminica"
+          ],
+          "date": "2026-01-25",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": -77
+        },
+        {
+          "id": "lit-dinaintea-crucii-2016",
+          "title": "Duminica a XV-a după Rusalii - Duminica dinaintea Înălțării Sfintei Cruci",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica dinaintea Înălțării Sfintei Cruci - 2016.opus",
+          "duration": "17:00",
+          "fileSize": 17168090,
+          "recordingYear": 2016,
+          "keywords": [
+            "cruci",
+            "duminică",
+            "sfintei",
+            "înălțării",
+            "dinaintea",
+            "duminica"
+          ],
+          "date": "2026-09-13",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 154
+        },
+        {
+          "id": "lit-dinaintea-crucii-2017",
+          "title": "Duminica a XV-a după Rusalii - Duminica dinaintea Înălțării Sfintei Cruci",
+          "category": "Predici Liturgice",
+          "subcategory": "2026",
+          "seriesId": "invatături-generale",
+          "seriesTitle": "Învățături Generale",
+          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica dinaintea Înălțării Sfintei Cruci - 2017.opus",
+          "duration": "18:00",
+          "fileSize": 18429073,
+          "recordingYear": 2017,
+          "keywords": [
+            "cruci",
+            "duminică",
+            "sfintei",
+            "înălțării",
+            "dinaintea",
+            "duminica"
+          ],
+          "date": "2026-09-13",
+          "year": 2026,
+          "type": "pascha-offset",
+          "paschaOffset": 154
         }
       ]
     },
     "courses": {
       "name": "Cursuri Biblice",
       "description": "Serii de învățătură biblică și catehism ortodox",
-      "count": 241,
+      "count": 222,
       "sermons": [
         {
           "id": "course-rugaciunea-domneasca-2",
@@ -3643,114 +4537,6 @@
           ]
         },
         {
-          "id": "course-invatături-generale-54",
-          "title": "Duminica a 32-a după Rusalii (Chemarea lui Zaheu)",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 54,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 32 după Rusalii (Chemarea lui Zaheu).opus",
-          "duration": "23:00",
-          "fileSize": 23256083,
-          "recordingYear": null,
-          "keywords": [
-            "zaheu",
-            "duminică",
-            "după",
-            "chemarea",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-55",
-          "title": "Duminica dinaintea Înălțării Sfintei Cruci - 2016",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 55,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica dinaintea Înălțării Sfintei Cruci - 2016.opus",
-          "duration": "17:00",
-          "fileSize": 17168090,
-          "recordingYear": 2016,
-          "keywords": [
-            "cruci",
-            "duminică",
-            "sfintei",
-            "înălțării",
-            "dinaintea",
-            "duminica"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-56",
-          "title": "Duminica dinaintea Înălțării Sfintei Cruci - 2017",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 56,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica dinaintea Înălțării Sfintei Cruci - 2017.opus",
-          "duration": "18:00",
-          "fileSize": 18429073,
-          "recordingYear": 2017,
-          "keywords": [
-            "cruci",
-            "duminică",
-            "sfintei",
-            "înălțării",
-            "dinaintea",
-            "duminica"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-57",
-          "title": "Duminica după Botezul Domnului - 2017",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 57,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica după Botezul Domnului - 2017.opus",
-          "duration": "14:00",
-          "fileSize": 14482284,
-          "recordingYear": 2017,
-          "keywords": [
-            "duminică",
-            "după",
-            "domnului",
-            "botezul",
-            "duminica"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-58",
-          "title": "Duminica după Botezul Domnului - 2019",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 58,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica după Botezul Domnului - 2019.opus",
-          "duration": "42:00",
-          "fileSize": 42379218,
-          "recordingYear": 2019,
-          "keywords": [
-            "duminică",
-            "după",
-            "domnului",
-            "botezul",
-            "duminica"
-          ]
-        },
-        {
           "id": "course-invatături-generale-59",
           "title": "Duminica lăsatului sec de brânză - 2018",
           "category": "Cursuri Biblice",
@@ -3793,27 +4579,6 @@
             "ortodoxiei",
             "mare",
             "postul"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-61",
-          "title": "Duminica întâi după Rusalii - 2017",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 61,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 1 după Rusalii (a Tuturor Sfinților) - 2017.opus",
-          "duration": "18:00",
-          "fileSize": 18024906,
-          "recordingYear": 2017,
-          "keywords": [
-            "duminică",
-            "după",
-            "rusalii",
-            "duminica",
-            "întâi"
           ]
         },
         {
@@ -4429,27 +5194,6 @@
           ]
         },
         {
-          "id": "course-invatături-generale-90",
-          "title": "Predică la Duminica 1 după Rusalii - 2015",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 90,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 1 după Rusalii (a Tuturor Sfinților) - 2015.opus",
-          "duration": "25:00",
-          "fileSize": 25203355,
-          "recordingYear": 2015,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
           "id": "course-invatături-generale-91",
           "title": "Predică la Duminica a 17-a după Rusalii (a Cananeencei)- 2016",
           "category": "Cursuri Biblice",
@@ -4897,111 +5641,6 @@
           ]
         },
         {
-          "id": "course-invatături-generale-111",
-          "title": "Predică la Duminica a 31-a după Rusalii - 2015",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 111,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 31 după Rusalii - 2015.opus",
-          "duration": "26:00",
-          "fileSize": 25609194,
-          "recordingYear": 2015,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-112",
-          "title": "Predică la Duminica a 31-a după Rusalii - 2017",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 112,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 31 după Rusalii - 2017.opus",
-          "duration": "18:00",
-          "fileSize": 18144025,
-          "recordingYear": 2017,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-113",
-          "title": "Predică la Duminica a 31-a după Rusalii - 2019",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 113,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 31 după Rusalii - 2019.opus",
-          "duration": "31:00",
-          "fileSize": 31217165,
-          "recordingYear": 2019,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-114",
-          "title": "Predică la Duminica a 32-a după Rusalii - 2018",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 114,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 32 după Rusalii (Chemarea lui Zaheu) - 2018.opus",
-          "duration": "18:00",
-          "fileSize": 17596080,
-          "recordingYear": 2018,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-115",
-          "title": "Predică la Duminica a 32-a după Rusalii - 2020",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 115,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 32 după Rusalii (Chemarea lui Zaheu) - 2020.opus",
-          "duration": "22:00",
-          "fileSize": 21852159,
-          "recordingYear": 2020,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
           "id": "course-invatături-generale-116",
           "title": "Predică la Duminica a 33-a după Rusalii (a Vameșului și a Fariseului) - 2016",
           "category": "Cursuri Biblice",
@@ -5391,50 +6030,6 @@
           ]
         },
         {
-          "id": "course-invatături-generale-133",
-          "title": "Predică la Duminica după Botezul Domnului - 2018",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 133,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica după Botezul Domnului - 2018.opus",
-          "duration": "20:00",
-          "fileSize": 20425664,
-          "recordingYear": 2018,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "domnului",
-            "botezul",
-            "duminica"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-134",
-          "title": "Predică la Duminica după Botezul Domnului - 2020",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 134,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica după Botezul Domnului - 2020.opus",
-          "duration": "21:00",
-          "fileSize": 21305468,
-          "recordingYear": 2020,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "domnului",
-            "botezul",
-            "duminica"
-          ]
-        },
-        {
           "id": "course-invatături-generale-135",
           "title": "Predică la Duminica Floriilor - 2015",
           "category": "Cursuri Biblice",
@@ -5497,66 +6092,6 @@
           ]
         },
         {
-          "id": "course-invatături-generale-138",
-          "title": "Predică la Duminica Rusaliilor - 2015",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 138,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Rusalii - 2015.opus",
-          "duration": "18:00",
-          "fileSize": 18261889,
-          "recordingYear": 2015,
-          "keywords": [
-            "duminică",
-            "predică",
-            "duminica",
-            "rusaliilor"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-139",
-          "title": "Predică la Duminica Rusaliilor - 2016",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 139,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Rusalii - 2016.opus",
-          "duration": "8:00",
-          "fileSize": 8061595,
-          "recordingYear": 2016,
-          "keywords": [
-            "duminică",
-            "predică",
-            "duminica",
-            "rusaliilor"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-140",
-          "title": "Predică la Duminica Rusaliilor - 2020",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 140,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Rusalii - 2020.opus",
-          "duration": "15:00",
-          "fileSize": 15147257,
-          "recordingYear": 2020,
-          "keywords": [
-            "duminică",
-            "predică",
-            "duminica",
-            "rusaliilor"
-          ]
-        },
-        {
           "id": "course-invatături-generale-141",
           "title": "Predică la Duminica Înfricoșătoarei Judecăți (Lăsatul Sec de Carne) - 2016",
           "category": "Cursuri Biblice",
@@ -5603,52 +6138,6 @@
             "întâi",
             "mare",
             "postul"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-143",
-          "title": "Predică la Duminica întâi după Rusalii (a Tuturor Sfinților)",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 143,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 1 după Rusalii (a Tuturor Sfinților).opus",
-          "duration": "26:00",
-          "fileSize": 26227355,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "tuturor",
-            "după",
-            "predică",
-            "sfinților",
-            "rusalii",
-            "duminica",
-            "întâi"
-          ]
-        },
-        {
-          "id": "course-invatături-generale-144",
-          "title": "Predică la Duminica întâi după Rusalii - 2019",
-          "category": "Cursuri Biblice",
-          "subcategory": "Învățături Generale",
-          "seriesId": "invatături-generale",
-          "seriesTitle": "Învățături Generale",
-          "partNumber": 144,
-          "totalParts": 176,
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 1 după Rusalii (a Tuturor Sfinților) - 2019.opus",
-          "duration": "34:00",
-          "fileSize": 34136765,
-          "recordingYear": 2019,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica",
-            "întâi"
           ]
         },
         {
@@ -6370,7 +6859,7 @@
     "topical": {
       "name": "Învățături Tematice",
       "description": "Predici pe diverse teme duhovnicești",
-      "count": 25,
+      "count": 3,
       "sermons": [
         {
           "id": "topical-1",
@@ -6413,368 +6902,6 @@
           "keywords": [
             "despre",
             "înviere"
-          ]
-        },
-        {
-          "id": "topical-4",
-          "title": "Predică la Duminica a 10-a după Rusalii - 2015",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 10 după Rusalii - 2015.opus",
-          "duration": "26:00",
-          "fileSize": 27890415,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-5",
-          "title": "Predică la Duminica a 10-a după Rusalii - 2016",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 10 după Rusalii - 2016.opus",
-          "duration": "17:00",
-          "fileSize": 18000247,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-6",
-          "title": "Predică la Duminica a 22-a după Rusalii - 2017",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 22 după Rusalii - 2017.opus",
-          "duration": "25:00",
-          "fileSize": 26917824,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-7",
-          "title": "Predică la Duminica a 23-a după Rusalii - 2018",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 23 după Rusalii - 2018.opus",
-          "duration": "25:00",
-          "fileSize": 26941230,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-8",
-          "title": "Predică la Duminica a 25-a după Rusalii - 2017",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 25 după Rusalii - 2017.opus",
-          "duration": "14:00",
-          "fileSize": 15599489,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-9",
-          "title": "Predică la Duminica a 26-a după Rusalii - 2017",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 26 după Rusalii - 2017.opus",
-          "duration": "16:00",
-          "fileSize": 17478216,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-10",
-          "title": "Predică la Duminica a 27-a după Rusalii - 2017",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 27 după Rusalii (Sf. Nicolae) - 2017.opus",
-          "duration": "19:00",
-          "fileSize": 20046157,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-11",
-          "title": "Predică la Duminica a 29-a după Rusalii - 2019",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 29 după Rusalii - 2019.opus",
-          "duration": "40:00",
-          "fileSize": 42551917,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-12",
-          "title": "Predică la Duminica a 3-a după Paști - 2019",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 3 după Paști - 2019.opus",
-          "duration": "47:00",
-          "fileSize": 50023356,
-          "recordingYear": null,
-          "keywords": [
-            "paști",
-            "înviere",
-            "duminică",
-            "după",
-            "predică",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-13",
-          "title": "Predică la Duminica a 30-a după Rusalii - 2015",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 30 după Rusalii - 2015.opus",
-          "duration": "37:00",
-          "fileSize": 39423581,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-14",
-          "title": "Predică la Duminica a 30-a după Rusalii - 2017",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 30 după Rusalii - 2017.opus",
-          "duration": "19:00",
-          "fileSize": 20759195,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-15",
-          "title": "Predică la Duminica a 33-a după Rusalii - 2018",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 33 după Rusalii (a Vameșului și a Fariseului) - 2018.opus",
-          "duration": "17:00",
-          "fileSize": 18143189,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-16",
-          "title": "Predică la Duminica a 34-a după Rusalii (a Întoarcerii Fiului risipitor) - 2018",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2018.opus",
-          "duration": "21:00",
-          "fileSize": 22375443,
-          "recordingYear": 2018,
-          "paschaOffset": -63,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-17",
-          "title": "Predică la Duminica a 34-a după Rusalii (a Întoarcerii Fiului risipitor) - 2019",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 34 după Rusalii (a Întoarcerii Fiului risipitor) - 2019.opus",
-          "duration": "57:00",
-          "fileSize": 60067341,
-          "recordingYear": 2019,
-          "paschaOffset": -63,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-18",
-          "title": "Duminica a IV-a din Postul Mare - Sfântul Ioan Scărarul",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 din Post - 2019.opus",
-          "duration": "43:00",
-          "fileSize": 45943749,
-          "recordingYear": 2019,
-          "type": "pascha-offset",
-          "paschaOffset": -21,
-          "keywords": [
-            "post",
-            "predică",
-            "duminica",
-            "duminică",
-            "mare",
-            "postul",
-            "sfântul",
-            "ioan",
-            "scărarul"
-          ]
-        },
-        {
-          "id": "topical-19",
-          "title": "Predică la Duminica a 4-a după Paști (Vindecarea slăbănogului de la Vitezda)",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 4 după Paști (Vindecarea slăbănogului de la Vitezda).opus",
-          "duration": "19:00",
-          "fileSize": 20520959,
-          "recordingYear": null,
-          "keywords": [
-            "vitezda",
-            "paști",
-            "înviere",
-            "duminică",
-            "după",
-            "vindecarea",
-            "predică",
-            "slăbănogului",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-20",
-          "title": "Predică la Duminica a 7-a după Rusalii - 2015",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 7 după Rusalii - 2015.opus",
-          "duration": "17:00",
-          "fileSize": 18022817,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-21",
-          "title": "Predică la Duminica a 7-a după Rusalii - 2016",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 7 după Rusalii - 2016.opus",
-          "duration": "16:00",
-          "fileSize": 17453556,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-22",
-          "title": "Predică la Duminica a 8-a după Rusalii - 2015",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 8 după Rusalii - 2015.opus",
-          "duration": "18:00",
-          "fileSize": 19829654,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-23",
-          "title": "Predică la Duminica a 8-a după Rusalii - 2016",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Duminica 8 după Rusalii - 2016.opus",
-          "duration": "24:00",
-          "fileSize": 25561546,
-          "recordingYear": null,
-          "keywords": [
-            "duminică",
-            "după",
-            "predică",
-            "rusalii",
-            "duminica"
-          ]
-        },
-        {
-          "id": "topical-24",
-          "title": "Predică la Schimbarea la Față - 2015",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Schimbarea la Față - 2015.opus",
-          "duration": "15:00",
-          "fileSize": 15884119,
-          "recordingYear": null,
-          "keywords": [
-            "față",
-            "schimbarea",
-            "predică"
-          ]
-        },
-        {
-          "id": "topical-25",
-          "title": "Predică la Schimbarea la Față a Domnului - 2016",
-          "category": "Învățături Tematice",
-          "audioFile": "https://prediciduminica-r2.lightsongjs.workers.dev/audio/Schimbarea la Față a Domnului - 2016.opus",
-          "duration": "20:00",
-          "fileSize": 21923630,
-          "recordingYear": null,
-          "keywords": [
-            "față",
-            "domnului",
-            "schimbarea",
-            "predică"
           ]
         }
       ]

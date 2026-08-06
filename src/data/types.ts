@@ -10,6 +10,7 @@ export interface Sermon {
   fixed_month?: number;
   fixed_day?: number;
   paschaOffset?: number;
+  feastKey?: string;  // Groups recordings of the same fixed feast across years
   duration?: string;
   description?: string;
   gospelReading?: string;

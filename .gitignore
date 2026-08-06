@@ -30,6 +30,7 @@ playwright/.cache/
 
 # Backup files
 *.backup
+*.bak
 
 # Test files and scripts
 test-*.mjs
@@ -47,5 +48,7 @@ screenshot-*.png
 
 # Temporary files
 opus-files-to-delete.txt
+# Local R2 listing snapshot - goes stale fast, always re-run list-r2.cjs instead
+r2-files.txt
 public/test-*.opus
 public/test-*.html

@@ -6,7 +6,7 @@ import SermonList from '../components/sermon/SermonList';
 import SeriesCard from '../components/sermon/SeriesCard';
 import type { Sermon } from '../data/types';
 import {
-  getThisSundaySermon,
+  getFeaturedSermon,
   getLiturgicalSermons,
   getUpcomingSermons,
   findRelatedSermons,
@@ -50,12 +50,11 @@ export default function Home() {
     s.name !== 'Învățături Generale' && s.sermons.length >= 2
   ).slice(0, 6);
 
-  // Get liturgical sermons for Sunday display
+  // Get liturgical sermons for the hero: today's fixed feast, else the Sunday cycle
   const liturgicalSermons = getLiturgicalSermons(allSermons);
-  const thisSunday = getThisSundaySermon(liturgicalSermons);
+  const featured = getFeaturedSermon(liturgicalSermons);
 
-  // Featured sermon is this Sunday's sermon
-  const featuredSermon = thisSunday.sermon || allSermons[0];
+  const featuredSermon = featured.sermon || allSermons[0];
 
   // Find related sermons (same theme from different years)
   const relatedSermons = featuredSermon
@@ -85,14 +84,15 @@ export default function Home() {
           <section className="py-4 md:py-0">
             <div className="mb-2">
               <span className="text-xs font-bold text-primary uppercase tracking-wider">
-                {thisSunday.label}
+                {featured.label}
               </span>
               <span className="text-xs text-[#432818] opacity-60 ml-2">
-                {formatDateRomanian(thisSunday.date)}
+                {formatDateRomanian(featured.date)}
               </span>
             </div>
             <HeroSermonCard
               sermon={featuredSermon}
+              badge={featured.label}
               onPlay={() => handleSermonPlay(featuredSermon)}
               relatedSermons={relatedSermons.slice(1, 5)}
               onRelatedPlay={handleSermonPlay}

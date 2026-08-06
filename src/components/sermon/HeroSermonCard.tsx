@@ -3,11 +3,12 @@ import type { Sermon } from '../../data/types';
 interface HeroSermonCardProps {
   sermon: Sermon;
   onPlay: () => void;
+  badge?: string;
   relatedSermons?: Sermon[];
   onRelatedPlay?: (sermon: Sermon) => void;
 }
 
-export default function HeroSermonCard({ sermon, onPlay, relatedSermons = [], onRelatedPlay }: HeroSermonCardProps) {
+export default function HeroSermonCard({ sermon, onPlay, badge = 'Duminica de Astăzi', relatedSermons = [], onRelatedPlay }: HeroSermonCardProps) {
   // Default Byzantine icon if sermon doesn't have one
   const sermonImage = sermon.image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzSBbPQtWbGTySS5VBFd0eFMXU_-XglPITi1prQRByCBJQLpwPReVm5tUnH7RiWGkaieo4YxkP6DE5nVPSAW9c-xRIdcE-aBufsp9mb2rIhorvPtIEF1hHJ5FYTV2gqNLBWNcP8kWMpnuAzVjRYqkPXkAQg7o0qPrIGe58ICU8k8eC6_WmJiihy4g17rPDcj5W7Kg2PTns5NoHMkdfW45Pm69VSrE-P2ecgs84YNgaLYqo0B3EmgzjEy9XgblqmObPSHAe9ZH94_zW';
 
@@ -29,7 +30,7 @@ export default function HeroSermonCard({ sermon, onPlay, relatedSermons = [], on
         {/* Left: Title and Info */}
         <div className="flex-1 min-w-0">
           <span className="inline-block bg-[#D4AF37] text-[#432818] text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-widest mb-2">
-            Duminica de Astăzi
+            {badge}
           </span>
           {sermon.gospelReading && (
             <p className="text-primary/70 text-xs font-semibold uppercase tracking-wider mb-1">
@@ -39,11 +40,9 @@ export default function HeroSermonCard({ sermon, onPlay, relatedSermons = [], on
           <h2 className="text-[#432818] text-lg md:text-xl font-serif font-bold leading-tight mb-2">
             {sermon.title}
           </h2>
-          {recordingName && (
-            <p className="text-[#432818]/80 text-sm mb-1">
-              {recordingName}
-            </p>
-          )}
+          <p className="text-[#432818]/80 text-sm mb-1">
+            {sermon.year ? `Înregistrare din ${sermon.year}` : recordingName}
+          </p>
           <p className="text-[#432818]/60 text-xs mb-3">
             {sermon.duration}
           </p>

@@ -21,9 +21,14 @@ function getNextSunday(date: Date): Date {
   return d;
 }
 
-// Format date as YYYY-MM-DD
+// Format date as YYYY-MM-DD in the LOCAL timezone.
+// toISOString() shifts the day backwards for UTC+ offsets, which is what
+// produced the off-by-one fixed-feast dates in the catalog.
 function formatDate(date: Date): string {
-  return date.toISOString().split('T')[0];
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
 }
 
 // Check if today is Saturday (show next Sunday as primary)
@@ -36,9 +41,37 @@ export function isSunday(): boolean {
   return new Date().getDay() === 0;
 }
 
-// Find sermon for a specific liturgical date
+// Find sermon for a specific liturgical date.
+// Several recordings can share a date (same feast, different years) - pick the newest.
 export function findSermonForDate(sermons: Sermon[], targetDate: string): Sermon | null {
-  return sermons.find(s => s.liturgicalDate === targetDate) || null;
+  const matches = sermons.filter(s => s.liturgicalDate === targetDate);
+  if (matches.length === 0) return null;
+  return matches.reduce((best, s) => ((s.year || 0) > (best.year || 0) ? s : best));
+}
+
+// Find the fixed feast falling on a given day (e.g. Schimbarea la Față on 6 August),
+// regardless of which weekday it is.
+export function getTodaysFeastSermon(sermons: Sermon[]): {
+  sermon: Sermon | null;
+  date: string;
+  label: string;
+} | null {
+  const todayStr = formatDate(new Date());
+  const sermon = findSermonForDate(
+    sermons.filter(s => s.type === 'fixed'),
+    todayStr
+  );
+  if (!sermon) return null;
+  return { sermon, date: todayStr, label: 'Sărbătoarea de Astăzi' };
+}
+
+// The sermon to feature on the home page: today's fixed feast wins over the Sunday cycle.
+export function getFeaturedSermon(sermons: Sermon[]): {
+  sermon: Sermon | null;
+  date: string;
+  label: string;
+} {
+  return getTodaysFeastSermon(sermons) ?? getThisSundaySermon(sermons);
 }
 
 // Get sermon for this Sunday (last Sunday Mon-Fri, tomorrow on Sat, today on Sun)
@@ -109,14 +142,17 @@ export function getLiturgicalSermons(sermons: Sermon[]): Sermon[] {
   return sermons.filter(s => s.liturgicalDate);
 }
 
-// Find all sermons related to a specific sermon's theme (by paschaOffset)
+// Find all sermons related to a specific sermon's theme.
+// Movable feasts group by paschaOffset, fixed feasts by feastKey.
 export function findRelatedSermons(allSermons: Sermon[], targetSermon: Sermon): Sermon[] {
-  if (targetSermon.paschaOffset == null) return [targetSermon];
+  const matchesTheme = (s: Sermon): boolean => {
+    if (targetSermon.feastKey && s.feastKey === targetSermon.feastKey) return true;
+    return targetSermon.paschaOffset != null && s.paschaOffset === targetSermon.paschaOffset;
+  };
 
-  const related = allSermons.filter(s => {
-    if (s.id === targetSermon.id) return false;
-    return s.paschaOffset != null && s.paschaOffset === targetSermon.paschaOffset;
-  });
+  if (!targetSermon.feastKey && targetSermon.paschaOffset == null) return [targetSermon];
+
+  const related = allSermons.filter(s => s.id !== targetSermon.id && matchesTheme(s));
 
   // Return target sermon first, then related ones sorted by year (no year goes last)
   return [targetSermon, ...related.sort((a, b) => {
@@ -130,22 +166,21 @@ export function findRelatedSermons(allSermons: Sermon[], targetSermon: Sermon): 
 // Get upcoming liturgical sermons (next few Sundays)
 export function getUpcomingSermons(sermons: Sermon[], count: number = 10): Sermon[] {
   const today = new Date();
-  const todayStr = formatDateInternal(today);
+  const todayStr = formatDate(today);
 
-  // Get sermons with future dates or recent past dates
-  return sermons
-    .filter(s => s.liturgicalDate)
-    .sort((a, b) => {
-      const dateA = a.liturgicalDate || '';
-      const dateB = b.liturgicalDate || '';
-      return dateA.localeCompare(dateB);
-    })
-    .filter(s => s.liturgicalDate && s.liturgicalDate >= todayStr)
+  // One entry per liturgical date - extra recordings of the same day show up as "related"
+  const byDate = new Map<string, Sermon>();
+  for (const s of sermons) {
+    if (!s.liturgicalDate || s.liturgicalDate < todayStr) continue;
+    const existing = byDate.get(s.liturgicalDate);
+    if (!existing || (s.year || 0) > (existing.year || 0)) {
+      byDate.set(s.liturgicalDate, s);
+    }
+  }
+
+  return [...byDate.values()]
+    .sort((a, b) => (a.liturgicalDate || '').localeCompare(b.liturgicalDate || ''))
     .slice(0, count);
-}
-
-function formatDateInternal(date: Date): string {
-  return date.toISOString().split('T')[0];
 }
 
 // Format date in Romanian

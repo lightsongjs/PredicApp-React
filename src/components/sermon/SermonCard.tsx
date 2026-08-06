@@ -37,7 +37,9 @@ export default function SermonCard({ sermon, onPlay }: SermonCardProps) {
           {sermon.title}
         </p>
         <p className="text-[#432818]/60 text-xs font-medium mt-1 uppercase tracking-wide">
-          {sermon.category} {sermon.duration && `• ${sermon.duration}`}
+          {sermon.category}
+          {sermon.year && ` • ${sermon.year}`}
+          {sermon.duration && ` • ${sermon.duration}`}
         </p>
       </div>
 

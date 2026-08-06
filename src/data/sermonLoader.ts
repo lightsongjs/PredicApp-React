@@ -14,6 +14,7 @@ interface JsonSermon {
   recordingYear?: number | null;
   type?: string;
   paschaOffset?: number | null;
+  feastKey?: string;
   keywords?: string[];
   partNumber?: number;
   totalParts?: number;
@@ -47,8 +48,11 @@ function transformSermon(json: JsonSermon): Sermon {
     audio_url: json.audioFile,
     type: json.type === 'fixed-feast' ? 'fixed' : 'movable',
     paschaOffset: json.paschaOffset ?? undefined,
+    feastKey: json.feastKey,
     duration: json.duration,
-    year: json.recordingYear ?? json.year,
+    // Recording year only. json.year is the liturgical calendar year (2026) and must not
+    // leak in here - it would make an undated recording look like the newest one.
+    year: json.recordingYear ?? undefined,
     liturgicalDate: json.date,
     partNumber: json.partNumber,
   };
