@@ -12,16 +12,9 @@ export default function HeroSermonCard({ sermon, onPlay, badge = 'Duminica de As
   // Default Byzantine icon if sermon doesn't have one
   const sermonImage = sermon.image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzSBbPQtWbGTySS5VBFd0eFMXU_-XglPITi1prQRByCBJQLpwPReVm5tUnH7RiWGkaieo4YxkP6DE5nVPSAW9c-xRIdcE-aBufsp9mb2rIhorvPtIEF1hHJ5FYTV2gqNLBWNcP8kWMpnuAzVjRYqkPXkAQg7o0qPrIGe58ICU8k8eC6_WmJiihy4g17rPDcj5W7Kg2PTns5NoHMkdfW45Pm69VSrE-P2ecgs84YNgaLYqo0B3EmgzjEy9XgblqmObPSHAe9ZH94_zW';
 
-  // Extract the actual recording name from the audio URL
-  const recordingName = (() => {
-    try {
-      const url = new URL(sermon.audio_url);
-      const filename = decodeURIComponent(url.pathname.split('/').pop() || '');
-      return filename.replace(/\.opus$/, '');
-    } catch {
-      return '';
-    }
-  })();
+  // "2017 • 20:00" - same shape as the related recordings below, and skips the year
+  // cleanly for the few recordings whose filename carries no year
+  const meta = (s: Sermon) => [s.year, s.duration].filter(Boolean).join(' • ');
 
   return (
     <div className="rounded-xl overflow-hidden shadow-lg bg-white border border-[#D4AF37]/20">
@@ -40,11 +33,8 @@ export default function HeroSermonCard({ sermon, onPlay, badge = 'Duminica de As
           <h2 className="text-[#432818] text-lg md:text-xl font-serif font-bold leading-tight mb-2">
             {sermon.title}
           </h2>
-          <p className="text-[#432818]/80 text-sm mb-1">
-            {sermon.year ? `Înregistrare din ${sermon.year}` : recordingName}
-          </p>
           <p className="text-[#432818]/60 text-xs mb-3">
-            {sermon.duration}
+            {meta(sermon)}
           </p>
           <button
             onClick={onPlay}
@@ -80,7 +70,7 @@ export default function HeroSermonCard({ sermon, onPlay, badge = 'Duminica de As
                 <div className="flex-1 min-w-0">
                   <p className="text-[#432818] text-sm font-medium truncate">{related.title}</p>
                   <p className="text-[#432818]/60 text-xs mt-0.5">
-                    {related.year && `${related.year}`} • {related.duration}
+                    {meta(related)}
                   </p>
                 </div>
                 <div className="shrink-0 group/btn flex items-center justify-center size-9 rounded-full border border-primary/20 bg-white hover:bg-primary transition-all">

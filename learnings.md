@@ -45,8 +45,8 @@ npx wrangler pages deploy dist --project-name=predicapp-react
 
 ### Deployment URLs
 
-- **Production URL**: https://predicapp-react.pages.dev
-- **Deployment-specific URL**: https://[deployment-id].predicapp-react.pages.dev (may have SSL issues)
+- **Production URL**: https://predici.pages.dev
+- **Deployment-specific URL**: https://[deployment-id].predici.pages.dev (may have SSL issues)
 - Always use the main production URL for testing
 
 ### Re-deploying Changes
@@ -97,7 +97,7 @@ npx wrangler --version
 // playwright.config.ts
 export default defineConfig({
   use: {
-    baseURL: 'https://predicapp-react.pages.dev',
+    baseURL: 'https://predici.pages.dev',
   },
   // Remove webServer section for testing deployed site
 });
@@ -113,7 +113,7 @@ npx playwright test
 - The Vite build output directory is `dist`
 - Cloudflare Pages automatically serves the built files
 - SSL is handled automatically by Cloudflare
-- Use the main domain (predicapp-react.pages.dev) for stable access
+- Use the main domain (predici.pages.dev) for stable access
 - Deployment-specific subdomains may have SSL issues initially
 
 ---

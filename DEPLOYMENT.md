@@ -1,5 +1,15 @@
 # Deployment Guide - PredicApp React
 
+## Live Site
+
+**https://predici.pages.dev**
+
+Cloudflare Pages is connected to GitHub: pushing to `master` builds and deploys
+automatically, so there is no need to run `npm run build` locally first.
+
+Note: `predicileparintelui.ro`, used further down under "Custom Domain Setup",
+is only a generic example - it is not a domain this project serves.
+
 ## Production Build Complete ✅
 
 The application has been successfully built for production:
